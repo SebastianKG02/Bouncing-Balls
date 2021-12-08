@@ -4,13 +4,13 @@
 #define RESOLUTION_H
 
 #include <string>
-
+#include "Defines.h"
 //Simple class to contain resolution data and a quick-fire name reference
 class Resolution
 {
 public:
 	//Constructor
-	Resolution(int screenX, int screenY);
+	Resolution(int screenX=DEFAULT_SCREEN_X, int screenY=DEFAULT_SCREEN_Y);
 	//Destructor
 	~Resolution();
 	//Get for X (width)

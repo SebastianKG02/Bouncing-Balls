@@ -19,13 +19,28 @@
     <Filter Include="Source Files\Engine Toolkit">
       <UniqueIdentifier>{8b267fdd-0d60-4adb-8c05-a3667d3cbadf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{96615fa9-2eeb-43ab-9544-4565a870aabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{f6bb04e7-8c71-474a-9566-a8a62af0de41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Resolution.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine Toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files\Engine Toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +48,15 @@
       <Filter>Header Files\Engine Toolkit</Filter>
     </ClInclude>
     <ClInclude Include="Resolution.h">
+      <Filter>Header Files\Engine Toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files\Engine Toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
       <Filter>Header Files\Engine Toolkit</Filter>
     </ClInclude>
   </ItemGroup>

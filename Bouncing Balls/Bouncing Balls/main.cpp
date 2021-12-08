@@ -1,5 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Utils.h"
+#include "Config.h"
 
 //Main method
 int main() {
@@ -7,6 +9,8 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(720, 480), "Bouncing Balls");
 	//Define window event handle
 	sf::Event windowEvent;
+
+	Config config = Config();
 
 	//While window is open, check for user input, update game logic and draw
 	while (window.isOpen()) {
