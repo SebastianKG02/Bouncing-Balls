@@ -3,6 +3,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
+//Default screen size
 #define DEFAULT_SCREEN_X 1280
 #define DEFAULT_SCREEN_Y 720
 

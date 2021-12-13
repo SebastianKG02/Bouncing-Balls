@@ -10,7 +10,8 @@ int main() {
 	//Define window event handle
 	sf::Event windowEvent;
 
-	Config config = Config();
+	//Load user config
+	Config config = Config("config.cfg");
 
 	//While window is open, check for user input, update game logic and draw
 	while (window.isOpen()) {
@@ -19,6 +20,11 @@ int main() {
 			if (windowEvent.type == sf::Event::Closed) {
 				window.close();
 			}
+
+		}
+
+		if (true) {
+			window.close();
 		}
 
 		//Clear the window

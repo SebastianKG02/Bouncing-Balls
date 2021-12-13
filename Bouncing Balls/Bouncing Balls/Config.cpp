@@ -40,7 +40,64 @@ bool Config::saveCurrentConfig(std::string path) {
 
 bool Config::loadFromConfig(std::string fpath) {
 	config.loadConfigFile(fpath);
-	return false;
+
+	if (tryGetValue("key_left").empty()) {
+		config.addValue("key_left", std::to_string(user_key_left));
+	}
+
+	if (tryGetValue("key_right").empty()) {
+		config.addValue("key_right", std::to_string(user_key_left));
+	}
+
+	if (tryGetValue("key_pause").empty()) {
+		config.addValue("key_pause", std::to_string(user_key_pause));
+	}
+
+	if (tryGetValue("key_shoot").empty()) {
+		config.addValue("key_shoot", std::to_string(user_key_shoot));
+	}
+
+	if (tryGetValue("key_exit").empty()) {
+		config.addValue("key_exit", std::to_string(user_key_exit));
+	}
+
+	if (tryGetValue("resolution").empty()) {
+		config.addValue("resolution", user_resolution.name());
+	}
+
+	if (tryGetValue("fullscreen").empty()) {
+		config.addValue("fullscreen", Utils::boolToString(user_do_fullscreen));
+	}
+
+	if (tryGetValue("vsync").empty()) {
+		config.addValue("vsync", Utils::boolToString(user_do_vsync));
+	}
+
+	if (tryGetValue("frame_limit").empty()) {
+		config.addValue("vsync", Utils::boolToString(user_do_vsync));
+	}
+
+	if (tryGetValue("frame_limit_value").empty()) {
+		config.addValue("frame_limit_value", std::to_string(user_frame_limit_val));
+	}
+
+	return saveCurrentConfig("config.cfg");
+}
+
+std::string Config::tryGetValue(std::string key) {
+	try {
+		config.getData()->find(key);
+		return config.getData()->at(key);
+	}
+	catch (std::exception e) {
+#ifdef DEBUG_ENABLED 
+	#if DEBUG_LEVEL >= 3
+		std::cerr << "Error getting value <" << key << "> from config." << std::endl;
+		std::cerr << e.what() << std::endl;
+	#endif
+#endif
+		return "";
+	}
 }
 
 void Config::assignDefaultValues() {

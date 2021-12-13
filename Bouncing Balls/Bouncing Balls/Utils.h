@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 #include "Defines.h"
+#include <SFML/Window/Keyboard.hpp>
 
 /*
 UTILS - A simple class to handle a few universal functions
@@ -22,6 +23,8 @@ public:
 	bool static saveToConfigFile(std::string file, std::map<std::string, std::string>* data, std::string delim="=");
 	std::string static boolToString(bool b);
 	bool static stringToBool(std::string s);
+	std::string static keyToChar(sf::Keyboard::Key key);
+	sf::Keyboard::Key charToKey(const signed char& key);
 };
 
 /*

@@ -32,6 +32,7 @@ public:
 	Config(std::string fromFile, bool ifNoUseDefault=true);
 	bool saveCurrentConfig(std::string path);
 	bool loadFromConfig(std::string fpath);
+	std::string tryGetValue(std::string key);
 private:
 	const signed short default_key_left = sf::Keyboard::Left;
 	const signed short default_key_right = sf::Keyboard::Right;
