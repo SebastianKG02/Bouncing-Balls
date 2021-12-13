@@ -23,8 +23,10 @@ public:
 	bool static saveToConfigFile(std::string file, std::map<std::string, std::string>* data, std::string delim="=");
 	std::string static boolToString(bool b);
 	bool static stringToBool(std::string s);
-	std::string static keyToChar(sf::Keyboard::Key key);
-	sf::Keyboard::Key charToKey(const signed char& key);
+	std::string static keyToStr(sf::Keyboard::Key key);
+	sf::Keyboard::Key static charToKey(std::string keyt);
+	static std::string* strToUpper(std::string* str);
+	static std::string* strToLower(std::string* str);
 };
 
 /*

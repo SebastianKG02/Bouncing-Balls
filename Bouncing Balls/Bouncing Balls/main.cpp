@@ -23,7 +23,7 @@ int main() {
 
 		}
 
-		if (true) {
+		if (sf::Keyboard::isKeyPressed(config.user_key_exit)) {
 			window.close();
 		}
 

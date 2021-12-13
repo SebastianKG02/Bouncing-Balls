@@ -18,11 +18,11 @@ Will also be able to load current user's settings from disk via a simple method
 class Config
 {
 public:
-	signed short user_key_left;
-	signed short user_key_right;
-	signed short user_key_pause;
-	signed short user_key_shoot;
-	signed short user_key_exit;
+	sf::Keyboard::Key user_key_left;
+	sf::Keyboard::Key user_key_right;
+	sf::Keyboard::Key user_key_pause;
+	sf::Keyboard::Key user_key_shoot;
+	sf::Keyboard::Key user_key_exit;
 	Resolution user_resolution;
 	bool user_do_fullscreen;
 	bool user_do_vsync;
@@ -34,11 +34,11 @@ public:
 	bool loadFromConfig(std::string fpath);
 	std::string tryGetValue(std::string key);
 private:
-	const signed short default_key_left = sf::Keyboard::Left;
-	const signed short default_key_right = sf::Keyboard::Right;
-	const signed short default_key_pause = sf::Keyboard::P;
-	const signed short default_key_shoot = sf::Keyboard::Space;
-	const signed short default_key_exit = sf::Keyboard::Escape;
+	const sf::Keyboard::Key default_key_left = sf::Keyboard::Left;
+	const sf::Keyboard::Key default_key_right = sf::Keyboard::Right;
+	const sf::Keyboard::Key default_key_pause = sf::Keyboard::P;
+	const sf::Keyboard::Key default_key_shoot = sf::Keyboard::Space;
+	const sf::Keyboard::Key default_key_exit = sf::Keyboard::Escape;
 	const Resolution default_resolution = Resolution();
 	const bool default_do_fullscreen = false;
 	const bool default_do_vsync = false;
