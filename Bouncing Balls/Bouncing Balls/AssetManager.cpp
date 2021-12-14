@@ -1,5 +1,16 @@
 #include "AssetManager.h"
 
+//initalise init/clean flags
+bool AssetManager::hasFinishedInit = false;
+bool AssetManager::hasFinishedCleanup = false;
+//Initalise empty config
+ConfigFile AssetManager::mainConfig;
+//initalise all maps
+std::map<std::string, sf::Texture*> AssetManager::tex = std::map<std::string, sf::Texture*>();
+std::map<std::string, sf::SoundBuffer*> AssetManager::sound = std::map<std::string, sf::SoundBuffer*>();
+std::map <std::string, sf::Font*> AssetManager::fonts = std::map<std::string, sf::Font*>();
+std::map<std::string, sf::Music*> AssetManager::music = std::map<std::string, sf::Music*>();
+
 //Check if initalisation is complete
 bool AssetManager::isInitComplete() {
 	return hasFinishedInit;
@@ -112,16 +123,11 @@ sf::Music* AssetManager::getMusic(std::string fontName) {
 
 //Initalise AssetManager, load all resources 
 void AssetManager::init() {
-	hasFinishedInit = false;
-	hasFinishedCleanup = false;
 	//Only load everything once
 	//Set init to be complete after
 	if (isInitComplete() != true) {
-		//initalise all maps
-		tex = std::map<std::string, sf::Texture*>();
-		sound = std::map<std::string, sf::SoundBuffer*>();
-		fonts = std::map<std::string, sf::Font*>();
-		music = std::map<std::string, sf::Music*>();
+		//Create temporary string to hold value loaded from cfg file, to replace / with \\ 
+		std::string tempString = "";
 
 		//Only pass forward if asset file is found
 		if (mainConfig.loadConfigFile("asset.cfg") == true) {
@@ -133,8 +139,12 @@ void AssetManager::init() {
 				for (auto& ref : *texcfg.getData()) {
 					//Insert blank texture under reference key
 					tex.insert({ ref.first, new sf::Texture()});
+					//set tempString to be value from loaded pair
+					tempString = ref.second;
+					//sanitise path input
+					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					//Attempt to load texture
-					if (tex[ref.first]->loadFromFile(ref.second) == true) {
+					if (tex[ref.first]->loadFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
 	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
@@ -167,8 +177,12 @@ void AssetManager::init() {
 				for (auto& ref : *soundcfg.getData()) {
 					//Insert blank soundbuffer under reference key
 					sound.insert({ ref.first, new sf::SoundBuffer() });
-					//Attempt to load soundBuffer
-					if (sound[ref.first]->loadFromFile(ref.second) == true) {
+					//set tempString to be value from loaded pair
+					tempString = ref.second;
+					//sanitise path input
+					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
+					//Attempt to load soundbuffer
+					if (sound[ref.first]->loadFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
 #if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
@@ -196,13 +210,17 @@ void AssetManager::init() {
 			}
 
 			//Check if resource manifest for fonts has been found
-			if (fontcfg.loadConfigFile(mainConfig.getValue("fonts")) == true) {
+			if (fontcfg.loadConfigFile(mainConfig.getValue("font")) == true) {
 				//Loop through each entry in resource manifest
 				for (auto& ref : *fontcfg.getData()) {
 					//Insert blank font under reference key
 					fonts.insert({ ref.first, new sf::Font() });
-					//Attempt to load font
-					if (fonts[ref.first]->loadFromFile(ref.second) == true) {
+					//set tempString to be value from loaded pair
+					tempString = ref.second;
+					//sanitise path input
+					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
+					//Attempt to load texture
+					if (fonts[ref.first]->loadFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
 #if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
@@ -237,7 +255,11 @@ void AssetManager::init() {
 					music.insert({ ref.first, new sf::Music() });
 					//Attempt to load music object 
 					//The method "openFromFile" will load the file into memory & into the map, but will not play it
-					if (music[ref.first]->openFromFile(ref.second) == true) {
+					//set tempString to be value from loaded pair
+					tempString = ref.second;
+					//sanitise path input
+					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
+					if (music[ref.first]->openFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
 #if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
@@ -304,3 +326,4 @@ void AssetManager::cleanup() {
 		hasFinishedCleanup == true;
 	}
 }
+

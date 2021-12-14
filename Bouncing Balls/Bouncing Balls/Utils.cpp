@@ -575,7 +575,7 @@ std::map<std::string, std::string> Utils::loadConfigFile(std::string file, std::
 		//if file not loaded successfully, return blank map
 #ifdef DEBUG_ENABLED
 	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
-		std::cerr << "Could not open file @" << file << "- please try again." << std::endl;
+		std::cerr << "Could not open file @" << file << " please try again." << std::endl;
 	#endif
 #endif
 		return tempMap;
@@ -653,7 +653,17 @@ ConfigFile::ConfigFile() {
 
 //Get value from map using string key
 std::string ConfigFile::getValue(std::string key) {
-	return data.at(key);
+	try {
+		return data.at(key);
+	}
+	catch (std::exception e) {
+#ifdef DEBUG_ENABLED
+#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+		std::cout << "[DEBUG]Could not get value <" << key << "> from map. " << e.what() << std::endl;
+		return "";
+#endif
+#endif
+	}
 }
 
 //Add value (val) to map under key (key)

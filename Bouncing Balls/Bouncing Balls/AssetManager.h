@@ -10,6 +10,7 @@
 #include "Utils.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <algorithm>
 
 /*
 V0.0a-35 Added to Project
