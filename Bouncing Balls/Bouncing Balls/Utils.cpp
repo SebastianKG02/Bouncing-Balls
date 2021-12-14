@@ -1,13 +1,17 @@
 #include "Utils.h"
 
+//Will convert string to all lowercase
 std::string* Utils::strToLower(std::string* str) {
+	//Loop through each char in string
 	for (auto& c : *str) {
 		c=std::tolower(c);
 	}
 	return str;
 }
 
+//Convert string to all uppercase
 std::string* Utils::strToUpper(std::string* str) {
+	//Loop through each char in string
 	for (auto& c : *str) {
 		c = std::toupper(c);
 	}
@@ -637,21 +641,26 @@ bool Utils::stringToBool(std::string s) {
 	}
 }
 
+//Preferred constructor, using file to load data
 ConfigFile::ConfigFile(std::string pathn, std::string delim) {
 	data = Utils::loadConfigFile(pathn, delim);
 }
 
+//Default constructor with empty map
 ConfigFile::ConfigFile() {
 	data = std::map<std::string, std::string>();
 }
 
+//Get value from map using string key
 std::string ConfigFile::getValue(std::string key) {
 	return data.at(key);
 }
 
+//Add value (val) to map under key (key)
 bool ConfigFile::addValue(std::string key, std::string val) {
 	data.insert({ key, val });
 
+	//See if successful, return true/false based on result
 	if (data.at(key) == val) {
 		return true;
 	}
@@ -660,33 +669,41 @@ bool ConfigFile::addValue(std::string key, std::string val) {
 	}
 }
 
+//Delete value from map, return true to confirm deletion has been successful
 bool ConfigFile::delValue(std::string key) {
 	data.erase(key);
 	return true;
 }
 
+//Get pointer to entire map
 std::map<std::string, std::string>* ConfigFile::getData() {
 	return &data;
 }
 
+//Load config file using Utils method
 bool ConfigFile::loadConfigFile(std::string file, std::string delim) {
 	data = Utils::loadConfigFile(file, delim);
 	return true;
 }
 
+//Set value in map (checks for existing values and uses doOverride to see if user wants to override existing data
 bool ConfigFile::setValue(std::string key, std::string val, bool doOverride) {
+	//If data is present and override is true, overwrite data and return true
 	if (data.at(key).length() > 0 && doOverride == true) {
 		data[key] = val;
 		return true;
 	}
+	//If data is present and override is false, do nothing and return false
 	else if (data.at(key).length() > 0 && doOverride == false) {
 		return false;
 	}
+	//If no data present BUT key is present, set value and return true
 	else if (data.at(key).length() <= 0) {
 		data[key] = val;
 		return true;
 	}
 	else {
+		//If no data and no key present, add data to map and return true
 		data.insert({ key, val });
 		return true;
 	}

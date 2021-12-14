@@ -27,6 +27,10 @@ int main() {
 			window.close();
 		}
 
+		if (sf::Keyboard::isKeyPressed(config.user_key_left)) {
+			std::cout << "Left pressed" << std::endl;
+		}
+
 		//Clear the window
 		window.clear();
 

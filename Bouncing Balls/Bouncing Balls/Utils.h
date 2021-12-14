@@ -46,7 +46,7 @@ public:
 	std::map<std::string, std::string>* getData();
 	bool addValue(std::string key, std::string val);
 	bool delValue(std::string key);
-	bool setValue(std::string key, std::string val, bool doOverride=true);
+	bool setValue(std::string key, std::string val, bool doOverride=false);
 	bool loadConfigFile(std::string file, std::string delim = "=");
 private:
 	std::string path;
