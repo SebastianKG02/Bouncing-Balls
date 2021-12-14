@@ -578,23 +578,40 @@ std::map<std::string, std::string> Utils::loadConfigFile(std::string file, std::
 	}
 }
 
+//Save config file to system
 bool Utils::saveToConfigFile(std::string file, std::map<std::string, std::string>* data, std::string delim) {
+	//Open file in output
 	std::ofstream file_s(file);
 	
+	//std::cout << data->at("frame_limit") << std::endl;
+
+	//If file opened
 	if (file_s.is_open()) {
+		//Clear entire file
 		file_s.clear();
+		//Loop through each element in data
 		for (auto const& val : *data) {
+#ifdef DEBUG_ENABLED 
+#if DEBUG_LEVEL >= 3
+			//Debug only! See if all values loading
+			std::cout << "Saving K: " << val.first << "\tV: " << val.second << std::endl;
+#endif
+#endif
+			//Write to file
 			file_s << val.first << delim << val.second << std::endl;
 		}
 
+		//Close file & save
 		file_s.flush();
 		file_s.close();
 	}
 	else {
+		//File could not be opened or created
 		return false;
 	}
 }
 
+//Convert bool to string method
 std::string Utils::boolToString(bool b)
 {
 	switch (b) {
@@ -605,7 +622,9 @@ std::string Utils::boolToString(bool b)
 	}
 }
 
+//Get bool from string method
 bool Utils::stringToBool(std::string s) {
+	//get all chars in string s and lower 
 	for (auto& c : s) {
 		c = std::tolower(c);
 	}

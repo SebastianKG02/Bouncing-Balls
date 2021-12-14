@@ -13,6 +13,7 @@ Config::Config() {
 	config.addValue("vsync", Utils::boolToString(user_do_vsync));
 	config.addValue("frame_limit", Utils::boolToString(user_do_frame_limit));
 	config.addValue("frame_limit_value", std::to_string(user_frame_limit_val));
+
 	saveCurrentConfig("config.cfg");
 }
 
@@ -82,7 +83,7 @@ bool Config::loadFromConfig(std::string fpath) {
 	}
 
 	if (tryGetValue("frame_limit").empty()) {
-		config.addValue("vsync", Utils::boolToString(user_do_vsync));
+		config.addValue("frame_limit", Utils::boolToString(user_do_vsync));
 	}
 
 	if (tryGetValue("frame_limit_value").empty()) {

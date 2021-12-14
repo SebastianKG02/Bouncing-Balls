@@ -8,6 +8,8 @@
 #include <fstream>
 #include <iostream>
 #include "Defines.h"
+#include <cctype>
+#include <clocale>
 #include <SFML/Window/Keyboard.hpp>
 
 /*

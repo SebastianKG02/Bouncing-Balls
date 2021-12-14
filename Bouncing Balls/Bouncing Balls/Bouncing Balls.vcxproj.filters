@@ -60,7 +60,4 @@
       <Filter>Header Files\Engine Toolkit</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="config.props" />
-  </ItemGroup>
 </Project>
