@@ -554,7 +554,7 @@ std::map<std::string, std::string> Utils::loadConfigFile(std::string file, std::
 			tempMap.insert({ fline.substr(start, split), fline.substr(split + 1,end) });
 			
 #ifdef DEBUG_ENABLED
-	#if DEBUG_ENABLED == true && DEBUG_LEVEL >= 2
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 			//ONLY IF DEBUG IS ENABLED!!
 			//Detail everything loaded into the map
 			std::cout << "[DEBUG]Map loading K:" << fline.substr(start, split) << " V:" << fline.substr(split + 1, end) << std::endl;
@@ -574,7 +574,7 @@ std::map<std::string, std::string> Utils::loadConfigFile(std::string file, std::
 	else {
 		//if file not loaded successfully, return blank map
 #ifdef DEBUG_ENABLED
-	#if DEBUG_ENABLED == true && DEBUG_LEVEL >= 1
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 		std::cerr << "Could not open file @" << file << "- please try again." << std::endl;
 	#endif
 #endif
@@ -596,10 +596,10 @@ bool Utils::saveToConfigFile(std::string file, std::map<std::string, std::string
 		//Loop through each element in data
 		for (auto const& val : *data) {
 #ifdef DEBUG_ENABLED 
-#if DEBUG_LEVEL >= 3
+	#if DEBUG_LEVEL >= DB_LEVEL_ALL
 			//Debug only! See if all values loading
 			std::cout << "Saving K: " << val.first << "\tV: " << val.second << std::endl;
-#endif
+	#endif
 #endif
 			//Write to file
 			file_s << val.first << delim << val.second << std::endl;
