@@ -18,6 +18,11 @@ int main() {
 	//Define window event handle
 	sf::Event windowEvent;
 
+	if (config.user_do_frame_limit == true) {
+		window.setFramerateLimit(config.user_frame_limit_val);
+	}
+	window.setVerticalSyncEnabled(config.user_do_vsync);
+
 	//Initalise scenemanager
 	SceneManager::init();
 	//Go to default scene

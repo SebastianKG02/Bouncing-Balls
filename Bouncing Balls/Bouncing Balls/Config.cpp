@@ -73,6 +73,7 @@ bool Config::loadFromConfig(std::string fpath) {
 	if (tryGetValue("resolution").empty()) {
 		config.addValue("resolution", user_resolution.name());
 	}
+	user_resolution = Resolution(config.getValue("resolution"));
 
 	if (tryGetValue("fullscreen").empty()) {
 		config.addValue("fullscreen", Utils::boolToString(user_do_fullscreen));

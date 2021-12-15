@@ -1,2 +1,5 @@
-﻿  DefaultScene.cpp
+﻿  Config.cpp
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Config.cpp(99,19): warning C4834: discarding return value of function with 'nodiscard' attribute
+  main.cpp
+  Generating Code...
   Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe

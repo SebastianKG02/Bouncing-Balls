@@ -11,6 +11,7 @@ class Resolution
 public:
 	//Constructor
 	Resolution(int screenX=DEFAULT_SCREEN_X, int screenY=DEFAULT_SCREEN_Y);
+	Resolution(std::string res);
 	//Destructor
 	~Resolution();
 	//Get for X (width)
@@ -19,6 +20,7 @@ public:
 	int Y();
 	//Update both X and Y
 	void update(int screenX, int screenY);
+	void update(std::string res);
 	//Update only X
 	void updateX(int screenX);
 	//Update only Y

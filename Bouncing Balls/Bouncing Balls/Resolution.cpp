@@ -7,6 +7,17 @@ Resolution::Resolution(int screenX, int screenY) {
 	updateName();
 }
 
+Resolution::Resolution(std::string res) {
+	update(res);
+}
+
+void Resolution::update(std::string res) {
+	signed short start = 0;
+	signed short split = res.find('x');
+	signed short end = res.length();
+	update(std::stoi(res.substr(start, split)), std::stoi(res.substr(split + 1, end)));
+}
+
 //Destructor for reource management
 Resolution::~Resolution() {
 	screen_X = NULL;

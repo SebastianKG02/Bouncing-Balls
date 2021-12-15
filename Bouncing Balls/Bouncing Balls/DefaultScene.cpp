@@ -1,7 +1,7 @@
 #include "DefaultScene.h"
 
 void DefaultScene::init() {
-	text.push_back(new sf::Text(std::string("Siema Boys"), *AssetManager::getFont("title"), 48));
+	text.push_back(new sf::Text(std::string("Bouncing Balls"), *AssetManager::getFont("title"), 48));
 	text[0]->setPosition(520, 300);
 }
 
