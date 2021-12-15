@@ -150,15 +150,19 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="DefaultScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Resolution.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="DefaultScene.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Resolution.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
