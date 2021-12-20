@@ -50,14 +50,20 @@ public:
 	static void init();
 	static void cleanup();
 	static void draw(sf::RenderWindow* w);
+	static void input();
+	static void update();
 	static uint8_t getCurrentSceneID();
 	static Scene* getCurrentScene();
 	static Scene* getScene(int id);
+	static Scene* getNext(int id);
+	static Scene* getPrev(int id);
 	static void next();
 	static void previous();
 	static void set(uint8_t id);
 	static void setNext(uint8_t id);
 	static void setPrev(uint8_t id);
+	static void addScene(Scene* scene);
+	static void delScene(uint8_t id);
 private:
 	static std::map<uint8_t, Scene*> scenes;
 	static uint8_t nextScene;

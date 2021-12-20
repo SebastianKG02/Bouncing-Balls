@@ -184,28 +184,28 @@ void AssetManager::init() {
 					//Attempt to load soundbuffer
 					if (sound[ref.first]->loadFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
 						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 					else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 						//Debug only! Print error message
 						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 				}
 			}
 			else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 				//If resource manifest not found, show debug message and do nothing else (also do not set initComplete flag)
 				std::cout << "[DEBUG]Fatal error! Could not load resource manifest @" << mainConfig.getValue("sound") << std::endl;
-#endif
+	#endif
 #endif
 			}
 
@@ -222,28 +222,28 @@ void AssetManager::init() {
 					//Attempt to load texture
 					if (fonts[ref.first]->loadFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
 						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 					else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 						//Debug only! Print error message
 						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 				}
 			}
 			else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 				//If resource manifest not found, show debug message and do nothing else (also do not set initComplete flag)
 				std::cout << "[DEBUG]Fatal error! Could not load resource manifest @" << mainConfig.getValue("fonts") << std::endl;
-#endif
+	#endif
 #endif
 			}
 
@@ -261,28 +261,28 @@ void AssetManager::init() {
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					if (music[ref.first]->openFromFile(tempString) == true) {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
 						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 					else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 						//Debug only! Print error message
 						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-#endif
+	#endif
 #endif
 					}
 				}
 			}
 			else {
 #ifdef DEBUG_ENABLED
-#if DEBUG_LEVEL >= DB_LEVEL_ERRO
+	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
 				//If resource manifest not found, show debug message and do nothing else (also do not set initComplete flag)
 				std::cout << "[DEBUG]Fatal error! Could not load resource manifest @" << mainConfig.getValue("music") << std::endl;
-#endif
+	#endif
 #endif
 			}
 

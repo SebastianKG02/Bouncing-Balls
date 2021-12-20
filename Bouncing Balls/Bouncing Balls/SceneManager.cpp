@@ -1,5 +1,9 @@
 #include "SceneManager.h"
 
+/*
+SCENE DEFINITION
+*/
+
 //Default constructor for all scenes 
 Scene::Scene(uint8_t id, std::string name) {
 	this->sceneID = id;
@@ -33,7 +37,8 @@ void Scene::cleanup() {
 }
 
 Scene::Scene() {
-
+	this->sceneID = NULL;
+	this->name = "";
 }
 
 void Scene::init() { 
@@ -62,6 +67,10 @@ int Scene::getID() {
 void Scene::setID(int id) {
 	this->sceneID = id;
 }
+
+/*
+SCENEMANAGER DEFINITION
+*/
 
 //Set up SceneManager static variables
 uint8_t SceneManager::nextScene = 0;
@@ -113,25 +122,72 @@ void SceneManager::next() {
 
 //Set scene (override of system)
 void SceneManager::set(uint8_t id) {
-
+	prevScene = currScene;
+	currScene = id;
 }
 
 //Set next scene (override)
 void SceneManager::setNext(uint8_t id) {
-
+	nextScene = id;
 }
 
 //Set previous scene (override)
 void SceneManager::setPrev(uint8_t id) {
+	prevScene = id;
+}
 
+Scene* SceneManager::getNext(int id) {
+	return scenes.at(id);
+}
+
+Scene* SceneManager::getPrev(int id) {
+	return scenes.at(id);
+}
+
+void SceneManager::delScene(uint8_t id) {
+	if (scenes.find(id)->first == id) {
+		scenes.erase(id);
+	}
+}
+
+void SceneManager::addScene(Scene* scene) {
+	try {
+		scenes.insert({ scene->getID(), scene });
+#ifdef DEBUG_ENABLED
+#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+		std::cout << "[SM]Added scene " << scene->getID() << " (or '" << scene->getFriendlyName() << "')" << std::endl;
+#endif
+#endif
+	}
+	catch (std::exception e) {
+#ifdef DEBUG_ENABLED
+#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+		std::cout << "[SM]Could not scene " << scene->getID() << " (or '" << scene->getFriendlyName() << "')" << std::endl;
+		std::cout << "[SM]Detail: " << e.what() << std::endl;
+#endif
+#endif
+	}
 }
 
 //Switch to previous scene
 void SceneManager::previous() {
-
+	getScene(prevScene)->init();
+	uint8_t prev = prevScene;
+	prevScene = currScene;
+	currScene = prev;
 }
 
 //Draw current scene
 void SceneManager::draw(sf::RenderWindow* w) {
 	scenes.at(currScene)->draw(w);
+}
+
+//Get input for current scene
+void SceneManager::input() {
+	scenes.at(currScene)->input();
+}
+
+//Update current scene
+void SceneManager::update() {
+	scenes.at(currScene)->update();
 }

@@ -42,14 +42,9 @@ int main() {
 			window.close();
 		}
 
-
-		if (sf::Keyboard::isKeyPressed(config.user_key_right)) {
-			AssetManager::getMusic("bass")->setLoop(!AssetManager::getMusic("bass")->getLoop());
-			
-			if (AssetManager::getMusic("bass")->getLoop() == true) {
-				AssetManager::getMusic("bass")->play();
-			}
-		}
+		//Main game loop, process input for current scene, then update current scene
+		SceneManager::input();
+		SceneManager::update();
 
 		//Clear the window
 		window.clear();
