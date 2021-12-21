@@ -12,6 +12,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio/Sound.hpp>
+#include "UIElement.h"
 
 /*
 V0.1a - Scene
@@ -25,7 +26,7 @@ public:
 	virtual void init();
 	virtual void cleanup();
 	virtual void draw(sf::RenderWindow* w);
-	virtual void update();
+	virtual void update(sf::RenderWindow* w);
 	virtual void input();
 	std::string getFriendlyName();
 	int getID();
@@ -34,6 +35,7 @@ protected:
 	std::vector<sf::Sprite*> sprites;
 	std::vector<sf::Sound*> sounds;
 	std::vector<sf::Text*> text;
+	std::vector<UIElement*> ui;
 	int sceneID;
 	std::string name;
 };
@@ -51,7 +53,7 @@ public:
 	static void cleanup();
 	static void draw(sf::RenderWindow* w);
 	static void input();
-	static void update();
+	static void update(sf::RenderWindow* w);
 	static uint8_t getCurrentSceneID();
 	static Scene* getCurrentScene();
 	static Scene* getScene(int id);

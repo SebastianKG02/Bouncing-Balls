@@ -154,6 +154,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Resolution.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +165,8 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Resolution.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UIElement.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,6 +4,7 @@
 #include "Config.h"
 #include "AssetManager.h"
 #include "SceneManager.h"
+#include "UIButton.h"
 
 //Main method
 int main() {
@@ -44,7 +45,7 @@ int main() {
 
 		//Main game loop, process input for current scene, then update current scene
 		SceneManager::input();
-		SceneManager::update();
+		SceneManager::update(&window);
 
 		//Clear the window
 		window.clear();

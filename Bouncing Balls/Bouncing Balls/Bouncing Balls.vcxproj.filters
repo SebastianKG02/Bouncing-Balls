@@ -19,17 +19,29 @@
     <Filter Include="Source Files\Engine Toolkit">
       <UniqueIdentifier>{8b267fdd-0d60-4adb-8c05-a3667d3cbadf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{96615fa9-2eeb-43ab-9544-4565a870aabc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Managers">
+    <Filter Include="Source Files\Engine Toolkit\Managers">
       <UniqueIdentifier>{f6bb04e7-8c71-474a-9566-a8a62af0de41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Scenes">
+    <Filter Include="Source Files\Engine Toolkit\UI">
+      <UniqueIdentifier>{b9a4627a-274a-45ab-b7c8-9236a754f901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Scenes">
+      <UniqueIdentifier>{afad2205-338b-48a6-a279-447b5e4f0187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Managers">
+      <UniqueIdentifier>{96615fa9-2eeb-43ab-9544-4565a870aabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\UI">
+      <UniqueIdentifier>{7bf70151-8846-45b8-aa0a-2ef81a36e427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Scenes">
       <UniqueIdentifier>{699863c5-916d-44a4-bc21-cf82da168349}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Scenes">
-      <UniqueIdentifier>{afad2205-338b-48a6-a279-447b5e4f0187}</UniqueIdentifier>
+    <Filter Include="Header Files\Engine Toolkit\UI\Elements">
+      <UniqueIdentifier>{cccee30c-6ddf-4d91-9e3a-67303e353f58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\UI\Elements">
+      <UniqueIdentifier>{8078b787-0657-43a8-87a9-39d64cb29e8e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,7 +52,7 @@
       <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine Toolkit\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Config.cpp">
       <Filter>Source Files\Engine Toolkit</Filter>
@@ -49,10 +61,16 @@
       <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+      <Filter>Source Files\Engine Toolkit\Managers</Filter>
     </ClCompile>
     <ClCompile Include="DefaultScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
+      <Filter>Source Files\Engine Toolkit\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Source Files\Engine Toolkit\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>Source Files\Engine Toolkit\UI\Elements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +81,7 @@
       <Filter>Header Files\Engine Toolkit</Filter>
     </ClInclude>
     <ClInclude Include="AssetManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine Toolkit\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>Header Files\Engine Toolkit</Filter>
@@ -72,10 +90,16 @@
       <Filter>Header Files\Engine Toolkit</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\Managers</Filter>
+      <Filter>Header Files\Engine Toolkit\Managers</Filter>
     </ClInclude>
     <ClInclude Include="DefaultScene.h">
-      <Filter>Header Files\Scenes</Filter>
+      <Filter>Header Files\Engine Toolkit\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Header Files\Engine Toolkit\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>Header Files\Engine Toolkit\UI\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

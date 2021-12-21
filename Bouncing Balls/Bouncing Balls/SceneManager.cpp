@@ -9,9 +9,10 @@ Scene::Scene(uint8_t id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
 
-	std::vector<sf::Sprite*> sprties = std::vector<sf::Sprite*>();
-	std::vector<sf::Sound*> sounds = std::vector<sf::Sound*>();
-	std::vector<sf::Text*> text = std::vector <sf::Text*>();
+	sprites = std::vector<sf::Sprite*>();
+	sounds = std::vector<sf::Sound*>();
+	text = std::vector<sf::Text*>();
+	ui = std::vector<UIElement*>();
 }
 
 //Get localised name
@@ -32,6 +33,11 @@ void Scene::cleanup() {
 	for (auto& sound : sounds) {
 		delete sound;
 	}
+
+	for (auto& ui_e : ui) {
+		ui_e->cleanup();
+		delete ui_e;
+	}
 	sceneID = NULL;
 	name.clear();
 }
@@ -45,6 +51,7 @@ void Scene::init() {
 
 }
 
+//Simple drawing method, have to pass reference to current window for UI functionality
 void Scene::draw(sf::RenderWindow* w) { 
 	for (auto sprite : sprites) {
 		w->draw(*sprite);
@@ -53,9 +60,13 @@ void Scene::draw(sf::RenderWindow* w) {
 	for (auto textm : text) {
 		w->draw(*textm);
 	}
+
+	for (auto ui_e : ui) {
+		w->draw(*ui_e->getSprite());
+	}
 }
 
-void Scene::update() { }
+void Scene::update(sf::RenderWindow* w) { }
 void Scene::input() { }
 
 //Simple get for scene's ID
@@ -188,6 +199,6 @@ void SceneManager::input() {
 }
 
 //Update current scene
-void SceneManager::update() {
-	scenes.at(currScene)->update();
+void SceneManager::update(sf::RenderWindow* w) {
+	scenes.at(currScene)->update(w);
 }
