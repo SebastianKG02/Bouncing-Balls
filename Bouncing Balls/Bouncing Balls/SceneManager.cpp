@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "SettingsScene.h"
 
 /*
 SCENE DEFINITION
@@ -8,11 +9,27 @@ SCENE DEFINITION
 Scene::Scene(uint8_t id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
-
+	this->active = false;
 	sprites = std::vector<sf::Sprite*>();
 	sounds = std::vector<sf::Sound*>();
 	text = std::vector<sf::Text*>();
 	ui = std::vector<UIElement*>();
+}
+
+void Scene::lock() {
+	if (active == true) {
+		active = false;
+	}
+}
+
+void Scene::unlock() {
+	if (active == false) {
+		active = true;
+	}
+}
+
+bool Scene::isActive() {
+	return active;
 }
 
 //Get localised name
@@ -22,6 +39,12 @@ std::string Scene::getFriendlyName() {
 
 //Simple cleanup method (deletes all maps, clears both ID vars)
 void Scene::cleanup() {
+	sprites.clear();
+	text.clear();
+	sounds.clear();
+	ui.clear();
+
+	/*
 	for (auto& sprite : sprites) {
 		delete sprite;
 	}
@@ -34,10 +57,11 @@ void Scene::cleanup() {
 		delete sound;
 	}
 
+
 	for (auto& ui_e : ui) {
-		ui_e->cleanup();
+		//ui_e->cleanup();
 		delete ui_e;
-	}
+	}*/
 	sceneID = NULL;
 	name.clear();
 }
@@ -57,12 +81,12 @@ void Scene::draw(sf::RenderWindow* w) {
 		w->draw(*sprite);
 	}
 
-	for (auto textm : text) {
-		w->draw(*textm);
-	}
-
 	for (auto ui_e : ui) {
 		w->draw(*ui_e->getSprite());
+	}
+
+	for (auto textm : text) {
+		w->draw(*textm);
 	}
 }
 
@@ -84,9 +108,9 @@ SCENEMANAGER DEFINITION
 */
 
 //Set up SceneManager static variables
-uint8_t SceneManager::nextScene = 0;
-uint8_t SceneManager::prevScene = -1;
-uint8_t SceneManager::currScene = -1;
+int SceneManager::nextScene = 0;
+int SceneManager::prevScene = -1;
+int SceneManager::currScene = -1;
 std::map<uint8_t, Scene*> SceneManager::scenes = std::map<uint8_t, Scene*>();
 bool SceneManager::initComplete = false;
 bool SceneManager::cleanupComplete = false;
@@ -95,6 +119,9 @@ bool SceneManager::cleanupComplete = false;
 void SceneManager::init() {
 	DefaultScene *title = new DefaultScene(0, "Title");
 	scenes.insert({ title->getID(), title });
+
+	SettingsScene* settings = new SettingsScene(1, "Settings");
+	scenes.insert({ settings->getID(), settings });
 }
 
 //Clean up all resources used by scenes by calling their member cleanup function
@@ -102,7 +129,7 @@ void SceneManager::cleanup() {
 	if (initComplete == true && cleanupComplete == false) {
 		for (auto scene : scenes) {
 			scene.second->cleanup();
-			delete scene.second;
+			//delete scene.second;
 		}
 	}
 }
@@ -119,16 +146,42 @@ Scene* SceneManager::getCurrentScene() {
 
 //Get any scene by ID
 Scene* SceneManager::getScene(int id) {
-	std::cout << id << std::endl;
-	return scenes.at(id);
+	try {
+		return scenes.at(id);
+	}
+	catch (std::exception e) {
+		std::cout << "[SM]Could not load previous scene id:" << id << std::endl;
+		return nullptr;
+	}
 }
 
 //Switch to next scene
 void SceneManager::next() {
-	getScene(nextScene)->init();
+	if (prevScene > -1 && (getScene(prevScene) != nullptr)) {
+		getScene(prevScene)->cleanup();
+	}
+
+	if (currScene > -1) {
+		getScene(currScene)->lock();
+	}
+
 	prevScene = currScene;
 	currScene = nextScene;
-	nextScene++;
+
+	for (;;) {
+		if (prevScene > -1 && getScene(prevScene)->isActive() == false) {
+			getScene(prevScene)->lock();
+			getScene(currScene)->unlock();
+			break;
+		}
+		else if (prevScene < 0) {
+			getScene(currScene)->unlock();
+			break;
+		}
+	}
+
+	getScene(currScene)->init();
+	getScene(currScene)->unlock();
 }
 
 //Set scene (override of system)
@@ -200,5 +253,7 @@ void SceneManager::input() {
 
 //Update current scene
 void SceneManager::update(sf::RenderWindow* w) {
-	scenes.at(currScene)->update(w);
+	if (scenes.at(currScene)->isActive() == true) {
+		scenes.at(currScene)->update(w);
+	}
 }

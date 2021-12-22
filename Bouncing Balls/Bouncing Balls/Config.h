@@ -18,16 +18,16 @@ Will also be able to load current user's settings from disk via a simple method
 class Config
 {
 public:
-	sf::Keyboard::Key user_key_left;
-	sf::Keyboard::Key user_key_right;
-	sf::Keyboard::Key user_key_pause;
-	sf::Keyboard::Key user_key_shoot;
-	sf::Keyboard::Key user_key_exit;
-	Resolution user_resolution;
-	bool user_do_fullscreen;
-	bool user_do_vsync;
-	bool user_do_frame_limit;
-	signed short user_frame_limit_val;
+	static sf::Keyboard::Key user_key_left;
+	static sf::Keyboard::Key user_key_right;
+	static sf::Keyboard::Key user_key_pause;
+	static sf::Keyboard::Key user_key_shoot;
+	static sf::Keyboard::Key user_key_exit;
+	static Resolution user_resolution;
+	static bool user_do_fullscreen;
+	static bool user_do_vsync;
+	static bool user_do_frame_limit;
+	static signed short user_frame_limit_val;
 	Config();
 	Config(std::string fromFile, bool ifNoUseDefault=true);
 	bool saveCurrentConfig(std::string path);

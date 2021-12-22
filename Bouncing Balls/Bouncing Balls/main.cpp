@@ -6,10 +6,10 @@
 #include "SceneManager.h"
 #include "UIButton.h"
 
+static Config config = Config("config.cfg");
+
 //Main method
 int main() {
-	//Load user config
-	Config config = Config("config.cfg");
 
 	//Initalise AssetManager
 	AssetManager::init();
@@ -23,6 +23,7 @@ int main() {
 		window.setFramerateLimit(config.user_frame_limit_val);
 	}
 	window.setVerticalSyncEnabled(config.user_do_vsync);
+	window.setIcon(701, 701, AssetManager::getTexture("ball_blue")->copyToImage().getPixelsPtr());
 
 	//Initalise scenemanager
 	SceneManager::init();
@@ -31,6 +32,9 @@ int main() {
 
 	//While window is open, check for user input, update game logic and draw
 	while (window.isOpen()) {
+		//Re-seed random number generator
+		srand(time(NULL));
+
 		//Check for user input & events
 		while (window.pollEvent(windowEvent)) {
 			if (windowEvent.type == sf::Event::Closed) {

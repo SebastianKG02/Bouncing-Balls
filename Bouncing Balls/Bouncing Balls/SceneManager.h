@@ -13,6 +13,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio/Sound.hpp>
 #include "UIElement.h"
+#include "UIButton.h"
+#include "Config.h"
 
 /*
 V0.1a - Scene
@@ -28,6 +30,9 @@ public:
 	virtual void draw(sf::RenderWindow* w);
 	virtual void update(sf::RenderWindow* w);
 	virtual void input();
+	void lock();
+	void unlock();
+	bool isActive();
 	std::string getFriendlyName();
 	int getID();
 	void setID(int id);
@@ -37,6 +42,7 @@ protected:
 	std::vector<sf::Text*> text;
 	std::vector<UIElement*> ui;
 	int sceneID;
+	bool active = false;
 	std::string name;
 };
 
@@ -68,9 +74,9 @@ public:
 	static void delScene(uint8_t id);
 private:
 	static std::map<uint8_t, Scene*> scenes;
-	static uint8_t nextScene;
-	static uint8_t prevScene;
-	static uint8_t currScene;
+	static int nextScene;
+	static int prevScene;
+	static int currScene;
 	static bool initComplete;
 	static bool cleanupComplete;
 };

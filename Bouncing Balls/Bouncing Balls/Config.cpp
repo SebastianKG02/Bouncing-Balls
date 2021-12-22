@@ -1,5 +1,16 @@
 #include "Config.h"
 
+sf::Keyboard::Key Config::user_key_left = sf::Keyboard::Left;
+sf::Keyboard::Key Config::user_key_right = sf::Keyboard::Right;
+sf::Keyboard::Key Config::user_key_pause = sf::Keyboard::P;
+sf::Keyboard::Key Config::user_key_shoot = sf::Keyboard::Space;
+sf::Keyboard::Key Config::user_key_exit = sf::Keyboard::Escape;
+Resolution Config::user_resolution = Resolution();
+bool Config::user_do_fullscreen = false;
+bool Config::user_do_vsync = false;
+bool Config::user_do_frame_limit = false;
+signed short Config::user_frame_limit_val = false;
+
 //Default constructor
 Config::Config() {
 	assignDefaultValues();
