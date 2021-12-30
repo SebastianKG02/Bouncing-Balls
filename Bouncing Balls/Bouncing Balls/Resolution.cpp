@@ -25,6 +25,14 @@ Resolution::~Resolution() {
 	resName.clear();
 }
 
+float Resolution::diffX() {
+	return DEFAULT_SCREEN_X / screen_X;
+}
+
+float Resolution::diffY() {
+	return DEFAULT_SCREEN_Y / screen_Y;
+}
+
 //Simple get for X res (width)
 int Resolution::X() {
 	return screen_X;

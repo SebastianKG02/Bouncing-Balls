@@ -25,6 +25,9 @@ public:
 	void updateX(int screenX);
 	//Update only Y
 	void updateY(int screenY);
+	//Get difference between default resolution and target resolution (used for UI paddding updates)
+	float diffX();
+	float diffY();
 	//Get for resolution reference name
 	std::string name();
 private:
@@ -40,4 +43,3 @@ private:
 };
 
 #endif
-

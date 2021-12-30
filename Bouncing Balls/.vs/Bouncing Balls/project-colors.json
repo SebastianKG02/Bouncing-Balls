@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e89084ff-66a6-488e-b0a3-9beee2a73dcb": {
+      "ProjectGuid": "e89084ff-66a6-488e-b0a3-9beee2a73dcb",
+      "DisplayName": "Bouncing Balls",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

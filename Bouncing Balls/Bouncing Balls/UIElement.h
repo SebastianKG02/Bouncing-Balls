@@ -14,6 +14,15 @@ INACTIVE - this UI element is not being interacted with (this could also be LOCK
 HOVER - the user is "hovering" over the element (this could also be SELECT)
 ACTIVE - the user is able to interact with this element, but has not yet done so
 CLICK - the user has interacted with this element, and now something must be done.
+
+V0.5a - UIState changes
+Two more UIStates have been added for pseudo-radio button functionality (more texture switching)
+These are:
+- TRUE
+- FALSE
+
+These two new enum features will allow for TRUE/FALSE radio buttons
+by allowing them to represent boolean values
 */
 
 #include <SFML/Graphics.hpp>
@@ -27,7 +36,9 @@ enum class UIState
 	HOVER,
 	SELECT = HOVER,
 	ACTIVE,
-	CLICK
+	CLICK,
+	TRUE,
+	FALSE
 };
 
 class UIElement

@@ -20,7 +20,7 @@ private:
     bool resize = false;
     float maxBound = 107.5f;
     float minBound = 72.5f;
-    float angleDelta = 0.0075f;
+    float angleDelta = 0.009f;
     bool minMax = false;
     float centerX = 0;
     float counter = 0;

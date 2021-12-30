@@ -68,11 +68,11 @@ void DefaultScene::init() {
 	ui[3]->lock();
 
 	//Dynamic balls
-	for (int i = 1; i < 50; i++) {
+	for (int i = 1; i < 100; i++) {
 		sprites.push_back(new sf::Sprite(*AssetManager::getTexture("ball_blue")));
 		sprites[i]->setScale(0.05f, 0.05f);
 		sprites[i]->setColor(sf::Color(255, 255, 500, 255));
-		sprites[i]->setPosition(rand() % Config::user_resolution.X()-100, -100);
+		sprites[i]->setPosition(rand() % (Config::user_resolution.X()-100),  (-100 - rand()%600));
 	}
 }
 
@@ -83,6 +83,7 @@ void DefaultScene::update(sf::RenderWindow* w) {
 		resize = true;
 	}
 	
+	//Title bouncing mechanic
 	if (text[0]->getPosition().y <= maxBound && minMax == false) {
 		text[0]->move(0, angleDelta);
 		if (text[0]->getPosition().y >= maxBound) {
@@ -96,13 +97,16 @@ void DefaultScene::update(sf::RenderWindow* w) {
 		}
 	}
 
-	for (int i = 1; i < 50; i++) {
+	for (int i = 1; i < 100; i++) {
 		if (sprites[i]->getPosition().y < Config::user_resolution.Y()) {
-			sprites[i]->move(0, ((angleDelta)*(15+(rand()%25))));
+			float vel_Y = (angleDelta) * 25;
+
+			sprites[i]->move(angleDelta*(1.5f*(rand()%5)), vel_Y);
+			sprites[i]->rotate(angleDelta);
 			//balls[i-1]->y -= (10 * angleDelta);
 		}
 		else {
-			sprites[i]->setPosition(50+(rand() % (Config::user_resolution.X()-100)), -100);
+			sprites[i]->setPosition(50+(rand() % (Config::user_resolution.X()-100)), (-100) - (rand() % 200));
 		}
 		//sprites[i]->setPosition(*balls[i]);
 	}

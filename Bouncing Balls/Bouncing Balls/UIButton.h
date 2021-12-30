@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef UIELEMENT_BUTTON_SHORT
-#define UIELEMENT_BUTTON_SHORT
+#ifndef UI_BUTTON
+#define UI_BUTTON
 
 #include "UIElement.h"
 class UIButton : public UIElement

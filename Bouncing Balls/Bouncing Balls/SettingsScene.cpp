@@ -25,23 +25,27 @@ void SettingsScene::init() {
 	text[0]->setPosition(centerX - (text[0]->getGlobalBounds().width / 2), 100);
 	text[0]->setFillColor(sf::Color::Black);
 
+	//Add button & button label
 	ui.push_back(new UIButton(new float[2]{ centerX, 0.f }, std::string("long"),new float[2]{ 0.1f, 0.1f }));
-	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), 500);
+	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), (600 * Config::user_resolution.diffY()));
 	text.push_back(new sf::Text(std::string("Back"), *AssetManager::getFont("title"), 34));
-	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), 500 + (text[1]->getGlobalBounds().height / 2));
+	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), (600 * Config::user_resolution.diffY()) + (text[1]->getGlobalBounds().height / 2));
 	text[1]->setFillColor(sf::Color::Black);
 }
 
 void SettingsScene::update(sf::RenderWindow* w) {
+	//Check for screen res update
 	if (resize == false) {
 		sprites[0]->setScale(w->getSize().x / sprites[0]->getGlobalBounds().width, w->getSize().y / sprites[0]->getGlobalBounds().height);
 		resize = true;
 	}
 
+	//Update UI
 	for (auto ui_e : ui) {
 		ui_e->update(w);
 	}
 
+	//Check if "back" button is pressed
 	if (*ui[0]->getState() == UIState::CLICK) {
 		SceneManager::setNext(0);
 		SceneManager::next();

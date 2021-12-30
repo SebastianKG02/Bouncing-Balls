@@ -75,6 +75,9 @@
     <ClCompile Include="SettingsScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="UIRadioButton.cpp">
+      <Filter>Source Files\Engine Toolkit\UI\Elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defines.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="SettingsScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="UIRadioButton.h">
+      <Filter>Header Files\Engine Toolkit\UI\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

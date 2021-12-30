@@ -1,3 +1,15 @@
-﻿  SettingsScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\SettingsScene.cpp(17,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe
+﻿  DefaultScene.cpp
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(15,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(74,52): warning C4305: 'argument': truncation from 'int' to 'sf::Uint8'
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(74,44): warning C4309: 'argument': truncation of constant value
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(75,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(75,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(109,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(109,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SceneManager.cpp
+  SettingsScene.cpp
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\SettingsScene.cpp(17,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Bouncing Balls\main.cpp(36,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Bouncing Balls.vcxproj -> C:\Users\Seb\source\repos\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe
