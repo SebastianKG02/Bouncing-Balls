@@ -19,10 +19,9 @@ int main() {
 	//Define window event handle
 	sf::Event windowEvent;
 
-	if (config.user_do_frame_limit == true) {
-		window.setFramerateLimit(config.user_frame_limit_val);
-	}
-	window.setVerticalSyncEnabled(config.user_do_vsync);
+	//Apply settings for window
+	config.applySettings(&window);
+
 	window.setIcon(701, 701, AssetManager::getTexture("ball_blue")->copyToImage().getPixelsPtr());
 
 	//Initalise scenemanager
@@ -37,6 +36,7 @@ int main() {
 
 		//Check for user input & events
 		while (window.pollEvent(windowEvent)) {
+			SceneManager::input(&windowEvent);
 			if (windowEvent.type == sf::Event::Closed) {
 				window.close();
 			}
@@ -47,8 +47,7 @@ int main() {
 			window.close();
 		}
 
-		//Main game loop, process input for current scene, then update current scene
-		SceneManager::input();
+		//Main game loop, update current scene
 		SceneManager::update(&window);
 
 		//Clear the window

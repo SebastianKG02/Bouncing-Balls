@@ -18,6 +18,8 @@ void DefaultScene::init() {
 	//Set real position
 	text[0]->setPosition(centerX-(text[0]->getGlobalBounds().width/2), 100);
 	text[0]->setFillColor(sf::Color::Black);
+	text[0]->setOutlineColor(sf::Color::White);
+	text[0]->setOutlineThickness(3.5f);
 
 	//Background image
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("background")));
@@ -97,11 +99,17 @@ void DefaultScene::update(sf::RenderWindow* w) {
 		}
 	}
 
+	//Falling balls mechanic
 	for (int i = 1; i < 100; i++) {
 		if (sprites[i]->getPosition().y < Config::user_resolution.Y()) {
 			float vel_Y = (angleDelta) * 25;
 
-			sprites[i]->move(angleDelta*(1.5f*(rand()%5)), vel_Y);
+			if ((rand() % 2) > 0) {
+				sprites[i]->move(angleDelta * (1.5f * (rand() % 10)), vel_Y);
+			}
+			else {
+				sprites[i]->move(-angleDelta * (1.5f * (rand() % 10)), vel_Y);
+			}
 			sprites[i]->rotate(angleDelta);
 			//balls[i-1]->y -= (10 * angleDelta);
 		}
@@ -139,7 +147,7 @@ void DefaultScene::update(sf::RenderWindow* w) {
 	}
 }
 
-void DefaultScene::input() {
+void DefaultScene::input(sf::Event* e) {
 
 }
 

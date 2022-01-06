@@ -29,7 +29,7 @@ public:
 	virtual void cleanup();
 	virtual void draw(sf::RenderWindow* w);
 	virtual void update(sf::RenderWindow* w);
-	virtual void input();
+	virtual void input(sf::Event* e);
 	void lock();
 	void unlock();
 	bool isActive();
@@ -41,6 +41,7 @@ protected:
 	std::vector<sf::Sound*> sounds;
 	std::vector<sf::Text*> text;
 	std::vector<UIElement*> ui;
+	std::vector<sf::Shape*> shapes;
 	int sceneID;
 	bool active = false;
 	std::string name;
@@ -58,7 +59,7 @@ public:
 	static void init();
 	static void cleanup();
 	static void draw(sf::RenderWindow* w);
-	static void input();
+	static void input(sf::Event* e);
 	static void update(sf::RenderWindow* w);
 	static uint8_t getCurrentSceneID();
 	static Scene* getCurrentScene();

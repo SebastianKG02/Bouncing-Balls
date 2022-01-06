@@ -22,4 +22,6 @@ Level 3 - All error messages and all diagnostic messages
 #define DB_LEVEL_ALL 3 //All diagnostics + Errors
 #define DEBUG_LEVEL DB_LEVEL_ALL
 
+#define DB_SHOW_HITBOXES true
+
 #endif

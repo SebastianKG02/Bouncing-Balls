@@ -41,6 +41,8 @@ enum class UIState
 	FALSE
 };
 
+#define PAUSE_DELAY 200
+
 class UIElement
 {
 public:
@@ -49,6 +51,7 @@ public:
 	virtual void update(sf::RenderWindow *win);
 	void lock();
 	void unlock();
+	void pause();
 	void cleanup();
 	UIState* getState();
 	void setState(UIState s);
@@ -59,6 +62,7 @@ protected:
 	std::map<UIState, std::string> states;
 	UIState currentState;
 	bool locked = false;
+	uint16_t counter = 0;
 };
 
 #endif

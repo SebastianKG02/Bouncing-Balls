@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "SettingsScene.h"
+#include "ControlsScene.h"
 
 /*
 SCENE DEFINITION
@@ -76,22 +77,58 @@ void Scene::init() {
 }
 
 //Simple drawing method, have to pass reference to current window for UI functionality
+//Added functionality to draw hitboxes
 void Scene::draw(sf::RenderWindow* w) { 
+	//debug only - set up ghost hitbox
+#if DB_SHOW_HITBOXES == true
+	sf::RectangleShape rect = sf::RectangleShape();
+	rect.setFillColor(sf::Color::Transparent);
+	rect.setOutlineColor(sf::Color::Red);
+	rect.setOutlineThickness(3.f);
+#endif
+
+	//Draw sprites
 	for (auto sprite : sprites) {
 		w->draw(*sprite);
+#if DB_SHOW_HITBOXES == true
+		//Draw sprite hitbox
+		rect.setPosition(sprite->getPosition());
+		rect.setSize(sf::Vector2f(sprite->getGlobalBounds().width, sprite->getGlobalBounds().height));
+		w->draw(rect);
+#endif
 	}
 
+	//Draw UI elements
 	for (auto ui_e : ui) {
 		w->draw(*ui_e->getSprite());
+#if DB_SHOW_HITBOXES == true
+		//Draw UIE hitbox
+		rect.setPosition(ui_e->getSprite()->getPosition());
+		rect.setSize(sf::Vector2f(ui_e->getSprite()->getGlobalBounds().width, ui_e->getSprite()->getGlobalBounds().height));
+		w->draw(rect);
+#endif
 	}
 
+	//Draw text
 	for (auto textm : text) {
 		w->draw(*textm);
+#if DB_SHOW_HITBOXES == true
+		//Draw text hitboxes
+		rect.setPosition(textm->getPosition());
+		rect.setSize(sf::Vector2f(textm->getGlobalBounds().width, textm->getGlobalBounds().height));
+		w->draw(rect);
+#endif
+	}
+
+	//Draw any primitive shapes
+	for (auto shape : shapes) {
+		w->draw(*shape);
 	}
 }
 
 void Scene::update(sf::RenderWindow* w) { }
-void Scene::input() { }
+void Scene::input(sf::Event* e) { 
+}
 
 //Simple get for scene's ID
 int Scene::getID() {
@@ -122,6 +159,9 @@ void SceneManager::init() {
 
 	SettingsScene* settings = new SettingsScene(1, "Settings");
 	scenes.insert({ settings->getID(), settings });
+
+	ControlsScene* controls = new ControlsScene(2, "Controls");
+	scenes.insert({ controls->getID(), controls });
 }
 
 //Clean up all resources used by scenes by calling their member cleanup function
@@ -157,6 +197,11 @@ Scene* SceneManager::getScene(int id) {
 
 //Switch to next scene
 void SceneManager::next() {
+#ifdef DEBUG_ENABLED
+	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
+	std::cout << "[SM]Moving to scene [" << nextScene << "]<'" << getScene(nextScene)->getFriendlyName() << "'>" << std::endl;
+	#endif
+#endif
 	if (prevScene > -1 && (getScene(prevScene) != nullptr)) {
 		getScene(prevScene)->cleanup();
 	}
@@ -247,8 +292,8 @@ void SceneManager::draw(sf::RenderWindow* w) {
 }
 
 //Get input for current scene
-void SceneManager::input() {
-	scenes.at(currScene)->input();
+void SceneManager::input(sf::Event* e) {
+	scenes.at(currScene)->input(e);
 }
 
 //Update current scene

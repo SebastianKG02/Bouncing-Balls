@@ -9,7 +9,22 @@ Resolution Config::user_resolution = Resolution();
 bool Config::user_do_fullscreen = false;
 bool Config::user_do_vsync = false;
 bool Config::user_do_frame_limit = false;
+ConfigFile Config::config;
 signed short Config::user_frame_limit_val = false;
+signed short Config::user_sfx_volume = 10;
+signed short Config::user_music_volume = 10;
+
+ConfigFile* Config::getSettings() {
+	return &config;
+}
+
+float Config::applyRDX(float xval) {
+	return (xval * user_resolution.diffX());
+}
+
+float Config::applyRDY(float yval) {
+	return (yval * user_resolution.diffY());
+}
 
 //Default constructor
 Config::Config() {
@@ -24,6 +39,8 @@ Config::Config() {
 	config.addValue("vsync", Utils::boolToString(user_do_vsync));
 	config.addValue("frame_limit", Utils::boolToString(user_do_frame_limit));
 	config.addValue("frame_limit_value", std::to_string(user_frame_limit_val));
+	config.addValue("sfx_volume", std::to_string(user_sfx_volume));
+	config.addValue("music_volume", std::to_string(user_music_volume));
 
 	saveCurrentConfig("config.cfg");
 }
@@ -89,20 +106,63 @@ bool Config::loadFromConfig(std::string fpath) {
 	if (tryGetValue("fullscreen").empty()) {
 		config.addValue("fullscreen", Utils::boolToString(user_do_fullscreen));
 	}
+	else {
+		user_do_fullscreen = Utils::stringToBool(tryGetValue("fullscreen"));
+	}
 
 	if (tryGetValue("vsync").empty()) {
 		config.addValue("vsync", Utils::boolToString(user_do_vsync));
+	}
+	else {
+		user_do_vsync = Utils::stringToBool(tryGetValue("vsync"));
 	}
 
 	if (tryGetValue("frame_limit").empty()) {
 		config.addValue("frame_limit", Utils::boolToString(user_do_vsync));
 	}
+	else {
+		user_do_frame_limit = Utils::stringToBool(tryGetValue("frame_limit"));
+	}
 
 	if (tryGetValue("frame_limit_value").empty()) {
 		config.addValue("frame_limit_value", std::to_string(user_frame_limit_val));
 	}
+	else {
+		user_frame_limit_val = std::stoi(tryGetValue("frame_limit_value"));
+	}
+
+	if (tryGetValue("sfx_volume").empty()) {
+		config.addValue("sfx_volume", std::to_string(user_sfx_volume));
+	}
+	else {
+		user_sfx_volume = std::stoi(tryGetValue("sfx_volume"));
+	}
+
+	if (tryGetValue("music_volume").empty()) {
+		config.addValue("music_volume", std::to_string(user_music_volume));
+	}
+	else {
+		user_music_volume = std::stoi(tryGetValue("music_volume"));
+	}
 
 	return saveCurrentConfig("config.cfg");
+}
+
+void Config::applySettings(sf::RenderWindow* window) {
+	if (user_do_frame_limit == true) {
+		window->setFramerateLimit(user_frame_limit_val);
+	}
+	else {
+		window->setFramerateLimit(0);
+	}
+	window->setVerticalSyncEnabled(user_do_vsync);
+
+	if (user_do_fullscreen == true) {
+		window->create(sf::VideoMode(user_resolution.X(), user_resolution.Y()), "Bouncing Balls", sf::Style::Fullscreen);
+	}
+	else {
+		window->create(sf::VideoMode(user_resolution.X(), user_resolution.Y()), "Bouncing Balls", sf::Style::Close);
+	}
 }
 
 std::string Config::tryGetValue(std::string key) {

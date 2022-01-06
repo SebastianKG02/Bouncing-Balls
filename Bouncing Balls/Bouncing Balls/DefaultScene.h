@@ -15,7 +15,7 @@ public:
     DefaultScene(uint8_t id, std::string name);
     void init();
     void update(sf::RenderWindow* w);
-    void input();
+    void input(sf::Event* e);
 private:
     bool resize = false;
     float maxBound = 107.5f;

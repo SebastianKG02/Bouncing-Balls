@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="ControlsScene.cpp" />
     <ClCompile Include="DefaultScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Resolution.cpp" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="ControlsScene.h" />
     <ClInclude Include="DefaultScene.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Resolution.h" />

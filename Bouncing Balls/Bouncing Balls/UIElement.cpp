@@ -74,3 +74,14 @@ void UIElement::unlock() {
 		locked = false;
 	}
 }
+
+void UIElement::pause() {
+	if (locked == false) {
+		lock();
+		while (counter <= PAUSE_DELAY) {
+			counter++;
+		}
+		counter = 0;
+		unlock();
+	}
+}

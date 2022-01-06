@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include "Config.h"
 
 //Will convert string to all lowercase
 std::string* Utils::strToLower(std::string* str) {

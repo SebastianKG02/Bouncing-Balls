@@ -145,6 +145,7 @@ void AssetManager::init() {
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					//Attempt to load texture
 					if (tex[ref.first]->loadFromFile(tempString) == true) {
+						tex[ref.first]->setSmooth(true);
 #ifdef DEBUG_ENABLED
 	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
 						//Diagnostic message
