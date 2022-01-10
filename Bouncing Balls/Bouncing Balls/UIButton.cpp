@@ -12,7 +12,7 @@ UIButton::UIButton(float pos[2], std::string type, float scale[2]) {
 	setStateTex(UIState::ACTIVE, modes[0]);
 	setStateTex(UIState::HOVER, modes[1]);
 	setStateTex(UIState::CLICK, modes[2]);
-	setStateTex(UIState::INACTIVE, modes[2]);
+	setStateTex(UIState::INACTIVE, modes[3]);
 	modes->empty();
 }
 

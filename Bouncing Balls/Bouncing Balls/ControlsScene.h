@@ -7,7 +7,7 @@
 class ControlsScene : public Scene
 {
 public:
-	ControlsScene(uint8_t id, std::string name);
+	ControlsScene(int id, std::string name);
 	void init();
 	void update(sf::RenderWindow* w);
 	void input(sf::Event* e);

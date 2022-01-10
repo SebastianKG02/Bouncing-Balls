@@ -1,13 +1,15 @@
 #include "SceneManager.h"
 #include "SettingsScene.h"
 #include "ControlsScene.h"
+#include "PlaySelectScene.h"
+#include "StatsScene.h"
 
 /*
 SCENE DEFINITION
 */
 
 //Default constructor for all scenes 
-Scene::Scene(uint8_t id, std::string name) {
+Scene::Scene(int id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
 	this->active = false;
@@ -45,7 +47,7 @@ void Scene::cleanup() {
 	sounds.clear();
 	ui.clear();
 
-	/*
+	
 	for (auto& sprite : sprites) {
 		delete sprite;
 	}
@@ -62,7 +64,7 @@ void Scene::cleanup() {
 	for (auto& ui_e : ui) {
 		//ui_e->cleanup();
 		delete ui_e;
-	}*/
+	}
 	sceneID = NULL;
 	name.clear();
 }
@@ -148,12 +150,13 @@ SCENEMANAGER DEFINITION
 int SceneManager::nextScene = 0;
 int SceneManager::prevScene = -1;
 int SceneManager::currScene = -1;
-std::map<uint8_t, Scene*> SceneManager::scenes = std::map<uint8_t, Scene*>();
+std::map<int, Scene*> SceneManager::scenes = std::map<int, Scene*>();
 bool SceneManager::initComplete = false;
 bool SceneManager::cleanupComplete = false;
 
 //Initalise SceneManager, register all scenes
 void SceneManager::init() {
+	scenes = std::map<int, Scene*>();
 	DefaultScene *title = new DefaultScene(0, "Title");
 	scenes.insert({ title->getID(), title });
 
@@ -162,6 +165,12 @@ void SceneManager::init() {
 
 	ControlsScene* controls = new ControlsScene(2, "Controls");
 	scenes.insert({ controls->getID(), controls });
+
+	PlaySelectScene* play_select = new PlaySelectScene(3, "Level Select");
+	scenes.insert({ play_select->getID(), play_select});
+
+	StatsScene* stats = new StatsScene(4, "Stats");
+	scenes.insert({ stats->getID(), stats });
 }
 
 //Clean up all resources used by scenes by calling their member cleanup function
@@ -175,7 +184,7 @@ void SceneManager::cleanup() {
 }
 
 //Get current scene ID
-uint8_t SceneManager::getCurrentSceneID() {
+int SceneManager::getCurrentSceneID() {
 	return SceneManager::currScene;
 }
 
@@ -230,18 +239,18 @@ void SceneManager::next() {
 }
 
 //Set scene (override of system)
-void SceneManager::set(uint8_t id) {
+void SceneManager::set(int id) {
 	prevScene = currScene;
 	currScene = id;
 }
 
 //Set next scene (override)
-void SceneManager::setNext(uint8_t id) {
+void SceneManager::setNext(int id) {
 	nextScene = id;
 }
 
 //Set previous scene (override)
-void SceneManager::setPrev(uint8_t id) {
+void SceneManager::setPrev(int id) {
 	prevScene = id;
 }
 
@@ -253,7 +262,7 @@ Scene* SceneManager::getPrev(int id) {
 	return scenes.at(id);
 }
 
-void SceneManager::delScene(uint8_t id) {
+void SceneManager::delScene(int id) {
 	if (scenes.find(id)->first == id) {
 		scenes.erase(id);
 	}
@@ -281,7 +290,7 @@ void SceneManager::addScene(Scene* scene) {
 //Switch to previous scene
 void SceneManager::previous() {
 	getScene(prevScene)->init();
-	uint8_t prev = prevScene;
+	int prev = prevScene;
 	prevScene = currScene;
 	currScene = prev;
 }
@@ -293,11 +302,15 @@ void SceneManager::draw(sf::RenderWindow* w) {
 
 //Get input for current scene
 void SceneManager::input(sf::Event* e) {
+	//std::cout << currScene << std::endl;
+	//std::cout << scenes.at(currScene) << std::endl;
 	scenes.at(currScene)->input(e);
 }
 
 //Update current scene
 void SceneManager::update(sf::RenderWindow* w) {
+	//std::cout << currScene << std::endl;
+	//std::cout << scenes.at(currScene) << std::endl;
 	if (scenes.at(currScene)->isActive() == true) {
 		scenes.at(currScene)->update(w);
 	}

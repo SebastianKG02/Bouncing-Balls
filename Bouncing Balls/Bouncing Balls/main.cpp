@@ -5,6 +5,7 @@
 #include "AssetManager.h"
 #include "SceneManager.h"
 #include "UIButton.h"
+#include "PlayerData.h"
 
 static Config config = Config("config.cfg");
 
@@ -24,11 +25,13 @@ int main() {
 
 	window.setIcon(701, 701, AssetManager::getTexture("ball_blue")->copyToImage().getPixelsPtr());
 
+	Player::init();
+
 	//Initalise scenemanager
 	SceneManager::init();
-	//Go to default scene
 	SceneManager::next();
-
+	std::cout << Player::getData()->coins << std::endl;
+	//Player::init();
 	//While window is open, check for user input, update game logic and draw
 	while (window.isOpen()) {
 		//Re-seed random number generator
@@ -38,12 +41,14 @@ int main() {
 		while (window.pollEvent(windowEvent)) {
 			SceneManager::input(&windowEvent);
 			if (windowEvent.type == sf::Event::Closed) {
+				Player::save();
 				window.close();
 			}
 
 		}
 
 		if (sf::Keyboard::isKeyPressed(config.user_key_exit)) {
+			Player::save();
 			window.close();
 		}
 
@@ -63,6 +68,7 @@ int main() {
 	window.close();
 
 	SceneManager::cleanup();
+	Player::save();
 
 	//Close as expected
 	return 0;

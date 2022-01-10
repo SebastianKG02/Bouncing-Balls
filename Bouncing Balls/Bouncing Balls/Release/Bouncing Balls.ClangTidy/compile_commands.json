@@ -1,0 +1,77 @@
+[
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\AssetManager.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\AssetManager.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Config.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Config.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\ControlsScene.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\ControlsScene.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\DefaultScene.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\DefaultScene.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\main.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\main.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\PlayerData.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\PlayerData.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\PlaySelectScene.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\PlaySelectScene.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Resolution.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Resolution.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\SceneManager.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\SceneManager.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\SettingsScene.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\SettingsScene.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\StatsScene.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\StatsScene.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIButton.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIButton.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIElement.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIElement.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIRadioButton.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\UIRadioButton.cpp"
+  },
+  {
+    "directory": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls",
+    "command": "\"C:\\Windows\\system32\\CL.exe\" \/c \/I\"C:\\SFML 32bit\\include\" \/Zi \/nologo \/W3 \/WX- \/diagnostics:column \/O2 \/Oi \/Ot \/Oy- \/D CODE_ANALYSIS \/D SFML_STATIC \/D WIN32 \/D NDEBUG \/D _CONSOLE \/D _UNICODE \/D UNICODE \/EHsc \/MD \/GS \/guard:cf \/Gy \/fp:precise \/permissive- \/Fo\"Release\\\\\" \/Gd \/TP   \"C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Utils.cpp\"",
+    "file": "C:\\Git\\BouncingBalls\\Bouncing-Balls\\Bouncing Balls\\Bouncing Balls\\Utils.cpp"
+  }
+]

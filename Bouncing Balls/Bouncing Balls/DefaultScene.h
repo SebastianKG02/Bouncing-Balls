@@ -12,7 +12,7 @@ It will mainly be a navigation menu between other screens within the game.
 class DefaultScene : public Scene
 {
 public:
-    DefaultScene(uint8_t id, std::string name);
+    DefaultScene(int id, std::string name);
     void init();
     void update(sf::RenderWindow* w);
     void input(sf::Event* e);
@@ -23,7 +23,7 @@ private:
     float angleDelta = 0.009f;
     bool minMax = false;
     float centerX = 0;
-    float counter = 0;
+    sf::Clock clock;
     //std::vector<sf::Vector2f*> balls;
 };
 

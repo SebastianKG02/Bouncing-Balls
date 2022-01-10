@@ -23,7 +23,7 @@ The Scene class is a template class for all future scenes to be loaded in the Sc
 class Scene
 {
 public:
-	Scene(uint8_t id, std::string name);
+	Scene(int id, std::string name);
 	Scene();
 	virtual void init();
 	virtual void cleanup();
@@ -61,20 +61,20 @@ public:
 	static void draw(sf::RenderWindow* w);
 	static void input(sf::Event* e);
 	static void update(sf::RenderWindow* w);
-	static uint8_t getCurrentSceneID();
+	static int getCurrentSceneID();
 	static Scene* getCurrentScene();
 	static Scene* getScene(int id);
 	static Scene* getNext(int id);
 	static Scene* getPrev(int id);
 	static void next();
 	static void previous();
-	static void set(uint8_t id);
-	static void setNext(uint8_t id);
-	static void setPrev(uint8_t id);
+	static void set(int id);
+	static void setNext(int id);
+	static void setPrev(int id);
 	static void addScene(Scene* scene);
-	static void delScene(uint8_t id);
+	static void delScene(int id);
 private:
-	static std::map<uint8_t, Scene*> scenes;
+	static std::map<int, Scene*> scenes;
 	static int nextScene;
 	static int prevScene;
 	static int currScene;

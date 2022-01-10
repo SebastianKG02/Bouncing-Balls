@@ -1,14 +1,3 @@
-﻿  ControlsScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(24,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(125,109): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(125,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(140,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  PlaySelectScene.cpp
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlaySelectScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe

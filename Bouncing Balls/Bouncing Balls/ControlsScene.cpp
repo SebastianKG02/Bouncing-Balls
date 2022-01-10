@@ -1,6 +1,6 @@
 #include "ControlsScene.h"
 
-ControlsScene::ControlsScene(uint8_t id, std::string name) {
+ControlsScene::ControlsScene(int id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
 }

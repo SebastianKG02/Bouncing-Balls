@@ -75,7 +75,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
+    <CopyCppRuntimeToOutputDir>false</CopyCppRuntimeToOutputDir>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -153,9 +155,12 @@
     <ClCompile Include="ControlsScene.cpp" />
     <ClCompile Include="DefaultScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayerData.cpp" />
+    <ClCompile Include="PlaySelectScene.cpp" />
     <ClCompile Include="Resolution.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SettingsScene.cpp" />
+    <ClCompile Include="StatsScene.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="UIRadioButton.cpp" />
@@ -167,9 +172,12 @@
     <ClInclude Include="ControlsScene.h" />
     <ClInclude Include="DefaultScene.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="PlayerData.h" />
+    <ClInclude Include="PlaySelectScene.h" />
     <ClInclude Include="Resolution.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SettingsScene.h" />
+    <ClInclude Include="StatsScene.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIRadioButton.h" />

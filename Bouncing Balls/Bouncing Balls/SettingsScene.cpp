@@ -2,7 +2,7 @@
 
 #define BTN_SCALE 0.025f
 
-SettingsScene::SettingsScene(uint8_t id, std::string name) {
+SettingsScene::SettingsScene(int id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
 	this->active = false;
@@ -26,7 +26,7 @@ void SettingsScene::init() {
 	//Title text
 	text.push_back(new sf::Text(std::string("Settings"), *AssetManager::getFont("title"), 75));
 	//Set real position
-	text[0]->setPosition(centerX - (text[0]->getGlobalBounds().width / 2), 100);
+	text[0]->setPosition(centerX - (text[0]->getGlobalBounds().width / 2), Config::applyRDY(100));
 	text[0]->setFillColor(sf::Color::Black);
 	text[0]->setOutlineColor(sf::Color::White);
 	text[0]->setOutlineThickness(3.5f);
@@ -40,7 +40,7 @@ void SettingsScene::init() {
 	
 	//Vsync enabled-------------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Vsync enabled: "), *AssetManager::getFont("title"),25));
-	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width / 2) - (centerX / 2), 200);
+	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width / 2) - (centerX / 2), text[0]->getPosition().y+text[0]->getGlobalBounds().height+Config::applyRDY(25));
 	text[2]->setFillColor(sf::Color::Black);
 
 	//Left button - 1
@@ -217,8 +217,10 @@ void SettingsScene::init() {
 	ui.push_back(new UIButton(new float[2]{ ui[16]->getSprite()->getPosition().x, text[18]->getPosition().y }, std::string("rarrow"), new float[2]{ BTN_SCALE, BTN_SCALE }));
 	ui[18]->getSprite()->move(0.f, ui[18]->getSprite()->getGlobalBounds().width / 2);
 
+	for (int i = 0; i < 19; i++) {
+		ui[i]->lock();
+	}
 	clock.restart();
-	ui[0]->lock();
 	//Initalisation finished, unlock scene
 	unlock();
 }
@@ -499,6 +501,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 		SceneManager::setNext(2);
 		SceneManager::next();
 	}
+	else if ((*ui[11]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
+		ui[11]->unlock();
+	}
 
 	//Save button
 	if (*ui[12]->getState() == UIState::CLICK) {
@@ -512,6 +517,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 		Config::saveCurrentConfig("config.cfg");
 		resize = false;
 		Config::applySettings(w);
+	}
+	else if ((*ui[12]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
+		ui[12]->unlock();
 	}
 
 	//Reset button
@@ -550,6 +558,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 		//Update resolution label
 		text[11]->setString(Config::user_resolution.name());
 	}
+	else if ((*ui[13]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
+		ui[13]->unlock();
+	}
 
 	//Refresh button
 	if (*ui[14]->getState() == UIState::CLICK) {
@@ -582,6 +593,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 
 		//Update resolution label
 		text[11]->setString(Config::user_resolution.name());
+	}
+	else if ((*ui[14]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
+		ui[14]->unlock();
 	}
 
 	//SFX volume LEFT button (decrement)

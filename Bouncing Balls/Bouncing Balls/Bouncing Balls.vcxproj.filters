@@ -43,13 +43,34 @@
     <Filter Include="Source Files\Engine Toolkit\UI\Elements">
       <UniqueIdentifier>{8078b787-0657-43a8-87a9-39d64cb29e8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Scenes\Gameplay">
+      <UniqueIdentifier>{66cb4080-f655-41ed-8129-f3d537e99537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Scenes\Gameplay\Campaign">
+      <UniqueIdentifier>{7d250ea1-9102-4d99-a10b-f2bf8ff1c793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Scenes\Gameplay\Endless">
+      <UniqueIdentifier>{8f3528e8-016c-4db9-aced-9ae576d847d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Scenes\Gameplay\Challenge">
+      <UniqueIdentifier>{a291361d-e1a4-4aa3-9676-af8582607fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Scenes\Gameplay">
+      <UniqueIdentifier>{4d059752-f9d9-4e6d-998d-1e15fe9a9cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Scenes\Gameplay\Challenge">
+      <UniqueIdentifier>{72a2c600-e4d5-42cb-b510-b9cbc1ff775d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Scenes\Gameplay\Endless">
+      <UniqueIdentifier>{81f74ea6-16df-49bc-bbe0-d4ebf4843c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Scenes\Gameplay\Campaign">
+      <UniqueIdentifier>{a15fbc30-140a-45ed-99d0-46e353dd82a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Resolution.cpp">
-      <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Engine Toolkit\Managers</Filter>
@@ -79,6 +100,18 @@
       <Filter>Source Files\Engine Toolkit\UI\Elements</Filter>
     </ClCompile>
     <ClCompile Include="ControlsScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Source Files\Engine Toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="Resolution.cpp">
+      <Filter>Source Files\Engine Toolkit\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaySelectScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,6 +150,15 @@
       <Filter>Header Files\Engine Toolkit\UI\Elements</Filter>
     </ClInclude>
     <ClInclude Include="ControlsScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Header Files\Engine Toolkit</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaySelectScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,15 +1,16 @@
 #include "DefaultScene.h"
 #include "UIButton.h"
 #include "Config.h"
+#include "PlayerData.h"
 
 //Initalise scene
 void DefaultScene::init() {
 	lock();
-	counter = 0;
 	sprites = std::vector<sf::Sprite*>();
 	sounds = std::vector<sf::Sound*>();
 	text = std::vector<sf::Text*>();
 	ui = std::vector<UIElement*>();
+	clock = sf::Clock();
 	resize = false;
 	//Set up easy centering variable
 	centerX = Config::user_resolution.X() / 2;
@@ -35,14 +36,14 @@ void DefaultScene::init() {
 	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), 200+(text[1]->getGlobalBounds().height/2));
 	text[1]->setFillColor(sf::Color::Black);
 
-	//Achievements button
+	//Stats button
 	ui.push_back(new UIButton(centerX, 300, "btn_long_active", 0.1f, 0.1f));
 	ui[1]->getSprite()->setPosition(centerX - (ui[1]->getSprite()->getGlobalBounds().width / 2), 300);
 	ui[1]->setStateTex(UIState::ACTIVE, "btn_long_active");
 	ui[1]->setStateTex(UIState::HOVER, "btn_long_hover");
 	ui[1]->setStateTex(UIState::CLICK, "btn_long_click");
 	ui[1]->setStateTex(UIState::INACTIVE, "btn_long_lock");
-	text.push_back(new sf::Text(std::string("Achievements"), *AssetManager::getFont("title"), 34));
+	text.push_back(new sf::Text(std::string("Stats"), *AssetManager::getFont("title"), 34));
 	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width / 2), 300 + (text[2]->getGlobalBounds().height / 2));
 	text[2]->setFillColor(sf::Color::Black);
 
@@ -130,19 +131,29 @@ void DefaultScene::update(sf::RenderWindow* w) {
 		SceneManager::next();
 	}
 
+	//If play button is clicked, switch to level select screen
+	if (*ui[0]->getState() == UIState::CLICK) {
+		SceneManager::setNext(3);
+		SceneManager::next();
+	}
+
+	//If stats button is clicked, switch to level select screen
+	if (*ui[1]->getState() == UIState::CLICK) {
+		SceneManager::setNext(4);
+		SceneManager::next();
+	}
+
 	//If exit button is clicked, exit game
 	if (SceneManager::getCurrentSceneID() == sceneID){
 		if (*ui[3]->getState() == UIState::LOCK) {
-			counter++;
-			if (counter > 1000) {
+			if (clock.getElapsedTime().asMilliseconds() > 200) {
 				ui[3]->unlock();
-			}
-			else {
-				ui[3]->lock();
 			}
 		}
 		if (*ui[3]->getState() == UIState::CLICK) {
 			w->close();
+			ui[3]->lock();
+			clock.restart();
 		}
 	}
 }
@@ -151,7 +162,7 @@ void DefaultScene::input(sf::Event* e) {
 
 }
 
-DefaultScene::DefaultScene(uint8_t id, std::string name) {
+DefaultScene::DefaultScene(int id, std::string name) {
 	this->sceneID = id;
 	this->name = name;
 	this->active = false;
