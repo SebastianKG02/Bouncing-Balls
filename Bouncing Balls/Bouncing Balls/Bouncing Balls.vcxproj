@@ -151,12 +151,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="CampaignInfoScene.cpp" />
+    <ClCompile Include="CampaignSelectScene.cpp" />
+    <ClCompile Include="Cannon.cpp" />
+    <ClCompile Include="ChallengeInfoScene.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="ControlsScene.cpp" />
     <ClCompile Include="DefaultScene.cpp" />
+    <ClCompile Include="EndlessInfoScene.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerData.cpp" />
+    <ClCompile Include="PlayL1Scene.cpp" />
     <ClCompile Include="PlaySelectScene.cpp" />
+    <ClCompile Include="PneumaticPress.cpp" />
     <ClCompile Include="Resolution.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SettingsScene.cpp" />
@@ -168,12 +177,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="CampaignInfoScene.h" />
+    <ClInclude Include="CampaignSelectScene.h" />
+    <ClInclude Include="Cannon.h" />
+    <ClInclude Include="ChallengeInfoScene.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="ControlsScene.h" />
     <ClInclude Include="DefaultScene.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="EndlessInfoScene.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="PlayerData.h" />
+    <ClInclude Include="PlayL1Scene.h" />
     <ClInclude Include="PlaySelectScene.h" />
+    <ClInclude Include="PneumaticPress.h" />
     <ClInclude Include="Resolution.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SettingsScene.h" />

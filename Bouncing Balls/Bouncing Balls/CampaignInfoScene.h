@@ -1,0 +1,20 @@
+#pragma once
+#include "SceneManager.h"
+
+#ifndef SCN_CAMPAIGN_INFO
+#define SCN_CAMPAIGN_INFO
+
+class CampaignInfoScene : public Scene 
+{
+public:
+	CampaignInfoScene(int id, std::string name);
+	void init();
+	void update(sf::RenderWindow* w);
+	void input(sf::Event* e);
+private:
+	sf::Clock clock;
+	bool resize = false;
+	float centerX = 0.f;
+};
+
+#endif

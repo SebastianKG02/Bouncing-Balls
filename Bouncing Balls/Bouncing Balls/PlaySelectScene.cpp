@@ -78,6 +78,8 @@ void PlaySelectScene::init() {
 	text[7]->setFillColor(sf::Color::Black);
 	text[7]->setStyle(sf::Text::Italic);
 
+	ui[0]->lock();
+	clock.restart();
 	//Unlock scene and get ready to function as complete scene
 	unlock();
 }
@@ -106,6 +108,48 @@ void PlaySelectScene::update(sf::RenderWindow* w) {
 	else if (*ui[0]->getState() == UIState::LOCK) {
 		if (clock.getElapsedTime().asMilliseconds() > 200) {
 			ui[0]->unlock();
+		}
+	}
+
+	//If campaign button pressed
+	if (*ui[1]->getState() == UIState::CLICK) {
+		clock.restart();
+		ui[1]->lock();
+		this->lock();
+		SceneManager::setNext(5);
+		SceneManager::next();
+	}
+	else if (*ui[1]->getState() == UIState::LOCK) {
+		if (clock.getElapsedTime().asMilliseconds() > 200) {
+			ui[1]->unlock();
+		}
+	}
+
+	//If endless button pressed
+	if (*ui[2]->getState() == UIState::CLICK) {
+		clock.restart();
+		ui[2]->lock();
+		this->lock();
+		SceneManager::setNext(6);
+		SceneManager::next();
+	}
+	else if (*ui[2]->getState() == UIState::LOCK) {
+		if (clock.getElapsedTime().asMilliseconds() > 200) {
+			ui[2]->unlock();
+		}
+	}
+
+	//If campaign button pressed
+	if (*ui[3]->getState() == UIState::CLICK) {
+		clock.restart();
+		ui[3]->lock();
+		this->lock();
+		SceneManager::setNext(7);
+		SceneManager::next();
+	}
+	else if (*ui[3]->getState() == UIState::LOCK) {
+		if (clock.getElapsedTime().asMilliseconds() > 200) {
+			ui[3]->unlock();
 		}
 	}
 }

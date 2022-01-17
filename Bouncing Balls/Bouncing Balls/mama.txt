@@ -1,0 +1,101 @@
+[DEBUG]Map loading K:sound V:res\\sound.cfg
+[DEBUG]Map loading K:font V:res\\font.cfg
+[DEBUG]Map loading K:tex V:res\\tex.cfg
+[DEBUG]Map loading K:music V:res\\music.cfg
+[DEBUG]Map loading K:0_stars V:res/tex/ui/Images/0 stars.png
+[DEBUG]Map loading K:1_stars V:res/tex/ui/Images/1 stars.png
+[DEBUG]Map loading K:2_stars V:res/tex/ui/Images/2 stars.png
+[DEBUG]Map loading K:3_stars V:res/tex/ui/Images/3 stars.png
+[DEBUG]Map loading K:btn_short_lock V:res/tex/ui/Buttons/Lock/small.png
+[DEBUG]Map loading K:btn_short_click V:res/tex/ui/Buttons/Click/small.png
+[DEBUG]Map loading K:btn_short_hover V:res/tex/ui/Buttons/Hover/small.png
+[DEBUG]Map loading K:btn_short_active V:res/tex/ui/Buttons/Normal/small.png
+[DEBUG]Map loading K:background V:res/tex/ui/Background.png
+[DEBUG]Map loading K:btn_long_lock V:res/tex/ui/Buttons/Lock/long.png
+[DEBUG]Map loading K:btn_long_click V:res/tex/ui/Buttons/Click/long.png
+[DEBUG]Map loading K:btn_long_hover V:res/tex/ui/Buttons/Hover/long.png
+[DEBUG]Map loading K:btn_long_active V:res/tex/ui/Buttons/Normal/long.png
+[DEBUG]Map loading K:btn_rarrow_lock V:res/tex/ui/Buttons/Lock/right.png
+[DEBUG]Map loading K:btn_rarrow_click V:res/tex/ui/Buttons/Click/right.png
+[DEBUG]Map loading K:btn_rarrow_hover V:res/tex/ui/Buttons/Hover/right.png
+[DEBUG]Map loading K:btn_rarrow_active V:res/tex/ui/Buttons/Normal/right.png
+[DEBUG]Map loading K:btn_larrow_lock V:res/tex/ui/Buttons/Lock/left.png
+[DEBUG]Map loading K:btn_larrow_click V:res/tex/ui/Buttons/Click/left.png
+[DEBUG]Map loading K:btn_larrow_hover V:res/tex/ui/Buttons/Hover/left.png
+[DEBUG]Map loading K:btn_larrow_active V:res/tex/ui/Buttons/Normal/left.png
+[DEBUG]Map loading K:ball_red V:res/tex/obj/balls/01.png
+[DEBUG]Map loading K:ball_amber V:res/tex/obj/balls/02.png
+[DEBUG]Map loading K:ball_orange V:res/tex/obj/balls/03.png
+[DEBUG]Map loading K:ball_yellow V:res/tex/obj/balls/04.png
+[DEBUG]Map loading K:ball_lime V:res/tex/obj/balls/05.png
+[DEBUG]Map loading K:ball_royal_blue V:res/tex/obj/balls/06.png
+[DEBUG]Map loading K:ball_dark_blue V:res/tex/obj/balls/07.png
+[DEBUG]Map loading K:ball_green V:res/tex/obj/balls/08.png
+[DEBUG]Map loading K:ball_em_green V:res/tex/obj/balls/09.png
+[DEBUG]Map loading K:ball_turq V:res/tex/obj/balls/10.png
+[DEBUG]Map loading K:ball_cyan V:res/tex/obj/balls/11.png
+[DEBUG]Map loading K:ball_wine V:res/tex/obj/balls/12.png
+[DEBUG]Map loading K:ball_violet V:res/tex/obj/balls/13.png
+[DEBUG]Map loading K:ball_purple V:res/tex/obj/balls/14.png
+[DEBUG]Map loading K:ball_dark_purple V:res/tex/obj/balls/15.png
+[DEBUG]Map loading K:ball_bronze V:res/tex/obj/balls/16.png
+[DEBUG]Map loading K:ball_cobalt V:res/tex/obj/balls/17.png
+[DEBUG]Map loading K:cannon_axel V:res/tex/obj/cannon/axel.png
+[DEBUG]Map loading K:cannon_base V:res/tex/obj/cannon/base.png
+[DEBUG]Map loading K:cannon_body V:res/tex/obj/cannon/body.png
+[AM]Loaded <0_stars>@res/tex/ui/Images/0 stars.png
+[AM]Loaded <1_stars>@res/tex/ui/Images/1 stars.png
+[AM]Loaded <2_stars>@res/tex/ui/Images/2 stars.png
+[AM]Loaded <3_stars>@res/tex/ui/Images/3 stars.png
+[AM]Loaded <background>@res/tex/ui/Background.png
+[AM]Loaded <ball_amber>@res/tex/obj/balls/02.png
+[AM]Loaded <ball_bronze>@res/tex/obj/balls/16.png
+[AM]Loaded <ball_cobalt>@res/tex/obj/balls/17.png
+[AM]Loaded <ball_cyan>@res/tex/obj/balls/11.png
+[AM]Loaded <ball_dark_blue>@res/tex/obj/balls/07.png
+[AM]Loaded <ball_dark_purple>@res/tex/obj/balls/15.png
+[AM]Loaded <ball_em_green>@res/tex/obj/balls/09.png
+[AM]Loaded <ball_green>@res/tex/obj/balls/08.png
+[AM]Loaded <ball_lime>@res/tex/obj/balls/05.png
+[AM]Loaded <ball_orange>@res/tex/obj/balls/03.png
+[AM]Loaded <ball_purple>@res/tex/obj/balls/14.png
+[AM]Loaded <ball_red>@res/tex/obj/balls/01.png
+[AM]Loaded <ball_royal_blue>@res/tex/obj/balls/06.png
+[AM]Loaded <ball_turq>@res/tex/obj/balls/10.png
+[AM]Loaded <ball_violet>@res/tex/obj/balls/13.png
+[AM]Loaded <ball_wine>@res/tex/obj/balls/12.png
+[AM]Loaded <ball_yellow>@res/tex/obj/balls/04.png
+[AM]Loaded <btn_larrow_active>@res/tex/ui/Buttons/Normal/left.png
+[AM]Loaded <btn_larrow_click>@res/tex/ui/Buttons/Click/left.png
+[AM]Loaded <btn_larrow_hover>@res/tex/ui/Buttons/Hover/left.png
+[AM]Loaded <btn_larrow_lock>@res/tex/ui/Buttons/Lock/left.png
+[AM]Loaded <btn_long_active>@res/tex/ui/Buttons/Normal/long.png
+[AM]Loaded <btn_long_click>@res/tex/ui/Buttons/Click/long.png
+[AM]Loaded <btn_long_hover>@res/tex/ui/Buttons/Hover/long.png
+[AM]Loaded <btn_long_lock>@res/tex/ui/Buttons/Lock/long.png
+[AM]Loaded <btn_rarrow_active>@res/tex/ui/Buttons/Normal/right.png
+[AM]Loaded <btn_rarrow_click>@res/tex/ui/Buttons/Click/right.png
+[AM]Loaded <btn_rarrow_hover>@res/tex/ui/Buttons/Hover/right.png
+[AM]Loaded <btn_rarrow_lock>@res/tex/ui/Buttons/Lock/right.png
+[AM]Loaded <btn_short_active>@res/tex/ui/Buttons/Normal/small.png
+[AM]Loaded <btn_short_click>@res/tex/ui/Buttons/Click/small.png
+[AM]Loaded <btn_short_hover>@res/tex/ui/Buttons/Hover/small.png
+[AM]Loaded <btn_short_lock>@res/tex/ui/Buttons/Lock/small.png
+[AM]Loaded <cannon_axel>@res/tex/obj/cannon/axel.png
+[AM]Loaded <cannon_base>@res/tex/obj/cannon/base.png
+[AM]Loaded <cannon_body>@res/tex/obj/cannon/body.png
+[DEBUG]Map loading K:coin V:res/sound/coin.wav
+[AM]Loaded <coin>@res/sound/coin.wav
+[DEBUG]Map loading K:title V:res/font/title.ttf
+[AM]Loaded <title>@res/font/title.ttf
+[DEBUG]Map loading K:bass V:res/music/bass_bckg.wav
+[AM]Loaded <bass>@res/music/bass_bckg.wav
+[SM]Moving to scene [0]<'Title'>
+0
+[SM]Moving to scene [3]<'Level Select'>
+[SM]Moving to scene [5]<'Campaign Info'>
+[SM]Moving to scene [8]<''>
+[SM]Moving to scene [9]<'Level 1'>
+[SM]Moving to scene [8]<''>
+[SM]Moving to scene [3]<''>
+[SM]Moving to scene [0]<''>

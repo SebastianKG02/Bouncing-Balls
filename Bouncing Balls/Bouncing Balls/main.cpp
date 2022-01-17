@@ -6,12 +6,26 @@
 #include "SceneManager.h"
 #include "UIButton.h"
 #include "PlayerData.h"
+#include <chrono>
+#include <ctime>  
+#include <iomanip>
+#include <time.h>
 
 static Config config = Config("config.cfg");
+static sf::Clock gm_clock;
+static sf::Time last = sf::Time::Zero;
 
 //Main method
 int main() {
 
+	/*
+	char buf[32];
+	//Re-direct standard output
+	std::time_t current_date = std::time(nullptr);
+	std::ofstream out("mama.txt");
+	std::streambuf* coutbuf = std::cout.rdbuf(); //save old buf
+	std::cout.rdbuf(out.rdbuf()); //redirect std::cout to out.txt!
+	*/
 	//Initalise AssetManager
 	AssetManager::init();
 
@@ -23,20 +37,20 @@ int main() {
 	//Apply settings for window
 	config.applySettings(&window);
 
-	window.setIcon(701, 701, AssetManager::getTexture("ball_blue")->copyToImage().getPixelsPtr());
+	window.setIcon(512, 512, AssetManager::getTexture("ball_royal_blue")->copyToImage().getPixelsPtr());
 
 	Player::init();
 
 	//Initalise scenemanager
 	SceneManager::init();
 	SceneManager::next();
-	std::cout << Player::getData()->coins << std::endl;
 	//Player::init();
 	//While window is open, check for user input, update game logic and draw
 	while (window.isOpen()) {
 		//Re-seed random number generator
 		srand(time(NULL));
 
+		last += gm_clock.restart();
 		//Check for user input & events
 		while (window.pollEvent(windowEvent)) {
 			SceneManager::input(&windowEvent);
@@ -47,13 +61,24 @@ int main() {
 
 		}
 
-		if (sf::Keyboard::isKeyPressed(config.user_key_exit)) {
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt) || sf::Keyboard::isKeyPressed(sf::Keyboard::RAlt) && sf::Keyboard::isKeyPressed(sf::Keyboard::F4))) {
 			Player::save();
 			window.close();
 		}
 
-		//Main game loop, update current scene
-		SceneManager::update(&window);
+		while (last > TICK_SPEED) {
+			while (window.pollEvent(windowEvent)) {
+				SceneManager::input(&windowEvent);
+				if (windowEvent.type == sf::Event::Closed) {
+					Player::save();
+					window.close();
+				}
+
+			}
+			last -= TICK_SPEED;
+			//Main game loop, update current scene
+			SceneManager::update(&window);
+		}
 
 		//Clear the window
 		window.clear();

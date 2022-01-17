@@ -3,6 +3,11 @@
 #include "ControlsScene.h"
 #include "PlaySelectScene.h"
 #include "StatsScene.h"
+#include "CampaignInfoScene.h"
+#include "EndlessInfoScene.h"
+#include "ChallengeInfoScene.h"
+#include "CampaignSelectScene.h"
+#include "PlayL1Scene.h"
 
 /*
 SCENE DEFINITION
@@ -171,6 +176,21 @@ void SceneManager::init() {
 
 	StatsScene* stats = new StatsScene(4, "Stats");
 	scenes.insert({ stats->getID(), stats });
+
+	CampaignInfoScene* camp_info = new CampaignInfoScene(5, "Campaign Info");
+	scenes.insert({ camp_info->getID(), camp_info });
+
+	EndlessInfoScene* endless_info = new EndlessInfoScene(6, "Endless Info");
+	scenes.insert({endless_info->getID(), endless_info});
+
+	ChallengeInfoScene* challenge_info = new ChallengeInfoScene(7, "Challenge Info");
+	scenes.insert({challenge_info->getID(), challenge_info});
+
+	CampaignSelectScene* camp_select = new CampaignSelectScene(8, "Campaign Select");
+	scenes.insert({ camp_select->getID(), camp_select });
+
+	PlayL1Scene* camp_l1 = new PlayL1Scene(9, "Level 1");
+	scenes.insert({camp_l1->getID(), camp_l1});
 }
 
 //Clean up all resources used by scenes by calling their member cleanup function

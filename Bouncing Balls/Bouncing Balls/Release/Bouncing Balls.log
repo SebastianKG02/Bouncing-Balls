@@ -1,7 +1,16 @@
-﻿  Generating code
-  0 of 1339 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+﻿  CampaignInfoScene.cpp
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\CampaignInfoScene.cpp(18,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  PlaySelectScene.cpp
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlaySelectScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SceneManager.cpp
+  Running Code Analysis for C/C++...
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(47): warning C4715: 'AssetManager::getTexture': not all control paths return a value
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(97): warning C4715: 'AssetManager::getFont': not all control paths return a value
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(617): warning C4715: 'Utils::saveToConfigFile': not all control paths return a value
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(628): warning C4715: 'Utils::boolToString': not all control paths return a value
+  All 1346 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Release\Bouncing Balls.exe
 C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Config.cpp(3): warning C26812: The enum type 'sf::Keyboard::Key' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).

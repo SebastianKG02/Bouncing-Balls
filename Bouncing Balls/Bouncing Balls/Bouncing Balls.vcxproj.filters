@@ -67,6 +67,12 @@
     <Filter Include="Header Files\Engine Toolkit\Scenes\Gameplay\Campaign">
       <UniqueIdentifier>{a15fbc30-140a-45ed-99d0-46e353dd82a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine Toolkit\Entity">
+      <UniqueIdentifier>{a1ff9126-2b1e-40f7-8fe2-e77c1227689f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine Toolkit\Entity">
+      <UniqueIdentifier>{97274a4a-b1f9-4f25-b9f7-b8269b78a76b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +120,33 @@
     <ClCompile Include="StatsScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="CampaignInfoScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="EndlessInfoScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="ChallengeInfoScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClCompile>
+    <ClCompile Include="CampaignSelectScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayL1Scene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="Cannon.cpp">
+      <Filter>Source Files\Engine Toolkit\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source Files\Engine Toolkit\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="PneumaticPress.cpp">
+      <Filter>Source Files\Engine Toolkit\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Engine Toolkit\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defines.h">
@@ -160,6 +193,33 @@
     </ClInclude>
     <ClInclude Include="StatsScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="CampaignInfoScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="EndlessInfoScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="ChallengeInfoScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClInclude>
+    <ClInclude Include="CampaignSelectScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayL1Scene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="Cannon.h">
+      <Filter>Header Files\Engine Toolkit\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Header Files\Engine Toolkit\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="PneumaticPress.h">
+      <Filter>Header Files\Engine Toolkit\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Engine Toolkit\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

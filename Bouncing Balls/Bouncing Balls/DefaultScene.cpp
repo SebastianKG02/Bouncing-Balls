@@ -72,8 +72,8 @@ void DefaultScene::init() {
 
 	//Dynamic balls
 	for (int i = 1; i < 100; i++) {
-		sprites.push_back(new sf::Sprite(*AssetManager::getTexture("ball_blue")));
-		sprites[i]->setScale(0.05f, 0.05f);
+		sprites.push_back(new sf::Sprite(*AssetManager::getTexture("ball_cyan")));
+		sprites[i]->setScale(0.1f, 0.1f);
 		sprites[i]->setColor(sf::Color(255, 255, 500, 255));
 		sprites[i]->setPosition(rand() % (Config::user_resolution.X()-100),  (-100 - rand()%600));
 	}

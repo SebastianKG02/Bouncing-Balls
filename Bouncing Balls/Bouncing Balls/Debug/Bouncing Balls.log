@@ -1,3 +1,64 @@
-﻿  PlaySelectScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlaySelectScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  PlayL1Scene.cpp
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(26,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(30,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(30,57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(43,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(43,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(52,77): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(59,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(86,34): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(130,98): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(130,61): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(133,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(136,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(165,73): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(194,43): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(194,101): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(194,152): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(204,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(204,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(442,25): warning C4244: 'argument': conversion from 'T' to 'const unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(442,39): warning C4244: 'argument': conversion from 'T' to 'const unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(443,25): warning C4244: 'argument': conversion from 'T' to 'const unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayL1Scene.cpp(443,39): warning C4244: 'argument': conversion from 'T' to 'const unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
   Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe
