@@ -171,11 +171,11 @@ void ControlsScene::update(sf::RenderWindow* w) {
 					text[17]->setString("Please enter new Right Move key: ");
 				}
 				//If pause key is to be set
-				else if (i == 4) {
+				else if (i == 5) {
 					text[17]->setString("Please enter new Pause key: ");
 				}
 				//If shoot key is to be set
-				else if (i == 5) {
+				else if (i == 4) {
 					text[17]->setString("Please enter new Shoot key: ");
 				}
 
@@ -227,11 +227,11 @@ void ControlsScene::update(sf::RenderWindow* w) {
 						Config::user_key_right = key;
 						Config::getSettings()->setValue("key_right", Utils::keyToStr(key), true);
 						break;
-					case 3:
+					case 4:
 						Config::user_key_pause = key;
 						Config::getSettings()->setValue("key_pause", Utils::keyToStr(key), true);
 						break;
-					case 4:
+					case 3:
 						Config::user_key_shoot = key;
 						Config::getSettings()->setValue("key_shoot", Utils::keyToStr(key), true);
 						break;

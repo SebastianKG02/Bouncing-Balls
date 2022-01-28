@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Bouncing Balls"
+    "\\Bouncing Balls",
+    "\\Bouncing Balls\\Bouncing Balls"
   ],
-  "SelectedNode": "\\Bouncing Balls\\Bouncing Balls.sln",
+  "SelectedNode": "\\Bouncing Balls\\Bouncing Balls\\UIElement.h",
   "PreviewInSolutionExplorer": false
 }

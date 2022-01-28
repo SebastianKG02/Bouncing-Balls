@@ -266,7 +266,7 @@ sf::Keyboard::Key Utils::charToKey(std::string keyt) {
 			return sf::Keyboard::Key::R;
 		}
 	case 'S':
-		if (keyt.size() >= 3) {
+		if (keyt.size() >= 2) {
 			return sf::Keyboard::Key::Space;
 		}
 		else {

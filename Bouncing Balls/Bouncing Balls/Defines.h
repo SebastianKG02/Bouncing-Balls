@@ -28,7 +28,7 @@ Level 3 - All error messages and all diagnostic messages
 #define GM_MIN_CANNON_ROT -60.f
 #define GM_MAX_CANNON_ROT 60.f
 
-#define GM_KEYBOARD_MOVE_SPEED 0.5f
+#define GM_KEYBOARD_MOVE_SPEED 1.f
 #define GM_BALL_SHOOT_SPEED 0.75f
 #define GM_BALL_MOVE_SPEED 0.007f
 //delay as multiple of a second

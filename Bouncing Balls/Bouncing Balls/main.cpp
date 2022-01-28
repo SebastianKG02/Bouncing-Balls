@@ -34,6 +34,7 @@ int main() {
 	//Define window event handle
 	sf::Event windowEvent;
 
+	config.loadFromConfig("config.cfg");
 	//Apply settings for window
 	config.applySettings(&window);
 

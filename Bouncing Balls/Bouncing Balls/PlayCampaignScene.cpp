@@ -1,6 +1,7 @@
 #include "PlayCampaignScene.h"
 #include "PlayerData.h"
 
+//Default constructor
 PlayCampScene::PlayCampScene(int id, std::string name) {
 	this->name = name;
 	this->sceneID = id;
@@ -28,13 +29,14 @@ void PlayCampScene::init() {
 	sprites_map_end = 0;
 	time_elapsed = 0;
 	nextBalls = std::vector<BallSimple*>();
+	Config::loadFromConfig("config.cfg");
 	//Set up easy centering variable
 	centerX = Config::user_resolution.X() / 2;
 	num_balls = 0;
 	maxCols = 2;
-	//Initalise ball map
 	//Ensure proper scaling of difficulty
 	this->rules = SceneManager::getCampSettings(Player::getData()->last_level);
+	maxCols = rules->maxColours;
 	std::cout << "[BallMap]Creating map for Campaign Level " << rules->level << " (loaded as " << Player::getData()->last_level << ")" << std::endl;
 	map = BallMap(rules->rows, rules->cols, rules->minColours, rules->maxColours, Config::user_resolution.X()*0.3f, 0, -1);
 	
@@ -342,7 +344,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				}
 
 				//Shooting mechanism
-				if ((sf::Keyboard::isKeyPressed(Config::user_key_shoot) && fired == false) || sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fired == false) {
+				if ((sf::Keyboard::isKeyPressed(Utils::charToKey(Config::getSettings()->getValue("key_shoot"))) && fired == false) || sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && fired == false) {
 					clock.restart();
 					balls.push_back(new Ball(p1Cannon.getBody()->getPosition().x, p1Cannon.getBody()->getPosition().y, getNextColour()));
 
@@ -610,6 +612,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 						}
 					}
 				}
+				//Update map ball location
 				map.update(0, GM_BALL_MOVE_SPEED * TICK_SPEED.asMilliseconds());
 
 				num_balls = 0;

@@ -1,251 +1,88 @@
-﻿  AssetManager.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(327,22): warning C4553: '==': result of expression not used; did you intend '='?
-  Ball.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(97,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(97,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(133,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(223,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(224,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(225,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(226,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(227,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(228,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(249,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(252,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(257,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(270,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(273,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(291,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(310,10): warning C4244: '=': conversion from 'float' to 'long', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(313,18): warning C4244: '=': conversion from 'float' to 'long', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(326,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(329,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  CampLoseScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\CampLoseScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  CampVictoryScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\CampVictoryScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  CampaignInfoScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\CampaignInfoScene.cpp(18,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  CampaignSelectScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\CampaignSelectScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Cannon.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Cannon.cpp(11,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Cannon.cpp(12,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  ChallengeInfoScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ChallengeInfoScene.cpp(18,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Config.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Config.cpp(170,19): warning C4834: discarding return value of function with 'nodiscard' attribute
-  ControlsScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(24,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(125,109): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  PlayCampaignScene.cpp
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(34,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(41,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(46,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(113,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(113,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(127,41): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(141,77): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(125,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(149,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\ControlsScene.cpp(140,41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  DefaultScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(16,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(77,52): warning C4305: 'argument': truncation from 'int' to 'sf::Uint8'
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(77,44): warning C4309: 'argument': truncation of constant value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(78,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(78,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(118,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\DefaultScene.cpp(118,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  EndlessInfoScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\EndlessInfoScene.cpp(18,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  PlayCampaignScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(32,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(39,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(44,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(111,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(111,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(125,41): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(139,77): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(175,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(253,31): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(349,101): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(147,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(349,64): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(173,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(251,31): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(347,101): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(347,64): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(350,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(351,50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(354,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(355,50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(423,28): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(427,30): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(448,86): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(352,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(353,50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(356,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(357,50): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(425,28): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(429,30): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(450,86): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(448,60): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(450,60): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(449,86): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(451,86): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(449,60): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(451,60): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(461,23): warning C4018: '>=': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(472,25): warning C4018: '>=': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(476,24): warning C4018: '>=': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(479,50): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(539,37): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(567,38): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(617,23): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(618,24): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(642,15): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(662,16): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(690,27): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(727,16): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(735,15): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(735,48): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(749,15): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(749,46): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(749,79): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(830,61): warning C4244: '+=': conversion from 'double' to 'long', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(889,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(898,23): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(938,14): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(940,20): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(942,8): warning C4834: discarding return value of function with 'nodiscard' attribute
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(946,20): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(952,20): warning C4018: '<': signed/unsigned mismatch
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(953,31): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-  PlaySelectScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlaySelectScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  PlayerData.cpp
-  Resolution.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Resolution.cpp(16,36): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Resolution.cpp(17,33): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Resolution.cpp(29,26): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Resolution.cpp(33,26): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-  SceneManager.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\SceneManager.cpp(201,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\SceneManager.cpp(202,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  SettingsScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\SettingsScene.cpp(21,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  StatsScene.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\StatsScene.cpp(19,40): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  UIButton.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(16,14): warning C4834: discarding return value of function with 'nodiscard' attribute
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(28,9): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(29,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(30,9): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(31,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(37,30): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(38,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(39,30): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(40,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(43,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIButton.cpp(44,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-  Generating Code...
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(91): warning C4715: 'Ball::ballColourFromStr': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Ball.cpp(41): warning C4715: 'Ball::ballColourToStr': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(122): warning C4715: 'AssetManager::getMusic': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(47): warning C4715: 'AssetManager::getTexture': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(72): warning C4715: 'AssetManager::getSound': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\AssetManager.cpp(97): warning C4715: 'AssetManager::getFont': not all control paths return a value
-  Compiling...
-  UIElement.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIElement.cpp(16,14): warning C4834: discarding return value of function with 'nodiscard' attribute
-  UIRadioButton.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(50,30): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(51,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(52,30): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(53,14): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(56,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(57,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\UIRadioButton.cpp(119,2): warning C4809: switch statement has redundant 'default' label; all possible 'case' labels are given
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(463,23): warning C4018: '>=': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(474,25): warning C4018: '>=': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(478,24): warning C4018: '>=': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(481,50): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(541,37): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(569,38): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(620,23): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(621,24): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(645,15): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(665,16): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(693,27): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(730,16): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(738,15): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(738,48): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(752,15): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(752,46): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(752,79): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(833,61): warning C4244: '+=': conversion from 'double' to 'long', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(892,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(901,23): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(941,14): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(943,20): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(945,8): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(949,20): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(955,20): warning C4018: '<': signed/unsigned mismatch
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\PlayCampaignScene.cpp(956,31): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   Utils.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(550,29): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(552,24): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
-  main.cpp
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\main.cpp(51,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(550,29): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(552,24): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
   Generating Code...
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(617): warning C4715: 'Utils::saveToConfigFile': not all control paths return a value
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(628): warning C4715: 'Utils::boolToString': not all control paths return a value
-  Bouncing Balls.vcxproj -> C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(617): warning C4715: 'Utils::saveToConfigFile': not all control paths return a value
+C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Utils.cpp(628): warning C4715: 'Utils::boolToString': not all control paths return a value
+  Bouncing Balls.vcxproj -> C:\Bouncing Balls\Bouncing-Balls\Bouncing Balls\Debug\Bouncing Balls.exe
