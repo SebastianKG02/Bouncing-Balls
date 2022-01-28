@@ -192,13 +192,15 @@ void Ball::update() {
 }
 
 void Ball::kill() {
-	/*
-	for (auto& p : path) {
-		delete p.second;
-	}
-	path.clear();
-	*/
-	spr = nullptr;
+
+}
+
+float* Ball::getID() {
+	return idRef;
+}
+
+void Ball::setID(float id) {
+	*idRef = id;
 }
 
 BallColour* Ball::getColour() {
@@ -214,6 +216,9 @@ float BallMap::getBlanks() {
 }
 
 BallMap::BallMap(int rows, int columns, int min_colours, int max_colours, int startx, int starty, int dir) {
+	std::cout << "[BallMap]Creating new map..." << std::endl;
+	std::cout << "[BallMap]Rows: " << rows << ", Columns: " << columns << std::endl;
+	std::cout << "[BallMap]Minimum colours: " << min_colours << ", Max colours: " << max_colours << std::endl;
 	//Initalise local reference variables
 	this->map_rows = rows;
 	this->map_cols = columns;
@@ -269,82 +274,73 @@ BallMap::BallMap(int rows, int columns, int min_colours, int max_colours, int st
 		}
 
 		for (int j = 0; j < cur_cols+1;j++) {
-			BallColour bc;
+			map[i]->row[j]->col = BallColour();
 			if (max_colours - min_colours == 0) {
-				bc = static_cast<BallColour>((rand() % (2)));
+				map[i]->row[j]->col = static_cast<BallColour>((rand() % (2)));
 			}
 			else {
-				bc = static_cast<BallColour>(rand() % (max_colours - min_colours));
+				//srand(time(NULL));
+				map[i]->row[j]->col = static_cast<BallColour>(rand() % (max_colours));
+				std::cout << "[BallMap][" << i << "," << j << "]Ball Colour: " << Ball::ballColourToStr(map[i]->row[j]->col) << std::endl;
 			}
 			//Set up sprite
 			map[i]->id = map_cols + 1 - i;
-			map[i]->row[j]->spr = new sf::Sprite(*AssetManager::getTexture("ball_" + Ball::ballColourToStr(bc)));
-			map[i]->row[j]->col = bc;
+			map[i]->row[j]->spr = new sf::Sprite(*AssetManager::getTexture("ball_" + Ball::ballColourToStr(map[i]->row[j]->col)));
 			map[i]->row[j]->spr->setScale(0.1f, 0.1f);
 			map[i]->row[j]->alive = true;
 			map[i]->row[j]->id = j;
 
-			if ((i - (map_rows / 2)) < 0) {
-				map[i]->row[j]->spr->setColor(sf::Color::Transparent);
-			}
-			else if ((i - (map_rows / 2) == 0)) {
-				blanks_start = i;
-			}
-
 			//Set up sprite position
 			if (i % 2 == 0) {
-				map[i]->row[j]->spr->setPosition(startx + (j * ref.getGlobalBounds().width), starty + (dir * ((i - (map_rows / 2)) * ref.getGlobalBounds().height)));
+				map[i]->row[j]->spr->setPosition(startx + (j * ref.getGlobalBounds().width), starty + (dir * (i* ref.getGlobalBounds().height)));
 			}
 			else {
-				map[i]->row[j]->spr->setPosition(startx + (j * ref.getGlobalBounds().width) + (ref.getGlobalBounds().width / 2), starty + (dir * ((i - (map_rows / 2)) * ref.getGlobalBounds().height)));
+				map[i]->row[j]->spr->setPosition(startx + (j * ref.getGlobalBounds().width) + (ref.getGlobalBounds().width / 2), starty + (dir * (i * ref.getGlobalBounds().height)));
 			}
+
 		}
 	}
 }
 
 float BallMap::addRow(bool isBlank) {
-	map.push_back(new BallRow);
+	
 
-	BallColour bc;
-	if (max_colours - min_colours == 0) {
-		bc = static_cast<BallColour>((rand() % (2)));
+	long cols = 0;
+	if ((map[1]->row.size()) == map_cols) {
+		cols = map_cols;
 	}
-	else
-	{
-		bc = static_cast<BallColour>((rand() % int(max_colours - min_colours)));
+	else if ((map[1]->row.size()) == map_cols-1) {
+		cols = map_cols-1;
 	}
 
-	long cols = map_rows;
-	if (cols % 2 != 0) {
-		cols--;
-	}
+	map.insert(map.begin(), new BallRow);
+	map[0]->id = map[1]->id + 1;
+
 	ref.move(0, -(map_rows * ref.getGlobalBounds().height));
 	for (int i = 0; i < cols; i++) {
-		map[map_rows]->row.push_back(new BallSimple);
-		map[map_rows]->row[i]->spr = new sf::Sprite(*AssetManager::getTexture("ball_" + Ball::ballColourToStr(bc)));
+		map[0]->row.push_back(new BallSimple);
+		map[0]->row[i]->spr = new sf::Sprite(*AssetManager::getTexture("ball_" + Ball::ballColourToStr(BallColour::RED)));
 		if (isBlank) {
-			map[map_rows]->row[i]->spr->setColor(sf::Color::Transparent);
+			map[0]->row[i]->spr->setColor(sf::Color::Transparent);
 		}
-		map[map_rows]->row[i]->id = i;
-		map[map_rows]->row[i]->col = bc;
-		map[map_rows]->row[i]->spr->setScale(0.075f, 0.075f);
-		if (isBlank) {
-			map[map_rows]->row[i]->alive = false;
-		}
-		else {
-			map[map_rows]->row[i]->alive = true;
-		}
-		map[map_rows]->row[i]->id = i;
+		map[0]->row[i]->id = i;
+		map[0]->row[i]->col = BallColour::RED;
+		map[0]->row[i]->spr->setScale(0.1f, 0.1f);
+		map[0]->row[i]->id = i;
+		map[0]->row[i]->alive = false;
 		
-		if (i % 2 == 0) {
-			map[map_rows]->row[i]->spr->setPosition(start_x + (i * ref.getGlobalBounds().width), start_y + ((i) * ref.getGlobalBounds().height));
+		if (cols == (map_cols+1)) {
+			map[0]->row[i]->spr->setPosition(start_x + (i * ref.getGlobalBounds().width), map[1]->row[0]->spr->getPosition().y + (ref.getGlobalBounds().height));
 		}
 		else {
-			map[map_rows]->row[i]->spr->setPosition(start_x + (i * ref.getGlobalBounds().width) + (ref.getGlobalBounds().width / 2), start_y + ((i) * ref.getGlobalBounds().height));
+			map[0]->row[i]->spr->setPosition(start_x + (i * ref.getGlobalBounds().width) + (ref.getGlobalBounds().width / 2), map[1]->row[0]->spr->getPosition().y + (ref.getGlobalBounds().height));
 		}
-		std::cout << "New Ball @ " << map_rows << "/" << i << ": x-" << map[map_rows]->row[i]->spr->getPosition().x << " ~ y-" << map[map_rows]->row[i]->spr->getPosition().y << std::endl;
-		return ++map_rows;
+		
+		start_y = map[0]->row[i]->spr->getPosition().y;
+
+		std::cout << "New Ball @ " << map_rows << "/" << i << ": x-" << map[0]->row[i]->spr->getPosition().x << " ~ y-" << map[0]->row[i]->spr->getPosition().y << std::endl;
 	}
+	return ++map_rows;
 }
 
 float BallMap::getCols() {

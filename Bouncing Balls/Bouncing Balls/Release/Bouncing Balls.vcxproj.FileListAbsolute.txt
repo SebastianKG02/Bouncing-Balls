@@ -1,2 +1,0 @@
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Release\Bouncing Balls.exe.lastcodeanalysissucceeded
-C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\Release\NativeCodeAnalysis.read.1.tlog

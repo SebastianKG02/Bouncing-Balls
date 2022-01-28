@@ -7,7 +7,9 @@
 #include "EndlessInfoScene.h"
 #include "ChallengeInfoScene.h"
 #include "CampaignSelectScene.h"
-#include "PlayL1Scene.h"
+#include "PlayCampaignScene.h"
+#include "CampVictoryScene.h"
+#include "CampLoseScene.h"
 
 /*
 SCENE DEFINITION
@@ -158,6 +160,7 @@ int SceneManager::currScene = -1;
 std::map<int, Scene*> SceneManager::scenes = std::map<int, Scene*>();
 bool SceneManager::initComplete = false;
 bool SceneManager::cleanupComplete = false;
+std::vector<GameSettings*> SceneManager::camp_settings = std::vector<GameSettings*>();
 
 //Initalise SceneManager, register all scenes
 void SceneManager::init() {
@@ -189,17 +192,42 @@ void SceneManager::init() {
 	CampaignSelectScene* camp_select = new CampaignSelectScene(8, "Campaign Select");
 	scenes.insert({ camp_select->getID(), camp_select });
 
-	PlayL1Scene* camp_l1 = new PlayL1Scene(9, "Level 1");
+
+	for (int i = 0; i < 6; i++) {
+		camp_settings.push_back(new GameSettings);
+		camp_settings[i]->level = i;
+		camp_settings[i]->rows = camp_settings[i]->rows + (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_ROWS);
+		camp_settings[i]->maxColours = camp_settings[i]->maxColours + (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_COLOUR);
+		camp_settings[i]->time_l2 = camp_settings[i]->time_l2 + (camp_settings[i]->time_l2 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L2));
+		camp_settings[i]->time_l3 = camp_settings[i]->time_l3 + (camp_settings[i]->time_l3 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L3));
+		std::cout << "[SM]Registered Campaign Level " << i << " (or " << camp_settings[i]->level << ")" << std::endl;
+	}
+	
+	PlayCampScene* camp_l1 = new PlayCampScene(9, "Campaign Level");
 	scenes.insert({camp_l1->getID(), camp_l1});
+
+	CampVictoryScene* camp_win = new CampVictoryScene(10, "Winner");
+	scenes.insert({ camp_win->getID(), camp_win });
+
+	CampLoseScene* camp_lose = new CampLoseScene(11, "Loser");
+	scenes.insert({ camp_lose->getID(), camp_lose });
+}
+
+GameSettings* SceneManager::getCampSettings(int num) {
+	return camp_settings[num];
 }
 
 //Clean up all resources used by scenes by calling their member cleanup function
 void SceneManager::cleanup() {
 	if (initComplete == true && cleanupComplete == false) {
-		for (auto scene : scenes) {
+		for (auto& scene : scenes) {
 			scene.second->cleanup();
-			//delete scene.second;
+			delete &scene;
 		}
+	}
+
+	for (auto& gs : camp_settings) {
+		delete gs;
 	}
 }
 

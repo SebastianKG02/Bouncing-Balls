@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\</FILEPATH>
+      <FILENAME>Ball.h</FILENAME>
+      <LINE>50</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BallSimple::spr' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BallSimple::{ctor}</FUNCTION>
+    <DECORATED>??0BallSimple@@QAE@XZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>BallSimple::spr</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\</FILEPATH>
+      <FILENAME>Ball.h</FILENAME>
+      <LINE>50</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BallSimple::alive' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BallSimple::{ctor}</FUNCTION>
+    <DECORATED>??0BallSimple@@QAE@XZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>BallSimple::alive</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\</FILEPATH>
+      <FILENAME>Ball.h</FILENAME>
+      <LINE>50</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'BallSimple::col' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>BallSimple::{ctor}</FUNCTION>
+    <DECORATED>??0BallSimple@@QAE@XZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>BallSimple::col</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\</FILEPATH>
+      <FILENAME>PlayL1Scene.cpp</FILENAME>
+      <LINE>57</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'BallColour' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>PlayL1Scene::init</FUNCTION>
+    <DECORATED>?init@PlayL1Scene@@UAEXXZ</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\SFML 32bit\include\SFML\Graphics\</FILEPATH>
+      <FILENAME>VertexArray.hpp</FILENAME>
+      <LINE>192</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'sf::PrimitiveType' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>sf::VertexArray::=</FUNCTION>
+    <DECORATED>??4VertexArray@sf@@QAEAAV01@ABV01@@Z</DECORATED>
+    <FUNCLINE>192</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Git\BouncingBalls\Bouncing-Balls\Bouncing Balls\Bouncing Balls\</FILEPATH>
+      <FILENAME>PlayL1Scene.cpp</FILENAME>
+      <LINE>138</LINE>
+      <COLUMN>32</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'sf::Keyboard::Key' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>PlayL1Scene::update</FUNCTION>
+    <DECORATED>?update@PlayL1Scene@@UAEXPAVRenderWindow@sf@@@Z</DECORATED>
+    <FUNCLINE>120</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

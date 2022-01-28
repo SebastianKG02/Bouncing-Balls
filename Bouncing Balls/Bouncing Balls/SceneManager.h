@@ -48,6 +48,7 @@ protected:
 };
 
 #include "DefaultScene.h"
+#include "GameSettings.h"
 /*
 V0.1a - Scene Manager
 The SceneManager is responsible for switching between scenes (or screens),
@@ -66,6 +67,7 @@ public:
 	static Scene* getScene(int id);
 	static Scene* getNext(int id);
 	static Scene* getPrev(int id);
+	static GameSettings* getCampSettings(int num);
 	static void next();
 	static void previous();
 	static void set(int id);
@@ -80,5 +82,6 @@ private:
 	static int currScene;
 	static bool initComplete;
 	static bool cleanupComplete;
+	static std::vector<GameSettings*> camp_settings;
 };
 #endif

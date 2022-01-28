@@ -120,10 +120,15 @@ void CampaignSelectScene::init() {
 	sprites[6]->setScale(0.4f, 0.4f);
 	sprites[6]->move((ui[6]->getSprite()->getGlobalBounds().width / 2) - (sprites[6]->getGlobalBounds().width / 2), -sprites[6]->getGlobalBounds().height);
 
+	Player::save();
+	Player::load();
 	//Loop through each campaign completion marker in player data and disable levels that have not been unlocked yet
-	for (int i = 0; i < 6; i++) {
-		if (Player::getData()->campaign_comp[i] == false) {
-			ui[i + 1]->lock();
+	for (int i = 2; i < 7; i++) {
+		if (Player::getData()->campaign_comp[i-2] == false) {
+			ui[i]->lock();
+		}
+		else {
+			ui[i]->unlock();
 		}
 	}
 
@@ -165,17 +170,43 @@ void CampaignSelectScene::update(sf::RenderWindow* w) {
 		}
 	}
 
-	//If back button pressed
-	if (*ui[1]->getState() == UIState::CLICK) {
-		clock.restart();
-		ui[1]->lock();
-		this->lock();
-		SceneManager::setNext(9);
-		SceneManager::next();
-	}
-	else if (*ui[1]->getState() == UIState::LOCK) {
-		if (clock.getElapsedTime().asMilliseconds() > 200) {
-			ui[0]->unlock();
+	//If play level (i) button pressed
+	for (int i = 1; i < 7; i++) {
+		//Specific handling for level 1 as always available
+		if (i == 1) {
+			if(*ui[1]->getState() == UIState::CLICK) {
+				clock.restart();
+				ui[1]->lock();
+				this->lock();
+				SceneManager::getCampSettings(0)->level = 0;
+				Player::getData()->last_level = 0;
+				std::cout << "[SM]Sending to Campaign Level " << SceneManager::getCampSettings(0)->level << std::endl;
+				SceneManager::setNext(9);
+				SceneManager::next();
+			}
+			else if (*ui[1]->getState() == UIState::LOCK) {
+				if (clock.getElapsedTime().asMilliseconds() > 200) {
+					ui[1]->unlock();
+				}
+			}
+		}
+		else {
+			if (Player::getData()->campaign_comp[i - 2] == true && *ui[i]->getState() == UIState::CLICK) {
+				clock.restart();
+				ui[i]->lock();
+				this->lock();
+				Player::getData()->last_level = (i - 1);
+				SceneManager::setNext(9);
+				SceneManager::next();
+			}
+			else if (Player::getData()->campaign_comp[i - 2] == true && *ui[i]->getState() == UIState::LOCK) {
+				if (clock.getElapsedTime().asMilliseconds() > 200) {
+					ui[i]->unlock();
+				}
+			}
+			else if (Player::getData()->campaign_comp[i - 2] == false) {
+				ui[i]->lock();
+			}
 		}
 	}
 }

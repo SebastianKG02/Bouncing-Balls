@@ -132,7 +132,7 @@
     <ClCompile Include="CampaignSelectScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClCompile>
-    <ClCompile Include="PlayL1Scene.cpp">
+    <ClCompile Include="PlayCampaignScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClCompile>
     <ClCompile Include="Cannon.cpp">
@@ -146,6 +146,12 @@
     </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Engine Toolkit\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="CampVictoryScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="CampLoseScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,7 +212,7 @@
     <ClInclude Include="CampaignSelectScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClInclude>
-    <ClInclude Include="PlayL1Scene.h">
+    <ClInclude Include="PlayCampaignScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClInclude>
     <ClInclude Include="Cannon.h">
@@ -220,6 +226,15 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files\Engine Toolkit\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSettings.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="CampVictoryScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="CampLoseScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

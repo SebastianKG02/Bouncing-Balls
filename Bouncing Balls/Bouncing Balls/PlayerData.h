@@ -25,6 +25,20 @@ struct PlayerData
 
 	//Total coins
 	long coins = 0;
+
+	//Last played level by player
+	int last_level = 0;
+
+	//Last played game mode by player
+	//-1 - Challenge
+	// 0 - Campaign
+	// 1 - Endless
+	int last_mode = 0;
+
+	//Number of powerups
+	// 0 - Double points powerup count
+	// 1 - 15s time save powerup count
+	int num_powerps[2] = { 0, 0 };
 };
 
 #include <iostream>

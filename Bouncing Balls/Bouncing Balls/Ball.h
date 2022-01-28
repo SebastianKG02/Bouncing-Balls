@@ -14,8 +14,6 @@ BallColour - A simple enum to facilitate easy sorting of ball colours in-game
 enum BallColour
 {
 	RED,
-	AMBER,
-	ORANGE,
 	YELLOW,
 	LIME,
 	ROYAL_BLUE,
@@ -24,12 +22,14 @@ enum BallColour
 	EM_GREEN,
 	TURQOUISE,
 	CYAN,
+	ORANGE,
 	WINE,
 	VIOLET,
 	PURPLE,
 	DARK_PURPLE,
 	BRONZE,
-	COBALT
+	COBALT,
+	AMBER
 };
 
 //Lightweight wrapper around sf::Sprite, does not need as many method * variables as Ball
@@ -103,11 +103,14 @@ public:
 	void kill();
 	sf::Sprite* getSprite();
 	sf::Vector2f* getTarget();
+	float* getID();
+	void setID(float id);
 private:
 	BallColour col;
 	sf::Sprite* spr;
 	sf::Vector2f target;
 	sf::Vector2f motion;
+	float *idRef = new float(0.f);
 	bool *isAlive = new bool(true);
 };
 
