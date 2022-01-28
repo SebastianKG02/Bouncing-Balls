@@ -5,7 +5,7 @@
 A simple 2D ball shooter game based on https://www.novelgames.com/en/bouncing/ using bare-bones C++ code as well as the SFML library (https://www.sfml-dev.org/index.php);
 
 Copyright (C) Sebastian Kamil Gluch 2022.
-All program code available under Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license: https://creativecommons.org/licenses/by-nc-sa/4.0/.
+All program code available under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license: https://creativecommons.org/licenses/by-nc-sa/4.0/.
 
 Thank you to the following:
  - The SFML team for the SFML library (https://www.sfml-dev.org/index.php, available under the zlib-png license - https://opensource.org/licenses/Zlib - as written within https://www.sfml-dev.org/license.php).
