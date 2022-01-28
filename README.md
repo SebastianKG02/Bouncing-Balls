@@ -13,3 +13,6 @@ Thank you to the following:
  > - "cannon_base.png"
  > - "dbl_points_icon.png"
  > - "extra_time_icon.png
+
+Virus Scan for WinRar installer EXE (only false positives):
+https://www.virustotal.com/gui/file/dd55edfd1ddf71c869e8b0a6903bcc352eb7c75c91e73b6f7ee0d6179e437e91/detection
