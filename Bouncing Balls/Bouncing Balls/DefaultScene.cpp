@@ -17,58 +17,60 @@ void DefaultScene::init() {
 	//Title text
 	text.push_back(new sf::Text(std::string("Bouncing Balls"), *AssetManager::getFont("title"), 75));
 	//Set real position
-	text[0]->setPosition(centerX-(text[0]->getGlobalBounds().width/2), 100);
 	text[0]->setFillColor(sf::Color::Black);
 	text[0]->setOutlineColor(sf::Color::White);
 	text[0]->setOutlineThickness(3.5f);
 
 	//Background image
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("background")));
-
 	//Play button
 	ui.push_back(new UIButton(centerX, 200, "btn_long_active", 0.1f, 0.1f));
-	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), 200);
 	ui[0]->setStateTex(UIState::ACTIVE, "btn_long_active");
 	ui[0]->setStateTex(UIState::HOVER, "btn_long_hover");
 	ui[0]->setStateTex(UIState::CLICK, "btn_long_click");
 	ui[0]->setStateTex(UIState::INACTIVE, "btn_long_lock");
 	text.push_back(new sf::Text(std::string("Play"), *AssetManager::getFont("title"), 34));
-	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), 200+(text[1]->getGlobalBounds().height/2));
+	
 	text[1]->setFillColor(sf::Color::Black);
 
 	//Stats button
 	ui.push_back(new UIButton(centerX, 300, "btn_long_active", 0.1f, 0.1f));
-	ui[1]->getSprite()->setPosition(centerX - (ui[1]->getSprite()->getGlobalBounds().width / 2), 300);
 	ui[1]->setStateTex(UIState::ACTIVE, "btn_long_active");
 	ui[1]->setStateTex(UIState::HOVER, "btn_long_hover");
 	ui[1]->setStateTex(UIState::CLICK, "btn_long_click");
 	ui[1]->setStateTex(UIState::INACTIVE, "btn_long_lock");
 	text.push_back(new sf::Text(std::string("Stats"), *AssetManager::getFont("title"), 34));
-	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width / 2), 300 + (text[2]->getGlobalBounds().height / 2));
 	text[2]->setFillColor(sf::Color::Black);
 
 	//Settings button
 	ui.push_back(new UIButton(centerX, 400, "btn_long_active", 0.1f, 0.1f));
-	ui[2]->getSprite()->setPosition(centerX - (ui[2]->getSprite()->getGlobalBounds().width / 2), 400);
 	ui[2]->setStateTex(UIState::ACTIVE, "btn_long_active");
 	ui[2]->setStateTex(UIState::HOVER, "btn_long_hover");
 	ui[2]->setStateTex(UIState::CLICK, "btn_long_click");
 	ui[2]->setStateTex(UIState::INACTIVE, "btn_long_lock");
 	text.push_back(new sf::Text(std::string("Settings"), *AssetManager::getFont("title"), 34));
-	text[3]->setPosition(centerX - (text[3]->getGlobalBounds().width / 2), 400 + (text[3]->getGlobalBounds().height / 2));
 	text[3]->setFillColor(sf::Color::Black);
-
 	//Exit button
 	ui.push_back(new UIButton(centerX, 500, "btn_long_active", 0.1f, 0.1f));
-	ui[3]->getSprite()->setPosition(centerX - (ui[3]->getSprite()->getGlobalBounds().width / 2), 500);
 	ui[3]->setStateTex(UIState::ACTIVE, "btn_long_active");
 	ui[3]->setStateTex(UIState::HOVER, "btn_long_hover");
 	ui[3]->setStateTex(UIState::CLICK, "btn_long_click");
 	ui[3]->setStateTex(UIState::INACTIVE, "btn_long_lock");
 	text.push_back(new sf::Text(std::string("Exit"), *AssetManager::getFont("title"), 34));
-	text[4]->setPosition(centerX - (text[4]->getGlobalBounds().width / 2), 500 + (text[4]->getGlobalBounds().height / 2));
+	
 	text[4]->setFillColor(sf::Color::Black);
 	ui[3]->lock();
+
+	//Reposition ui elements ( UI & TEXT SCAILING CLEANUP )
+	text[0]->setPosition(centerX - (text[0]->getGlobalBounds().width / 2), Config::applyRDY(100));
+	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), Config::applyRDY(200));
+	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), Config::applyRDY(200) + (text[1]->getGlobalBounds().height / 2));
+	ui[1]->getSprite()->setPosition(centerX - (ui[1]->getSprite()->getGlobalBounds().width / 2), Config::applyRDY(300));
+	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width / 2), Config::applyRDY(300) + (text[2]->getGlobalBounds().height / 2));
+	ui[2]->getSprite()->setPosition(centerX - (ui[2]->getSprite()->getGlobalBounds().width / 2), Config::applyRDY(400));
+	text[3]->setPosition(centerX - (text[3]->getGlobalBounds().width / 2), Config::applyRDY(400) + (text[3]->getGlobalBounds().height / 2));
+	ui[3]->getSprite()->setPosition(centerX - (ui[3]->getSprite()->getGlobalBounds().width / 2), Config::applyRDY(500));
+	text[4]->setPosition(centerX - (text[4]->getGlobalBounds().width / 2), Config::applyRDY(500) + (text[4]->getGlobalBounds().height / 2));
 
 	//Dynamic balls
 	for (int i = 1; i < 100; i++) {
@@ -77,6 +79,9 @@ void DefaultScene::init() {
 		sprites[i]->setColor(sf::Color(255, 255, 500, 255));
 		sprites[i]->setPosition(rand() % (Config::user_resolution.X()-100),  (-100 - rand()%600));
 	}
+
+	resize = false;
+	sprites[0]->setScale(1.0f, 1.0f);
 }
 
 void DefaultScene::update(sf::RenderWindow* w) {

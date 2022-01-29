@@ -111,9 +111,6 @@
     <ClCompile Include="PlayerData.cpp">
       <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
-    <ClCompile Include="Resolution.cpp">
-      <Filter>Source Files\Engine Toolkit\UI</Filter>
-    </ClCompile>
     <ClCompile Include="PlaySelectScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay</Filter>
     </ClCompile>
@@ -152,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="CampLoseScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="Resolution.cpp">
+      <Filter>Source Files\Engine Toolkit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,5 +236,13 @@
     <ClInclude Include="CampLoseScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Bouncing Balls.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

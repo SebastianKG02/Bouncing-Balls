@@ -197,7 +197,12 @@ void SceneManager::init() {
 		camp_settings.push_back(new GameSettings);
 		camp_settings[i]->level = i;
 		camp_settings[i]->rows = camp_settings[i]->rows + (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_ROWS);
-		camp_settings[i]->maxColours = camp_settings[i]->maxColours + (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_COLOUR);
+		if (i == 0){
+			camp_settings[i]->maxColours = 2;
+		}
+		else {
+			camp_settings[i]->maxColours = 2 + ((camp_settings[i]->level * GM_LEVEL_DIFF_MOD_COLOUR/2));
+		}
 		camp_settings[i]->time_l2 = camp_settings[i]->time_l2 + (camp_settings[i]->time_l2 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L2));
 		camp_settings[i]->time_l3 = camp_settings[i]->time_l3 + (camp_settings[i]->time_l3 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L3));
 		std::cout << "[SM]Registered Campaign Level " << i << " (or " << camp_settings[i]->level << ")" << std::endl;

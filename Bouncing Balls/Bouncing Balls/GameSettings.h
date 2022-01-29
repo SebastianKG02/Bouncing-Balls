@@ -7,7 +7,7 @@ Structure holding four primitive game settings used for map generation and logic
 */
 struct GameSettings {
 	//Number of rows (default: 10)
-	int rows = 10;
+	int rows = 6;
 
 	//Number of columns (default: 10)
 	int cols = 10;
@@ -22,10 +22,10 @@ struct GameSettings {
 	int level = 0;
 
 	//Level 2nd star time limit (defautlt: 120s)
-	int time_l2 = 120;
+	int time_l2 = 80;
 
 	//Level 3rd star time limit (default: 100s)
-	int time_l3 = 100;
+	int time_l3 = 60;
 
 	//Completion flag for level 1 objecive
 	bool obj_l1 = false;

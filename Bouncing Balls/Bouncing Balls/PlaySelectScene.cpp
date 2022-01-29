@@ -52,7 +52,7 @@ void PlaySelectScene::init() {
 
 	//Endless mode button & label
 	ui.push_back(new UIButton(new float[2]{ centerX / 2, 0.f }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[2]->getSprite()->move(-(ui[1]->getSprite()->getGlobalBounds().width / 2), text[2]->getPosition().y + ui[2]->getSprite()->getGlobalBounds().height + text[2]->getGlobalBounds().height);
+	ui[2]->getSprite()->move(-(ui[1]->getSprite()->getGlobalBounds().width / 2), text[2]->getPosition().y + ui[2]->getSprite()->getGlobalBounds().height + text[2]->getGlobalBounds().height + Config::applyRDY(25));
 	text.push_back(new sf::Text(std::string("Endless"), *AssetManager::getFont("title"), 34));
 	text[4]->setPosition(ui[2]->getSprite()->getPosition().x + (ui[2]->getSprite()->getGlobalBounds().width / 2) - (text[4]->getGlobalBounds().width / 2), ui[2]->getSprite()->getPosition().y + (ui[2]->getSprite()->getGlobalBounds().height / 2) - (text[4]->getGlobalBounds().height / 2) - Config::applyRDY(5));
 	text[4]->setFillColor(sf::Color::Black);
@@ -66,7 +66,7 @@ void PlaySelectScene::init() {
 
 	//Endless mode button & label
 	ui.push_back(new UIButton(new float[2]{ centerX / 2, 0.f }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[3]->getSprite()->move(-(ui[2]->getSprite()->getGlobalBounds().width / 2), text[4]->getPosition().y + ui[3]->getSprite()->getGlobalBounds().height + text[4]->getGlobalBounds().height);
+	ui[3]->getSprite()->move(-(ui[2]->getSprite()->getGlobalBounds().width / 2), text[4]->getPosition().y + ui[3]->getSprite()->getGlobalBounds().height + text[4]->getGlobalBounds().height + Config::applyRDY(25));
 	text.push_back(new sf::Text(std::string("Challenge"), *AssetManager::getFont("title"), 34));
 	text[6]->setPosition(ui[3]->getSprite()->getPosition().x + (ui[3]->getSprite()->getGlobalBounds().width / 2) - (text[6]->getGlobalBounds().width / 2), ui[3]->getSprite()->getPosition().y + (ui[3]->getSprite()->getGlobalBounds().height / 2) - (text[6]->getGlobalBounds().height / 2) - Config::applyRDY(5));
 	text[6]->setFillColor(sf::Color::Black);

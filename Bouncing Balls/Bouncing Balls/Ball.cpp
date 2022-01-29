@@ -329,7 +329,7 @@ float BallMap::addRow(bool isBlank) {
 		map[0]->row[i]->id = i;
 		map[0]->row[i]->alive = false;
 		
-		if (cols == (map_cols+1)) {
+		if (cols % 2 == 0) {
 			map[0]->row[i]->spr->setPosition(start_x + (i * ref.getGlobalBounds().width), map[1]->row[0]->spr->getPosition().y + (ref.getGlobalBounds().height));
 		}
 		else {

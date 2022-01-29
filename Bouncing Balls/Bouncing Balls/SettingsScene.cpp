@@ -33,9 +33,9 @@ void SettingsScene::init() {
 
 	//Add back button & label
 	ui.push_back(new UIButton(new float[2]{ centerX, 0.f }, std::string("long"),new float[2]{ 0.1f, 0.1f }));
-	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), (580));
+	ui[0]->getSprite()->setPosition(centerX - (ui[0]->getSprite()->getGlobalBounds().width / 2), Config::applyRDY(580));
 	text.push_back(new sf::Text(std::string("Back"), *AssetManager::getFont("title"), 34));
-	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), (580) + (text[1]->getGlobalBounds().height / 2));
+	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), (Config::applyRDY(580)) + (text[1]->getGlobalBounds().height / 2));
 	text[1]->setFillColor(sf::Color::Black);
 	
 	//Vsync enabled-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ void SettingsScene::init() {
 
 	//Frame limit enabled-------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Frame limit enabled: "), *AssetManager::getFont("title"), 25));
-	text[4]->setPosition(centerX - (text[4]->getGlobalBounds().width / 2) - (centerX / 2)-30, text[2]->getPosition().y+text[4]->getGlobalBounds().height+20);
+	text[4]->setPosition(centerX - (text[4]->getGlobalBounds().width / 2) - (centerX / 2)-30, text[2]->getPosition().y+text[4]->getGlobalBounds().height+Config::applyRDY(25));
 	text[4]->setFillColor(sf::Color::Black);
 
 	//Left button - 3
@@ -90,7 +90,7 @@ void SettingsScene::init() {
 
 	//Frame limit value---------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Frame limit value: "), *AssetManager::getFont("title"), 25));
-	text[6]->setPosition(centerX - (text[6]->getGlobalBounds().width / 2) - (centerX / 2) - 17, text[4]->getPosition().y + text[6]->getGlobalBounds().height + 20);
+	text[6]->setPosition(centerX - (text[6]->getGlobalBounds().width / 2) - (centerX / 2) - 17, text[4]->getPosition().y + text[6]->getGlobalBounds().height + Config::applyRDY(25));
 	text[6]->setFillColor(sf::Color::Black);
 
 	//Left button - 5
@@ -108,7 +108,7 @@ void SettingsScene::init() {
 
 	//Fullscreen enabled--------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Fullscreen enabled: "), *AssetManager::getFont("title"), 25));
-	text[8]->setPosition(centerX - (text[8]->getGlobalBounds().width / 2) - (centerX / 2) - 28, text[6]->getPosition().y + text[8]->getGlobalBounds().height + 20);
+	text[8]->setPosition(centerX - (text[8]->getGlobalBounds().width / 2) - (centerX / 2) - 28, text[6]->getPosition().y + text[8]->getGlobalBounds().height + Config::applyRDY(25));
 	text[8]->setFillColor(sf::Color::Black);
 
 	//Left button - 7
@@ -133,7 +133,7 @@ void SettingsScene::init() {
 
 	//RESOLUTION----------------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Resolution: "), *AssetManager::getFont("title"), 25));
-	text[10]->setPosition(centerX - (text[10]->getGlobalBounds().width / 2) - (centerX / 2) + 22, text[8]->getPosition().y + text[10]->getGlobalBounds().height + 20);
+	text[10]->setPosition(centerX - (text[10]->getGlobalBounds().width / 2) - (centerX / 2) + 22, text[8]->getPosition().y + text[10]->getGlobalBounds().height + Config::applyRDY(25));
 	text[10]->setFillColor(sf::Color::Black);
 
 	//Left button - 9
@@ -150,16 +150,16 @@ void SettingsScene::init() {
 	ui[10]->getSprite()->move(0.f, ui[10]->getSprite()->getGlobalBounds().width / 2);
 
 	//Controls
-	ui.push_back(new UIButton(new float[2]{ centerX, text[10]->getPosition().y+120 }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[11]->getSprite()->move(-2*(ui[11]->getSprite()->getGlobalBounds().width), 0);
+	ui.push_back(new UIButton(new float[2]{ centerX, text[10]->getPosition().y+Config::applyRDY(100) }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
+	ui[11]->getSprite()->move(-2*(ui[11]->getSprite()->getGlobalBounds().width + Config::applyRDX(20)), Config::applyRDY(25));
 	text.push_back(new sf::Text(std::string("Controls"), *AssetManager::getFont("title"), 34));
 	text[12]->setPosition(ui[11]->getSprite()->getPosition());
 	text[12]->move(text[12]->getGlobalBounds().width / 2 - 20, text[12]->getGlobalBounds().height / 2);
 	text[12]->setFillColor(sf::Color::Black);
 
 	//Save button
-	ui.push_back(new UIButton(new float[2]{ centerX, ui[11]->getSprite()->getPosition().y }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[12]->getSprite()->move(-ui[11]->getSprite()->getGlobalBounds().width + 20, 0);
+	ui.push_back(new UIButton(new float[2]{ ui[11]->getSprite()->getPosition().x, ui[11]->getSprite()->getPosition().y }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
+	ui[12]->getSprite()->move(ui[11]->getSprite()->getGlobalBounds().width + Config::applyRDX(20), 0);
 	text.push_back(new sf::Text(std::string("Save"), *AssetManager::getFont("title"), 34));
 	text[13]->setPosition(ui[12]->getSprite()->getPosition());
 	text[13]->move((ui[12]->getSprite()->getGlobalBounds().width / 2) - (text[13]->getGlobalBounds().width / 2), text[13]->getGlobalBounds().height / 2);
@@ -167,15 +167,15 @@ void SettingsScene::init() {
 
 	//Reset settings
 	ui.push_back(new UIButton(new float[2]{ ui[12]->getSprite()->getPosition().x, ui[11]->getSprite()->getPosition().y }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[13]->getSprite()->move(ui[13]->getSprite()->getGlobalBounds().width + 20, 0);
+	ui[13]->getSprite()->move(ui[13]->getSprite()->getGlobalBounds().width + Config::applyRDX(20), 0);
 	text.push_back(new sf::Text(std::string("Reset"), *AssetManager::getFont("title"), 34));
 	text[14]->setPosition(ui[13]->getSprite()->getPosition());
 	text[14]->move((ui[13]->getSprite()->getGlobalBounds().width / 2) - (text[14]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height / 2);
 	text[14]->setFillColor(sf::Color::Black);
 
 	//Refresh settings
-	ui.push_back(new UIButton(new float[2]{ ui[13]->getSprite()->getPosition().x, ui[13]->getSprite()->getPosition().y }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[14]->getSprite()->move(ui[14]->getSprite()->getGlobalBounds().width + 20, 0);
+	ui.push_back(new UIButton(new float[2]{ ui[13]->getSprite()->getPosition().x, ui[11]->getSprite()->getPosition().y }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
+	ui[14]->getSprite()->move(ui[14]->getSprite()->getGlobalBounds().width + Config::applyRDX(20), 0);
 	text.push_back(new sf::Text(std::string("Refresh"), *AssetManager::getFont("title"), 34));
 	text[15]->setPosition(ui[14]->getSprite()->getPosition());
 	text[15]->move((ui[14]->getSprite()->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[15]->getGlobalBounds().height / 2);
@@ -183,7 +183,7 @@ void SettingsScene::init() {
 
 	//SFX VOLUME----------------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("SFX Volume: "), *AssetManager::getFont("title"), 25));
-	text[16]->setPosition(centerX - (text[16]->getGlobalBounds().width / 2) - (centerX / 2) + 20, text[11]->getPosition().y + text[16]->getGlobalBounds().height + 20);
+	text[16]->setPosition(centerX - (text[16]->getGlobalBounds().width / 2) - (centerX / 2) + 20, text[11]->getPosition().y + text[16]->getGlobalBounds().height + Config::applyRDY(25));
 	text[16]->setFillColor(sf::Color::Black);
 
 	//Left button - 15
@@ -201,7 +201,7 @@ void SettingsScene::init() {
 
 	//MUSIC VOLUME----------------------------------------------------------------------------------------------------------------------------------------------------
 	text.push_back(new sf::Text(std::string("Music Volume: "), *AssetManager::getFont("title"), 25));
-	text[18]->setPosition(centerX - (text[18]->getGlobalBounds().width / 2) - (centerX / 2)+5, text[16]->getPosition().y + text[18]->getGlobalBounds().height + 20);
+	text[18]->setPosition(centerX - (text[18]->getGlobalBounds().width / 2) - (centerX / 2)+5, text[16]->getPosition().y + text[18]->getGlobalBounds().height + Config::applyRDY(25));
 	text[18]->setFillColor(sf::Color::Black);
 
 	//Left button - 17 
@@ -418,13 +418,8 @@ void SettingsScene::update(sf::RenderWindow* w) {
 
 	//Resolution setting LEFT button (decrement)
 	if (*ui[9]->getState() == UIState::CLICK) {
-		if (Config::user_resolution.X() == 640) {
+		if (Config::user_resolution.X() == 1280) {
 			Config::user_resolution = Resolution(3840, 2160);
-			text[11]->setString(Config::user_resolution.name());
-			ui[9]->lock();
-		}
-		else if (Config::user_resolution.X() == 1280) {
-			Config::user_resolution = Resolution(640, 480);
 			text[11]->setString(Config::user_resolution.name());
 			ui[9]->lock();
 		}
@@ -444,7 +439,7 @@ void SettingsScene::update(sf::RenderWindow* w) {
 			ui[9]->lock();
 		}
 		else {
-			Config::user_resolution = Resolution(640, 480);
+			Config::user_resolution = Resolution(1280, 720);
 			text[11]->setString(Config::user_resolution.name());
 			ui[9]->lock();
 		}
@@ -458,12 +453,7 @@ void SettingsScene::update(sf::RenderWindow* w) {
 	
 	//Resolution setting RIGHT button (increment)
 	if (*ui[10]->getState() == UIState::CLICK) {
-		if (Config::user_resolution.X() == 640) {
-			Config::user_resolution = Resolution(1280, 720);
-			text[11]->setString(Config::user_resolution.name());
-			ui[10]->lock();
-		}
-		else if (Config::user_resolution.X() == 1280) {
+		if (Config::user_resolution.X() == 1280) {
 			Config::user_resolution = Resolution(1920, 1080);
 			text[11]->setString(Config::user_resolution.name());
 			ui[10]->lock();
@@ -479,12 +469,12 @@ void SettingsScene::update(sf::RenderWindow* w) {
 			ui[10]->lock();
 		}
 		else if (Config::user_resolution.X() == 3840) {
-			Config::user_resolution = Resolution(640, 480);
+			Config::user_resolution = Resolution(1280, 720);
 			text[11]->setString(Config::user_resolution.name());
 			ui[10]->lock();
 		}
 		else {
-			Config::user_resolution = Resolution(640, 480);
+			Config::user_resolution = Resolution(1280, 720);
 			text[11]->setString(Config::user_resolution.name());
 			ui[10]->lock();
 		}
@@ -517,6 +507,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 		Config::saveCurrentConfig("config.cfg");
 		resize = false;
 		Config::applySettings(w);
+		//Refresh UI
+		SceneManager::setNext(0);
+		SceneManager::next();
 	}
 	else if ((*ui[12]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
 		ui[12]->unlock();
@@ -557,6 +550,9 @@ void SettingsScene::update(sf::RenderWindow* w) {
 
 		//Update resolution label
 		text[11]->setString(Config::user_resolution.name());
+		//Refresh UI
+		SceneManager::setNext(0);
+		SceneManager::next();
 	}
 	else if ((*ui[13]->getState() == UIState::LOCK && clock.getElapsedTime().asMilliseconds() > 300)) {
 		ui[13]->unlock();

@@ -29,10 +29,10 @@ Level 3 - All error messages and all diagnostic messages
 #define GM_MAX_CANNON_ROT 60.f
 
 #define GM_KEYBOARD_MOVE_SPEED 1.f
-#define GM_BALL_SHOOT_SPEED 0.75f
-#define GM_BALL_MOVE_SPEED 0.007f
+#define GM_BALL_SHOOT_SPEED 0.85f
+#define GM_BALL_MOVE_SPEED 0.005f
 //delay as multiple of a second
-#define GM_BALL_SHOOT_DELAY  0.5f
+#define GM_BALL_SHOOT_DELAY  0.300f
 
 //---------------------------------------------------
 //Scoring defines
@@ -43,11 +43,15 @@ Level 3 - All error messages and all diagnostic messages
 //Increase in ball colours per level
 #define GM_LEVEL_DIFF_MOD_COLOUR 1
 //Increase in rows per level
-#define GM_LEVEL_DIFF_MOD_ROWS 2
+#define GM_LEVEL_DIFF_MOD_ROWS 1
 //Increase in 2 star time limit per level
 #define GM_LEVEL_DIFF_MOD_L2 0.25f
 //Increase in 3 star time limit per level
 #define GM_LEVEL_DIFF_MOD_L3 0.2f
+//Cost in coins of double points powerup (standard price)
+#define GM_COST_PWP_2XPTS 100
+//Cost in coins of time skip powerup (standard price)
+#define GM_COST_PWP_TMSKP 75
 
 #define TICK_SPEED sf::seconds(1.0f / 60.f)
 

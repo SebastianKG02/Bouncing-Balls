@@ -38,7 +38,7 @@ struct PlayerData
 	//Number of powerups
 	// 0 - Double points powerup count
 	// 1 - 15s time save powerup count
-	int num_powerps[2] = { 0, 0 };
+	int num_powerups[2] = { 0, 0 };
 };
 
 #include <iostream>

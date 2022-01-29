@@ -121,6 +121,9 @@
       <AdditionalLibraryDirectories>C:\SFML 32bit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-audio-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;freetype.lib;opengl32.lib;vorbis.lib;ogg.lib;sfml-system-s.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -199,6 +202,7 @@
     <ClInclude Include="PlaySelectScene.h" />
     <ClInclude Include="PneumaticPress.h" />
     <ClInclude Include="Resolution.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SettingsScene.h" />
     <ClInclude Include="StatsScene.h" />
@@ -206,6 +210,9 @@
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIRadioButton.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Bouncing Balls.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

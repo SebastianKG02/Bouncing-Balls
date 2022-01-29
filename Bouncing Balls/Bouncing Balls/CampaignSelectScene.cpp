@@ -115,7 +115,7 @@ void CampaignSelectScene::init() {
 	text[7]->move((ui[6]->getSprite()->getGlobalBounds().width / 2) - (text[7]->getGlobalBounds().width / 2), (ui[6]->getSprite()->getGlobalBounds().height / 2) - (text[7]->getGlobalBounds().height / 2) - Config::applyRDY(5));
 	text[7]->setFillColor(sf::Color::Black);
 	//Level 3 curent stars
-	sprites.push_back(new sf::Sprite(*AssetManager::getTexture(std::to_string(Player::getData()->campaign_stars[2]) + "_stars")));
+	sprites.push_back(new sf::Sprite(*AssetManager::getTexture(std::to_string(Player::getData()->campaign_stars[5]) + "_stars")));
 	sprites[6]->setPosition(ui[6]->getSprite()->getPosition());
 	sprites[6]->setScale(0.4f, 0.4f);
 	sprites[6]->move((ui[6]->getSprite()->getGlobalBounds().width / 2) - (sprites[6]->getGlobalBounds().width / 2), -sprites[6]->getGlobalBounds().height);

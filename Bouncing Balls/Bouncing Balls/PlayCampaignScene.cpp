@@ -34,11 +34,19 @@ void PlayCampScene::init() {
 	centerX = Config::user_resolution.X() / 2;
 	num_balls = 0;
 	maxCols = 2;
-	//Ensure proper scaling of difficulty
+	//Load generation rules
 	this->rules = SceneManager::getCampSettings(Player::getData()->last_level);
-	maxCols = rules->maxColours;
+	//Calculating proper start_x for ballMap
+	//Create reference sprite
+	sf::Sprite ref = sf::Sprite(*AssetManager::getTexture("ball_red"));
+	//Set scale to be same as normal sprite
+	ref.setScale(0.1f, 0.1f);
+	float map_width = ref.getGlobalBounds().width * rules->cols;
+	float scaled_start = Config::applyRDY(1280)/2;
+	//Ensure proper scaling of difficulty
+	maxCols = rules->cols;
 	std::cout << "[BallMap]Creating map for Campaign Level " << rules->level << " (loaded as " << Player::getData()->last_level << ")" << std::endl;
-	map = BallMap(rules->rows, rules->cols, rules->minColours, rules->maxColours, Config::user_resolution.X()*0.3f, 0, -1);
+	map = BallMap(rules->rows, rules->cols, rules->minColours, rules->maxColours, scaled_start-(map_width/2), Config::applyRDY(ref.getGlobalBounds().height), -1);
 	
 	//Initalise sound effects
 	//Ball hit (same colour) sound effect
@@ -50,7 +58,7 @@ void PlayCampScene::init() {
 
 	//Add back button & label
 	ui.push_back(new UIButton(new float[2]{ centerX, 0.f }, std::string("long"), new float[2]{ 0.1f, 0.1f }));
-	ui[0]->getSprite()->setPosition((0+(ui[0]->getSprite()->getGlobalBounds().width/4)), Config::user_resolution.Y() - 15.f - ui[0]->getSprite()->getGlobalBounds().height);
+	ui[0]->getSprite()->setPosition((map.getStart().x/2)-(ui[0]->getSprite()->getGlobalBounds().width/2), Config::user_resolution.Y() - 15.f - ui[0]->getSprite()->getGlobalBounds().height);
 	text.push_back(new sf::Text(std::string("Exit"), *AssetManager::getFont("title"), 34));
 	text[0]->setPosition(ui[0]->getSprite()->getPosition());
 	text[0]->move(ui[0]->getSprite()->getGlobalBounds().width / 2, ui[0]->getSprite()->getGlobalBounds().height / 2);
@@ -105,8 +113,8 @@ void PlayCampScene::init() {
 
 	//Starting countdown label
 	text.push_back(new sf::Text(std::string(""), *AssetManager::getFont("title"), 34));
-	text[7]->setPosition(ui[2]->getSprite()->getPosition());
-	text[7]->move((ui[2]->getSprite()->getGlobalBounds().width / 2) - text[7]->getGlobalBounds().width / 2, -ui[2]->getSprite()->getGlobalBounds().height-text[7]->getGlobalBounds().height - 2.5f);
+	text[7]->setPosition(centerX, Config::user_resolution.Y()/2);
+	text[7]->move(0-(text[7]->getGlobalBounds().width / 2), (-text[7]->getGlobalBounds().height/2));
 	text[7]->setFillColor(sf::Color::Black);
 
 	//Register cannon sprites
@@ -139,7 +147,7 @@ void PlayCampScene::init() {
 	shapes.push_back(&tracer);
 
 	left_bound = sf::RectangleShape(sf::Vector2f(8, Config::user_resolution.Y()*16));
-	left_bound.setPosition(-5 + (Config::user_resolution.X() * 0.3f) - 8, 0);
+	left_bound.setPosition(-5 + (map.getStart().x) - 8, 0);
 	left_bound.setFillColor(sf::Color::Transparent);
 	left_bound.setOutlineThickness(3.f);
 	left_bound.setOutlineColor(sf::Color::Red);
@@ -185,7 +193,7 @@ void PlayCampScene::init() {
 
 	//Objectives label
 	text.push_back(new sf::Text(std::string("Objectives:"), *AssetManager::getFont("title"), 45));
-	text[9]->setPosition(right_bound.getPosition().x + right_bound.getGlobalBounds().width + 48.f, sprites[7]->getPosition().y+(1.f*sprites[7]->getGlobalBounds().height));
+	text[9]->setPosition(sprites[7]->getPosition().x + (sprites[7]->getGlobalBounds().width/2) - (text[9]->getGlobalBounds().width/2), sprites[7]->getPosition().y+(1.f*sprites[7]->getGlobalBounds().height));
 	text[9]->setFillColor(sf::Color::Black);
 	text[9]->setOutlineThickness(1.5f);
 	text[9]->setOutlineColor(sf::Color::White);
@@ -196,12 +204,16 @@ void PlayCampScene::init() {
 	text[10]->setPosition(text[9]->getPosition());
 	text[10]->move((text[9]->getGlobalBounds().width / 2) - (text[10]->getGlobalBounds().width / 2), 2.5f + text[9]->getGlobalBounds().height);
 	text[10]->setFillColor(sf::Color::Black);
+	text[10]->setOutlineThickness(1.5f);
+	text[10]->setOutlineColor(sf::Color::White);
 
 	//Objective 1 - clear all balls (value)
 	text.push_back(new sf::Text(std::string("Balls left: " + std::to_string(num_balls)), *AssetManager::getFont("title"), 30));
 	text[11]->setPosition(text[10]->getPosition());
 	text[11]->move((text[10]->getGlobalBounds().width / 2) - (text[11]->getGlobalBounds().width / 2), text[10]->getGlobalBounds().height);
 	text[11]->setFillColor(sf::Color::Black);
+	text[11]->setOutlineThickness(1.5f);
+	text[11]->setOutlineColor(sf::Color::White);
 
 	//Objective 1 - star identifier
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("star_lock")));
@@ -215,6 +227,8 @@ void PlayCampScene::init() {
 	text[12]->setPosition(sprites[8]->getPosition());
 	text[12]->move((sprites[8]->getGlobalBounds().width / 2) - (text[12]->getGlobalBounds().width / 2), 2.5f + sprites[8]->getGlobalBounds().height);
 	text[12]->setFillColor(sf::Color::Black);
+	text[12]->setOutlineThickness(1.5f);
+	text[12]->setOutlineColor(sf::Color::White);
 
 	//Objective 2 - star identifier
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("star_lock")));
@@ -228,6 +242,9 @@ void PlayCampScene::init() {
 	text[13]->setPosition(sprites[9]->getPosition());
 	text[13]->move((sprites[9]->getGlobalBounds().width / 2) - (text[13]->getGlobalBounds().width / 2), 2.5f + sprites[9]->getGlobalBounds().height);
 	text[13]->setFillColor(sf::Color::Black);
+	text[13]->setOutlineThickness(1.5f);
+	text[13]->setOutlineColor(sf::Color::White);
+
 
 	//Objective 3 - star identifier
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("star_lock")));
@@ -237,8 +254,8 @@ void PlayCampScene::init() {
 	
 	//Coins held label
 	text.push_back(new sf::Text(std::string("Coins:"), *AssetManager::getFont("title"), 50));
-	text[14]->setPosition(text[3]->getPosition());
-	text[14]->move((text[3]->getGlobalBounds().width / 2) - (text[14]->getGlobalBounds().width / 2), text[3]->getGlobalBounds().height * 1.5f);
+	text[14]->setPosition(text[1]->getPosition().x, text[3]->getPosition().y);
+	text[14]->move((text[1]->getGlobalBounds().width / 2) - (text[14]->getGlobalBounds().width / 2), text[3]->getGlobalBounds().height * 1.5f);
 	text[14]->setFillColor(sf::Color::Black);
 	//Coins held value label
 	text.push_back(new sf::Text(std::to_string(Player::getData()->coins), *AssetManager::getFont("title"), 50));
@@ -246,6 +263,78 @@ void PlayCampScene::init() {
 	text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
 	text[15]->setOutlineThickness(1.5f);
 	text[15]->setOutlineColor(sf::Color::Black);
+
+	//2X points powerups held sprite
+	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("power_points")));
+	sprites[11]->setPosition(text[1]->getPosition().x, text[15]->getPosition().y);
+	sprites[11]->setScale(0.5f, 0.5f);
+	sprites[11]->move((text[1]->getGlobalBounds().width / 2) - (sprites[11]->getGlobalBounds().width), text[15]->getGlobalBounds().height + Config::applyRDY(25));
+	//Value label
+	text.push_back(new sf::Text(std::to_string(Player::getData()->num_powerups[0]), *AssetManager::getFont("title"), 50));
+	text[16]->setPosition(sprites[11]->getPosition());
+	text[16]->move(-text[16]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height/2)-(text[16]->getGlobalBounds().height));
+	text[16]->setFillColor(sf::Color::Black);
+	text[16]->setOutlineThickness(1.5f);
+	text[16]->setOutlineColor(sf::Color::White);
+	//time skip powerups held sprite
+	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("power_time")));
+	sprites[12]->setPosition(sprites[11]->getPosition());
+	sprites[12]->setScale(0.5f, 0.5f);
+	sprites[12]->move(sprites[11]->getGlobalBounds().width, 0);
+	//Value label
+	text.push_back(new sf::Text(std::to_string(Player::getData()->num_powerups[1]), *AssetManager::getFont("title"), 50));
+	text[17]->setPosition(sprites[12]->getPosition());
+	text[17]->move(sprites[12]->getGlobalBounds().width + (text[17]->getGlobalBounds().width/2), (sprites[12]->getGlobalBounds().height / 2) - (text[17]->getGlobalBounds().height));
+	text[17]->setFillColor(sf::Color::Black);
+	text[17]->setOutlineThickness(1.5f);
+	text[17]->setOutlineColor(sf::Color::White);
+
+	//2x powerup descriptor
+	text.push_back(new sf::Text(std::string("Double points\nfor 10s"), *AssetManager::getFont("title"), 18));
+	text[18]->setPosition(text[16]->getPosition());
+	text[18]->move(-(text[18]->getGlobalBounds().width / 2) - Config::applyRDX(5), +(text[16]->getGlobalBounds().height / 2) + text[18]->getGlobalBounds().height);
+	text[18]->setFillColor(sf::Color::Black);
+	text[18]->setOutlineThickness(1.5f);
+	text[18]->setOutlineColor(sf::Color::White);
+
+	//time skip powerup descriptor
+	text.push_back(new sf::Text(std::string("Shave 10s off\nthe Clock!"), *AssetManager::getFont("title"), 18));
+	text[19]->setPosition(sprites[12]->getPosition().x, text[17]->getPosition().y);
+	text[19]->move(+(text[19]->getGlobalBounds().width / 2) - Config::applyRDX(5), +(text[17]->getGlobalBounds().height / 2) + text[19]->getGlobalBounds().height);
+	text[19]->setFillColor(sf::Color::Black);
+	text[19]->setOutlineThickness(1.5f);
+	text[19]->setOutlineColor(sf::Color::White);
+
+	//Buy powerups label
+	text.push_back(new sf::Text(std::string("Buy Powerups!"), *AssetManager::getFont("title"), 34));
+	text[20]->setPosition(sprites[10]->getPosition());
+	text[20]->move((sprites[10]->getGlobalBounds().width / 2) - (text[20]->getGlobalBounds().width / 2), sprites[10]->getGlobalBounds().height + Config::applyRDY(5));
+	text[20]->setFillColor(sf::Color::Black);
+	text[20]->setOutlineThickness(1.5f);
+	text[20]->setOutlineColor(sf::Color::White);
+
+	//2X Points indicator
+	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("power_points")));
+	sprites[13]->setScale(0.5f, 0.5f);
+	sprites[13]->setPosition(text[20]->getPosition().x + (text[20]->getGlobalBounds().width/4) - (sprites[13]->getGlobalBounds().width/2.f), text[20]->getPosition().y + text[20]->getGlobalBounds().height + Config::applyRDY(5));
+	ui.push_back(new UIButton(new float[2]{ sprites[13]->getPosition().x, sprites[13]->getPosition().y }, std::string("long"), new float[2]{ 0.05f, 0.05f }));
+	ui[3]->getSprite()->move(-(ui[3]->getSprite()->getGlobalBounds().width / 4.f), sprites[13]->getGlobalBounds().height + Config::applyRDY(5));
+	text.push_back(new sf::Text(std::string(std::to_string(GM_COST_PWP_2XPTS) + " coins"), *AssetManager::getFont("title"), 28));
+	text[21]->setPosition(ui[3]->getSprite()->getPosition());
+	text[21]->move((ui[3]->getSprite()->getGlobalBounds().width / 2) - (text[21]->getGlobalBounds().width / 2), (ui[3]->getSprite()->getGlobalBounds().height / 2) - (text[21]->getGlobalBounds().height / 2) - 3.f);
+	text[21]->setFillColor(sf::Color::Black);
+
+	//10s skip indicator
+	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("power_time")));
+	sprites[14]->setScale(0.5f, 0.5f);
+	sprites[14]->setPosition(sprites[13]->getPosition().x + (2*sprites[14]->getGlobalBounds().width), text[20]->getPosition().y + text[20]->getGlobalBounds().height + Config::applyRDY(5));
+	ui.push_back(new UIButton(new float[2]{ sprites[14]->getPosition().x, sprites[14]->getPosition().y }, std::string("long"), new float[2]{ 0.05f, 0.05f }));
+	ui[4]->getSprite()->move(-(ui[4]->getSprite()->getGlobalBounds().width / 4.f), sprites[13]->getGlobalBounds().height + Config::applyRDY(5));
+	text.push_back(new sf::Text(std::string(std::to_string(GM_COST_PWP_TMSKP) + " coins"), *AssetManager::getFont("title"), 28));
+	text[22]->setPosition(ui[4]->getSprite()->getPosition());
+	text[22]->move((ui[4]->getSprite()->getGlobalBounds().width / 2) - (text[22]->getGlobalBounds().width / 2), (ui[4]->getSprite()->getGlobalBounds().height / 2) - (text[22]->getGlobalBounds().height / 2) - 3.f);
+	text[22]->setFillColor(sf::Color::Black);
+
 
 	//Register map balls as rendered sprites
 	for (auto& row : map.getMap()) {
@@ -297,15 +386,15 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				if (game_clock.getElapsedTime().asMilliseconds() > 3000) {
 					started = true;
 					text[7]->setString("Go!");
-					text[7]->setPosition(ui[2]->getSprite()->getPosition());
-					text[7]->move((ui[2]->getSprite()->getGlobalBounds().width / 2) - text[7]->getGlobalBounds().width / 2, -ui[2]->getSprite()->getGlobalBounds().height - text[7]->getGlobalBounds().height - 2.5f);;
+					text[7]->setPosition(centerX, Config::user_resolution.Y() / 2);
+					text[7]->move(0 - (text[7]->getGlobalBounds().width / 2), (-text[7]->getGlobalBounds().height / 2));
 					game_clock.restart();
 				}
 				//If counting
 				else {
 					text[7]->setString("Starting in... " + std::to_string(std::round(game_clock.getElapsedTime().asSeconds())));
-					text[7]->setPosition(ui[2]->getSprite()->getPosition());
-					text[7]->move((ui[2]->getSprite()->getGlobalBounds().width / 2) - text[7]->getGlobalBounds().width / 2, -ui[2]->getSprite()->getGlobalBounds().height - text[7]->getGlobalBounds().height - 2.5f);
+					text[7]->setPosition(centerX, Config::user_resolution.Y() / 2);
+					text[7]->move(0 - (text[7]->getGlobalBounds().width / 2), (-text[7]->getGlobalBounds().height / 2));
 				}
 			}
 		}
@@ -318,6 +407,10 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				updatePauseLabel();
 				updateScoreLabel();
 				updateClockLabel();
+
+				if (time_elapsed > 1) {
+					text[7]->setString("");
+				}
 
 				//Check for level 3 objective completion
 				if (time_elapsed > rules->time_l3) {
@@ -658,7 +751,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 								}
 
 								//If at least one check required and number of checks required matches number of checks passed, kill ball
-								if (checks_req > 0 && (checks_req == checks_comp)) {
+								if (checks_req > 0 && (checks_req <= checks_comp)) {
 									ignore = true;
 								}
 								if (false) {
@@ -724,13 +817,23 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 
 							}
 							else {
-								//If not first row
-								bool checks[4] = { false, false, false, false };
+								//If not first rowd
+								bool checks[8] = { false, false, false, false, false, false, false, false };
 								if (x > 0) {
 									if (y < map.getRow(x - 1)->row.size()) {
 										if (map.getBall(x - 1, y)->alive != true || map.getBall(x - 1, y)->spr->getColor() == sf::Color::Transparent) {
 											checks[0] = true;
 										}
+									}
+									//LEFT * BELOW CHECK
+									if ( y > 0 && (map.getBall(x - 1, y-1)->alive != true || map.getBall(x - 1, y-1)->spr->getColor() == sf::Color::Transparent)) {
+										checks[4] = true;
+									}
+
+									//RIGHT * BELOW CHECK
+									if (y + 1 < map.getRow(x - 1)->row.size() && (map.getBall(x - 1, y + 1)->alive != true || map.getBall(x - 1, y + 1)->spr->getColor() == sf::Color::Transparent))
+									{
+										checks[6] = true;
 									}
 								}
 
@@ -753,7 +856,14 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 									if (map.getBall(x + 1, y)->alive != true || map.getBall(x + 1, y)->spr->getColor() == sf::Color::Transparent) {
 										checks[3] = true;
 									}
+									//RIGHT ABOVE CHECK
+									if (x < (map.getMap().size()-1) && (y + 1) < map.getRow(x+1)->row.size()) {
+										if (map.getBall(x + 1, y + 1)->alive != true || map.getBall(x + 1, y + 1)->spr->getColor() == sf::Color::Transparent) {
+											checks[5] = true;
+										}
+									}
 								}
+
 
 								short counter = 0;
 								for (bool b : checks) {
@@ -762,7 +872,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 									}
 								}
 
-								if (counter >= 4) {
+								if (counter >= 7) {
 									map.getBall(x, y)->alive = false;
 									map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
 									playerScore += GM_PTS_PER_BALL;
@@ -816,6 +926,21 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 		playerScore += (rules->level * GM_PTS_PW_LEVEL_MOD) + GM_PTS_PER_WIN;
 		//Set completion flag for this level to be true
 		Player::getData()->campaign_comp[rules->level] = true;
+
+		int count = 0;
+		for (auto& comp : Player::getData()->campaign_comp) {
+			if (comp) {
+				count++;
+			}
+		}
+
+		if (count > 5) {
+			Player::getData()->campaign_finished = true;
+		}
+		else {
+			Player::getData()->campaign_finished = false;
+		}
+
 		//Reward player with stars as completed
 		if (rules->obj_l1 == true) {
 			Player::getData()->campaign_stars[rules->level] += 1;
@@ -830,7 +955,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 			Player::getData()->campaign_stars[rules->level] = 3;
 		}
 		//Reward player with coins
-		Player::getData()->coins += std::round(playerScore / 1000);
+		Player::getData()->coins += 2.5f * std::round(playerScore / 1000);
 		rules->final_score = playerScore;
 		Player::save();
 		std::cout << "[GM]Game finished & player data saved, switching to win scene..." << std::endl;
@@ -869,6 +994,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 			paused = false;
 			game_clock.restart();
 			ui[2]->lock();
+			Player::getData()->coins++;
 			clock.restart();
 		}
 		else {
@@ -880,6 +1006,40 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 	else if (*ui[2]->getState() == UIState::LOCK) {
 		if (clock.getElapsedTime().asMilliseconds() > 200) {
 			ui[2]->unlock();
+		}
+	}
+
+	//Power up buying button (double points)
+	if (*ui[3]->getState() == UIState::CLICK) {
+		if (Player::getData()->coins >= GM_COST_PWP_2XPTS) {
+			//Save new coin count
+			Player::getData()->coins -= GM_COST_PWP_2XPTS;
+			if (Player::getData()->num_powerups[0] < 1) {
+				Player::getData()->num_powerups[0] = 0;
+			}
+			Player::getData()->num_powerups[0] += 1;
+			Player::save();
+			Player::load();
+			//Update coin vakye label
+			text[15]->setString(std::to_string(Player::getData()->coins));
+			text[15]->setPosition(text[14]->getPosition());
+			text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
+			text[16]->setString(std::to_string(Player::getData()->num_powerups[0]));
+			text[16]->setPosition(sprites[11]->getPosition());
+			text[16]->move(-text[16]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height / 2) - (text[16]->getGlobalBounds().height));
+			clock.restart();
+			ui[3]->lock();
+		}
+		else {
+			ui[3]->lock();
+		}
+	}
+	else if (*ui[3]->getState() == UIState::LOCK) {
+		if (Player::getData()->coins >= GM_COST_PWP_2XPTS) {
+			if (clock.getElapsedTime().asMilliseconds() > 200) {
+				//only unlock if affordable
+				ui[3]->unlock();
+			}
 		}
 	}
 }
