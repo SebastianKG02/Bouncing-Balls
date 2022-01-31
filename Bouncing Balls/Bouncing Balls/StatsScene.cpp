@@ -20,6 +20,7 @@ void StatsScene::init() {
 
 	//Background image
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("background")));
+	Player::load();
 
 	//Title text
 	text.push_back(new sf::Text(std::string("Player Statistics"), *AssetManager::getFont("title"), 75));
@@ -111,6 +112,7 @@ void StatsScene::update(sf::RenderWindow* w) {
 		SceneManager::setNext(0);
 		SceneManager::next();
 	}
+	//If back button is locked and sufficient time has passed
 	else if (*ui[0]->getState() == UIState::LOCK) {
 		if (clock.getElapsedTime().asMilliseconds() > 200) {
 			ui[0]->unlock();
@@ -121,7 +123,7 @@ void StatsScene::update(sf::RenderWindow* w) {
 	if (*ui[1]->getState() == UIState::CLICK) {
 		clock.restart();
 		ui[1]->lock();
-		Player::save();
+		Player::reset();
 		Player::load();
 		int total_stars = 0;
 		for (int i = 0; i < 6; i++) {

@@ -10,6 +10,14 @@
 #include "PlayCampaignScene.h"
 #include "CampVictoryScene.h"
 #include "CampLoseScene.h"
+#include "EndlessPreGameScene.h"
+#include "EndlessPlayScene.h"
+#include "EndlessVictoryScene.h"
+#include "EndlessLoseScene.h"
+#include "ChallengePreScene.h"
+#include "ChallengePlayScene.h"
+#include "ChallengeVictoryScene.h"
+#include "ChallengeLoseScene.h"
 
 /*
 SCENE DEFINITION
@@ -192,7 +200,6 @@ void SceneManager::init() {
 	CampaignSelectScene* camp_select = new CampaignSelectScene(8, "Campaign Select");
 	scenes.insert({ camp_select->getID(), camp_select });
 
-
 	for (int i = 0; i < 6; i++) {
 		camp_settings.push_back(new GameSettings);
 		camp_settings[i]->level = i;
@@ -205,7 +212,6 @@ void SceneManager::init() {
 		}
 		camp_settings[i]->time_l2 = camp_settings[i]->time_l2 + (camp_settings[i]->time_l2 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L2));
 		camp_settings[i]->time_l3 = camp_settings[i]->time_l3 + (camp_settings[i]->time_l3 * (camp_settings[i]->level * GM_LEVEL_DIFF_MOD_L3));
-		std::cout << "[SM]Registered Campaign Level " << i << " (or " << camp_settings[i]->level << ")" << std::endl;
 	}
 	
 	PlayCampScene* camp_l1 = new PlayCampScene(9, "Campaign Level");
@@ -216,6 +222,30 @@ void SceneManager::init() {
 
 	CampLoseScene* camp_lose = new CampLoseScene(11, "Loser");
 	scenes.insert({ camp_lose->getID(), camp_lose });
+
+	EndlessPreGameScene* endless_pre = new EndlessPreGameScene(12, "Endless Pregame");
+	scenes.insert({ endless_pre->getID(), endless_pre });
+
+	EndlessPlayScene* endless_play = new EndlessPlayScene(13, "Endless Play");
+	scenes.insert({endless_play->getID(), endless_play});
+
+	EndlessVictoryScene* endless_win = new EndlessVictoryScene(14, "Endless Victory");
+	scenes.insert({endless_win->getID(), endless_win});
+
+	EndlessLoseScene* endless_lose = new EndlessLoseScene(15, "Endless Lose");
+	scenes.insert({endless_lose->getID(), endless_lose});
+
+	ChallengePreScene* chal_pre = new ChallengePreScene(16, "Challenge Pregame");
+	scenes.insert({ chal_pre->getID(), chal_pre });
+
+	ChallengePlayScene* chal_play = new ChallengePlayScene(17, "Challenge Play");
+	scenes.insert({ chal_play->getID(), chal_play});
+
+	ChallengeVictoryScene* chal_win = new ChallengeVictoryScene(18, "Challenge Win");
+	scenes.insert({ chal_win->getID(), chal_win });
+
+	ChallengeLoseScene* chal_lose = new ChallengeLoseScene(19, "Challenge Lose");
+	scenes.insert({ chal_lose->getID(), chal_lose});
 }
 
 GameSettings* SceneManager::getCampSettings(int num) {
@@ -252,7 +282,6 @@ Scene* SceneManager::getScene(int id) {
 		return scenes.at(id);
 	}
 	catch (std::exception e) {
-		std::cout << "[SM]Could not load previous scene id:" << id << std::endl;
 		return nullptr;
 	}
 }

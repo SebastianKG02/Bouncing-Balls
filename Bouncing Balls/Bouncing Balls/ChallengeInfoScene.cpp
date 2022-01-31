@@ -57,11 +57,11 @@ void ChallengeInfoScene::init() {
 	text[5]->setPosition(centerX - (text[5]->getGlobalBounds().width / 2), text[4]->getPosition().y + text[4]->getGlobalBounds().height + (text[5]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[5]->setFillColor(sf::Color::Black);
 
-	text.push_back(new sf::Text(std::string("Per level you get an extra 1% in points."), *AssetManager::getFont("title"), 34));
+	text.push_back(new sf::Text(std::string("Per level you get an extra 2.5% in points."), *AssetManager::getFont("title"), 34));
 	text[6]->setPosition(centerX - (text[6]->getGlobalBounds().width / 2), text[5]->getPosition().y + text[5]->getGlobalBounds().height + (text[6]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[6]->setFillColor(sf::Color::Black);
 
-	text.push_back(new sf::Text(std::string("STILL too easy? Try master modifiers!"), *AssetManager::getFont("title"), 34));
+	text.push_back(new sf::Text(std::string("STILL too easy? Keep playing! Enjoy."), *AssetManager::getFont("title"), 34));
 	text[7]->setPosition(centerX - (text[7]->getGlobalBounds().width / 2), text[6]->getPosition().y + text[6]->getGlobalBounds().height + (text[7]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[7]->setFillColor(sf::Color::Black);
 
@@ -101,7 +101,7 @@ void ChallengeInfoScene::update(sf::RenderWindow* w) {
 		clock.restart();
 		ui[1]->lock();
 		this->lock();
-		SceneManager::setNext(3);
+		SceneManager::setNext(16);
 		SceneManager::next();
 	}
 	else if (*ui[1]->getState() == UIState::LOCK) {

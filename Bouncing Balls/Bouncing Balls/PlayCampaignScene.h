@@ -47,6 +47,10 @@ private:
 	GameSettings* rules;
 	BallMap map;
 	bool fired = false;
+	bool using_pw_1 = false;
+	int pw_1_time = 0;
+	int pts_modifier = 1;
+	bool using_pw_2 = false;
 };
 
 #endif

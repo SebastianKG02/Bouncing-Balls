@@ -18,6 +18,13 @@ void Player::init() {
 		data.campaign_finished = false;
 		data.coins = 0;
 		data.endless_hs = 0;
+		data.last_level = 0;
+		data.endless_last_stars = 0;
+		data.endless_level = 0;
+		data.challenge_last_stars = 0;
+		data.challenge_level = 0;
+		data.num_powerups[0] = 0;
+		data.num_powerups[1] = 0;
 		Player::save();
 	}
 }
@@ -95,4 +102,24 @@ int Player::save() {
 	}
 	//sucessfully completed
 	return 0;
+}
+
+//Resets player data to be 0.
+void Player::reset() {
+	for (int i = 0; i < 6; i++) {
+		data.campaign_comp[i] = false;
+		data.campaign_stars[i] = 0;
+	}
+	data.challenge_hs = 0;
+	data.campaign_finished = false;
+	data.coins = 0;
+	data.endless_hs = 0;
+	data.last_level = 0;
+	data.endless_last_stars = 0;
+	data.endless_level = 0;
+	data.challenge_last_stars = 0;
+	data.challenge_level = 0;
+	data.num_powerups[0] = 0;
+	data.num_powerups[1] = 0;
+	save();
 }

@@ -90,7 +90,7 @@ void CampLoseScene::update(sf::RenderWindow* w) {
 		clock.restart();
 		ui[1]->lock();
 		this->lock();
-		SceneManager::setNext(8);
+		SceneManager::setNext(12);
 		SceneManager::next();
 	}
 	else if (*ui[1]->getState() == UIState::LOCK) {

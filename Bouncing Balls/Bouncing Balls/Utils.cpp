@@ -22,7 +22,6 @@ std::string* Utils::strToUpper(std::string* str) {
 //Converstion switch-case to get from char to key
 sf::Keyboard::Key Utils::charToKey(std::string keyt) {
 	Utils::strToUpper(&keyt);
-
 	const char *c = keyt.c_str();
 	switch (c[0]) {
 	case 'A':
@@ -170,7 +169,7 @@ sf::Keyboard::Key Utils::charToKey(std::string keyt) {
 			return sf::Keyboard::Key::M;
 		}
 	case 'N':
-		if (keyt.size() == 4) {
+		if (keyt.size() >= 4) {
 			switch (keyt[1]) {
 			case 'U':
 				switch (keyt[3]) {

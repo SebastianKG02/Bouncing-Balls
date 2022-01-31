@@ -132,8 +132,7 @@ void Ball::path_plot(float y, float cannon_rot, sf::Vector2f spos) {
 	//Get length of x
 	float fx = sqrt(pow(hyp, 2) - pow(y, 2));
 	//float fx = sin(rot*3.14f/180) * hyp;
-	std::cout << "Rot: " << rot << " Hyp: " << hyp << " Fx: " << fx << std::endl;
-
+	
 	//Change x direction based on  angle
 	if (left) {
 		target.x = start.x - fx;
@@ -150,6 +149,7 @@ void Ball::path_plot(float y, float cannon_rot, sf::Vector2f spos) {
 	float iterx = fx / GM_BALL_SHOOT_SPEED;
 	//Amount of iterations at regular speed to facilitate all of the y boundary
 	float itery = y / GM_BALL_SHOOT_SPEED;
+
 
 	float diffx = 0;
 	if (iterx > 0) {
@@ -171,7 +171,6 @@ void Ball::path_plot(float y, float cannon_rot, sf::Vector2f spos) {
 		}
 
 		motion.x /= xadj;
-		std::cout << diffx << " @ " << motion.y << " XADJ: " << xadj << std::endl;
 	}
 	else {
 		if (left) {
@@ -216,9 +215,6 @@ float BallMap::getBlanks() {
 }
 
 BallMap::BallMap(int rows, int columns, int min_colours, int max_colours, int startx, int starty, int dir) {
-	std::cout << "[BallMap]Creating new map..." << std::endl;
-	std::cout << "[BallMap]Rows: " << rows << ", Columns: " << columns << std::endl;
-	std::cout << "[BallMap]Minimum colours: " << min_colours << ", Max colours: " << max_colours << std::endl;
 	//Initalise local reference variables
 	this->map_rows = rows;
 	this->map_cols = columns;
@@ -281,7 +277,6 @@ BallMap::BallMap(int rows, int columns, int min_colours, int max_colours, int st
 			else {
 				//srand(time(NULL));
 				map[i]->row[j]->col = static_cast<BallColour>(rand() % (max_colours));
-				std::cout << "[BallMap][" << i << "," << j << "]Ball Colour: " << Ball::ballColourToStr(map[i]->row[j]->col) << std::endl;
 			}
 			//Set up sprite
 			map[i]->id = map_cols + 1 - i;
@@ -338,7 +333,6 @@ float BallMap::addRow(bool isBlank) {
 		
 		start_y = map[0]->row[i]->spr->getPosition().y;
 
-		std::cout << "New Ball @ " << map_rows << "/" << i << ": x-" << map[0]->row[i]->spr->getPosition().x << " ~ y-" << map[0]->row[i]->spr->getPosition().y << std::endl;
 	}
 	return ++map_rows;
 }

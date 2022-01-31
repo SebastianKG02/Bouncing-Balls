@@ -45,7 +45,6 @@ void PlayCampScene::init() {
 	float scaled_start = Config::applyRDY(1280)/2;
 	//Ensure proper scaling of difficulty
 	maxCols = rules->cols;
-	std::cout << "[BallMap]Creating map for Campaign Level " << rules->level << " (loaded as " << Player::getData()->last_level << ")" << std::endl;
 	map = BallMap(rules->rows, rules->cols, rules->minColours, rules->maxColours, scaled_start-(map_width/2), Config::applyRDY(ref.getGlobalBounds().height), -1);
 	
 	//Initalise sound effects
@@ -135,6 +134,7 @@ void PlayCampScene::init() {
 		nextBalls[i]->spr_id = sprites.size() - 1;
 	}
 
+	//Ensure next balls have correct positioning
 	nextBalls[0]->spr->setPosition(centerX, Config::user_resolution.Y()-2*nextBalls[0]->spr->getGlobalBounds().height);
 	nextBalls[0]->spr->move((p1Cannon.getBase()->getGlobalBounds().width/2) + (nextBalls[0]->spr->getGlobalBounds().width*0.75f), +(nextBalls[0]->spr->getGlobalBounds().height / 2));
 	nextBalls[1]->spr->setPosition(nextBalls[0]->spr->getPosition());
@@ -144,7 +144,7 @@ void PlayCampScene::init() {
 
 	//Register tracing line for shot accuracy tracking
 	tracer = sf::RectangleShape(sf::Vector2f(2, 1000));
-	shapes.push_back(&tracer);
+	//shapes.push_back(&tracer);
 
 	left_bound = sf::RectangleShape(sf::Vector2f(8, Config::user_resolution.Y()*16));
 	left_bound.setPosition(-5 + (map.getStart().x) - 8, 0);
@@ -170,11 +170,11 @@ void PlayCampScene::init() {
 	death_bound.setFillColor(sf::Color::Black);
 	shapes.push_back(&death_bound);
 
-	ball_eraser = sf::RectangleShape(sf::Vector2f(right_bound.getPosition().x - left_bound.getPosition().x + 8, 8));
-	ball_eraser.setPosition(map.getStart().x, map.getEnd().y);
-	ball_eraser.setFillColor(sf::Color::Transparent);
+	ball_eraser = sf::RectangleShape(sf::Vector2f(right_bound.getPosition().x - left_bound.getPosition().x-16, 64));
+	ball_eraser.setPosition(map.getStart().x-1, map.getEnd().y-32);
+	ball_eraser.setFillColor(sf::Color(90, 90, 90));
 	ball_eraser.setOutlineThickness(3.f);
-	ball_eraser.setOutlineColor(sf::Color::Red);
+	ball_eraser.setOutlineColor(sf::Color::Black);
 	shapes.push_back(&ball_eraser);
 	
 	//Clock sprite
@@ -276,6 +276,7 @@ void PlayCampScene::init() {
 	text[16]->setFillColor(sf::Color::Black);
 	text[16]->setOutlineThickness(1.5f);
 	text[16]->setOutlineColor(sf::Color::White);
+
 	//time skip powerups held sprite
 	sprites.push_back(new sf::Sprite(*AssetManager::getTexture("power_time")));
 	sprites[12]->setPosition(sprites[11]->getPosition());
@@ -335,6 +336,21 @@ void PlayCampScene::init() {
 	text[22]->move((ui[4]->getSprite()->getGlobalBounds().width / 2) - (text[22]->getGlobalBounds().width / 2), (ui[4]->getSprite()->getGlobalBounds().height / 2) - (text[22]->getGlobalBounds().height / 2) - 3.f);
 	text[22]->setFillColor(sf::Color::Black);
 
+	//Add use powerup 1 button
+	ui.push_back(new UIButton(new float[2]{ text[16]->getPosition().x, text[16]->getPosition().y }, std::string("long"), new float[2]{ 0.025f, 0.025f }));
+	ui[5]->getSprite()->move(-(ui[5]->getSprite()->getGlobalBounds().width/2), -(ui[5]->getSprite()->getGlobalBounds().height));
+	text.push_back(new sf::Text(std::string("Use"), *AssetManager::getFont("title"), 20));
+	text[23]->setPosition(ui[5]->getSprite()->getPosition());
+	text[23]->move((ui[5]->getSprite()->getGlobalBounds().width / 2) - (text[23]->getGlobalBounds().width / 2), (ui[5]->getSprite()->getGlobalBounds().height / 2) - (text[23]->getGlobalBounds().height / 2) - Config::applyRDY(2));
+	text[23]->setFillColor(sf::Color::Black);
+
+	//Add use powerup 2 button
+	ui.push_back(new UIButton(new float[2]{ text[17]->getPosition().x + text[17]->getGlobalBounds().width, text[17]->getPosition().y }, std::string("long"), new float[2]{ 0.025f, 0.025f }));
+	ui[6]->getSprite()->move(-(ui[6]->getSprite()->getGlobalBounds().width / 2), -(ui[6]->getSprite()->getGlobalBounds().height));
+	text.push_back(new sf::Text(std::string("Use"), *AssetManager::getFont("title"), 20));
+	text[24]->setPosition(ui[6]->getSprite()->getPosition());
+	text[24]->move((ui[6]->getSprite()->getGlobalBounds().width / 2) - (text[24]->getGlobalBounds().width / 2), (ui[6]->getSprite()->getGlobalBounds().height / 2) - (text[24]->getGlobalBounds().height / 2) - Config::applyRDY(2));
+	text[24]->setFillColor(sf::Color::Black);
 
 	//Register map balls as rendered sprites
 	for (auto& row : map.getMap()) {
@@ -376,7 +392,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 	if (status[0] == false && status[1] == false) {
 		if (started == false) {
 			//If start button pressed
-			if (*ui[1]->getState() == UIState::CLICK) {
+			if (*ui[1]->getState() == UIState::CLICK || sf::Keyboard::isKeyPressed(Config::user_key_start)) {
 				game_clock.restart();
 				ui[1]->lock();
 			}
@@ -392,13 +408,14 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				}
 				//If counting
 				else {
-					text[7]->setString("Starting in... " + std::to_string(std::round(game_clock.getElapsedTime().asSeconds())));
+					text[7]->setString("Starting in... " + std::to_string((game_clock.getElapsedTime().asMilliseconds()+1000)/1000));
 					text[7]->setPosition(centerX, Config::user_resolution.Y() / 2);
 					text[7]->move(0 - (text[7]->getGlobalBounds().width / 2), (-text[7]->getGlobalBounds().height / 2));
 				}
 			}
 		}
 		else {
+
 			if (paused == true) {
 				updatePauseLabel();
 			}
@@ -407,6 +424,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				updatePauseLabel();
 				updateScoreLabel();
 				updateClockLabel();
+				updateBallsLeft();
 
 				if (time_elapsed > 1) {
 					text[7]->setString("");
@@ -449,7 +467,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 						balls[balls.size() - 1]->path_plot(Config::user_resolution.Y(), p1Cannon.getBody()->getRotation(), p1Cannon.getBody()->getPosition());
 						balls[balls.size() - 1]->setID(sprites.size());
 					}
-					std::cout << "TX: " << balls[balls.size() - 1]->getTarget()->x << " TY: " << balls[balls.size() - 1]->getTarget()->y << std::endl;
 					*balls[balls.size() - 1]->alive() = true;
 					sprites.push_back(balls[balls.size() - 1]->getSprite());
 					fired = true;
@@ -523,15 +540,10 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 												//Check if player ball is inside map ball
 												if ((ball_x >= map.getBall(x, y)->spr->getPosition().x && ball_x < map.getBall(x, y)->spr->getPosition().x + bwidth)) {
 													if (map.getBall(x, y)->alive == true && *ball->alive() == true) {
-														std::cout << "[b" << it << "]" << "[" << x << "," << y << "] Is alive!" << std::endl;
 														//If ball is valid
 														if (map.getBall(x, y)->spr->getColor() != sf::Color::Transparent && map.getBall(x, y)->spr->getColor() == sf::Color::White) {
-															std::cout << "[b" << it << "]" << "[" << x << "," << y << "] Is valid!" << std::endl;
 															//If ball hit is of same colour
 															if (map.getBall(x, y)->col == *ball->getColour()) {
-																std::cout << "[b" << it << "]" << "[" << x << "," << y << "] Is same colour: Map Ball-" << Ball::ballColourToStr(map.getBall(x, y)->col) << " # Player Ball-" << Ball::ballColourToStr(*ball->getColour()) << std::endl;
-																std::cout << "[b" << it << "]" << "Starting kill list... " << std::endl;
-
 																//initalise kill list
 																std::vector<sf::Vector2i*> kill_list = std::vector<sf::Vector2i*>();
 
@@ -542,10 +554,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 																//Determine larger hitbox radius
 																sf::Vector2i min_pos = sf::Vector2i(ball_x - (bwidth * 1.5f), ball_y - (bheight * 2.5f));
 																sf::Vector2i max_pos = sf::Vector2i(ball_x + (bwidth * 1.5f), ball_y + (bheight * 1.5f));
-
-																//Debug info
-																std::cout << "[BallMap]" << "[b" << it << "] Min: [" << min_pos.x << "," << min_pos.y << "]" << std::endl;
-																std::cout << "[BallMap]" << "[b" << it << "] Max: [" << max_pos.x << "," << max_pos.y << "]" << std::endl;
 
 																short mod_x = 0;
 																if (x > 0) {
@@ -575,18 +583,11 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 																		BallSimple* map_ball = map.getBall(kx, ky);
 
 																		bool hasFound = false;
-																		//Check if this ball 
-																		std::cout << "[" << kx << "," << ky << "] x: " << map_ball->spr->getPosition().x << " : y: " << map_ball->spr->getPosition().y << std::endl;
+																		//Check if this ball collided
 																		if (map_ball->spr->getPosition().x > min_pos.x - 2.5f && map_ball->spr->getPosition().x < max_pos.x + 2.5f) {
-																			std::cout << "[" << kx << "," << ky << "]XPOS check passed" << std::endl;
 																			if (map_ball->spr->getPosition().y > min_pos.y - 2.5f && map_ball->spr->getPosition().y < max_pos.y + 2.5f) {
-																				std::cout << "[" << kx << "," << ky << "]YPOS check passed" << std::endl;
 																				if (map_ball->alive == true) {
-																					std::cout << "[" << kx << "," << ky << "]Ball alive check passed" << std::endl;
-																					std::cout << "[" << kx << "," << ky << "]Map ball colour: " << Ball::ballColourToStr(map_ball->col) << std::endl;
-																					std::cout << "[" << kx << "," << ky << "]Player ball colour: " << Ball::ballColourToStr(*ball->getColour()) << std::endl;
 																					if (map_ball->col == *ball->getColour()) {
-																						std::cout << "[" << kx << "," << ky << "]Ball colour check passed! Adding to kill list " << std::endl;
 																						kill_list.push_back(new sf::Vector2i(kx, ky));
 																						hasFound = true;
 																					}
@@ -611,7 +612,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 																	for (auto& kpos : kill_list) {
 																		map.getBall(kpos->x, kpos->y)->spr->setColor(sf::Color::Transparent);
 																		map.getBall(kpos->x, kpos->y)->alive = false;
-																		playerScore += GM_PTS_PER_BALL;
+																		playerScore += pts_modifier * GM_PTS_PER_BALL;
 																		sounds[0]->play();
 																		num_balls--;
 																		delete kpos;
@@ -651,7 +652,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 															}
 															//If ball hit not same colour
 															else {
-																std::cout << "[b" << it << "]" << "[" << x << "," << y << "] Is not same colour: Map Ball-" << Ball::ballColourToStr(map.getBall(x, y)->col) << " # Player Ball-" << Ball::ballColourToStr(*ball->getColour()) << std::endl;
 																bool comp = false;
 																short mod = 0;
 																if (x == 0) {
@@ -662,7 +662,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 																	for (int ky = 0; ky < map.getRow(kx)->row.size(); ky++) {
 																		if (map.getBall(kx, ky)->spr->getGlobalBounds().intersects(ball->getSprite()->getGlobalBounds())) {
 																			if (map.getBall(kx, ky)->spr->getColor() == sf::Color::Transparent) {
-																				std::cout << "[b" << it << "]" << "[" << x << "," << y << "] Now is " << kx << "," << ky << std::endl;
 																				map.getBall(kx, ky)->spr->setColor(sf::Color::White);
 																				map.getBall(kx, ky)->alive = true;
 																				map.getBall(kx, ky)->col = *ball->getColour();
@@ -707,6 +706,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 				}
 				//Update map ball location
 				map.update(0, GM_BALL_MOVE_SPEED * TICK_SPEED.asMilliseconds());
+				ball_eraser.move(0, GM_BALL_MOVE_SPEED* TICK_SPEED.asMilliseconds());
 
 				num_balls = 0;
 				//Ball killer loop 
@@ -763,7 +763,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 													//If both balls above this ball are non-existent, delete this ball
 													map.getBall(x, y)->alive = false;
 													map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
-													std::cout << "[" << x << "," << y << "] Lost due to above (l/r) check" << std::endl;
 													playerScore += GM_PTS_PER_BALL;
 													sounds[0]->play();
 												}
@@ -776,7 +775,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 												if (map.getBall(x + 1, y)->alive == false && map.getBall(x + 1, y)->spr->getColor() == sf::Color::Transparent) {
 													map.getBall(x, y)->alive = false;
 													map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
-													std::cout << "[" << x << "," << y << "] Lost due to above first ball in row check" << std::endl;
 													playerScore += GM_PTS_PER_BALL;
 													sounds[0]->play();
 												}
@@ -790,7 +788,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 														//If both balls above this ball are non-existent, delete this ball
 														map.getBall(x, y)->alive = false;
 														map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
-														std::cout << "[" << x << "," << y << "] Lost due to above (l/r) check" << std::endl;
 														playerScore += GM_PTS_PER_BALL;
 														sounds[0]->play();
 													}
@@ -802,7 +799,6 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 												if (map.getBall(x + 1, y - 1)->alive == false && map.getBall(x + 1, y - 1)->spr->getColor() == sf::Color::Transparent) {
 													map.getBall(x, y)->alive = false;
 													map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
-													std::cout << "[" << x << "," << y << "] Lost due to above last ball in row check" << std::endl;
 													playerScore += GM_PTS_PER_BALL;
 													sounds[0]->play();
 												}
@@ -864,7 +860,7 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 									}
 								}
 
-
+								//Count amount of checks complete
 								short counter = 0;
 								for (bool b : checks) {
 									if (b) {
@@ -872,19 +868,18 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 									}
 								}
 
+								//If at leasy 7/8 checks come back as true, delete ball and reward player with points
 								if (counter >= 7) {
 									map.getBall(x, y)->alive = false;
 									map.getBall(x, y)->spr->setColor(sf::Color::Transparent);
-									playerScore += GM_PTS_PER_BALL;
+									num_balls--;
+									playerScore += pts_modifier * GM_PTS_PER_BALL;
 									sounds[0]->play();
 								}
 							}
-
-							if (map.getBall(x, y)->alive != isAlive && map.getBall(x, y)->spr->getColor() != org_col) {
-								std::cout << "[GM][" << x << "," << y << "]Lost to gravity!" << std::endl;
-							}
 						}
 					}
+					//If game lost, exit
 					if(status[0] == false && status[1] == true){
 						break;
 					}
@@ -893,10 +888,12 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 		}
 	}
 
+	//Updare amount of balls left
 	updateBallsLeft();
 
+	//If game not won
 	if (status[1] != true) {
-		//If objectove 1 has been met
+		//If objective 1 has been met
 		if (num_balls <= 0) {
 			rules->obj_l1 = true;
 			sprites[8]->setTexture(*AssetManager::getTexture("star_full"));
@@ -905,12 +902,9 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 		else {
 			//Security check
 			if (num_balls == 1) {
-				std::cout << "One ball left!! [" << last_alive.x << "," << last_alive.y << "]Checking..." << std::endl;
+				//Check if last ball is actually alive
 				if (map.getBall(last_alive.x, last_alive.y)->alive != true || map.getBall(last_alive.x, last_alive.y)->spr->getColor() == sf::Color::Transparent) {
 					num_balls--;
-				}
-				else {
-					map.getBall(last_alive.x, last_alive.y)->alive = false;
 				}
 			}
 			if (rules->obj_l1 == true) {
@@ -921,9 +915,8 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 	}
 	//If won & not lost
 	if (status[0] == true && status[1] == false) {
-		std::cout << "[GM]Win!" << std::endl;
 		//Reward player with points for level completion
-		playerScore += (rules->level * GM_PTS_PW_LEVEL_MOD) + GM_PTS_PER_WIN;
+		playerScore += pts_modifier * (rules->level * GM_PTS_PW_LEVEL_MOD) + GM_PTS_PER_WIN;
 		//Set completion flag for this level to be true
 		Player::getData()->campaign_comp[rules->level] = true;
 
@@ -951,14 +944,15 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 		if (rules->obj_l3 == true) {
 			Player::getData()->campaign_stars[rules->level] += 1;
 		}
+
+		//Ensure a maximum of 3 stars can be earned
 		if (Player::getData()->campaign_stars[rules->level] > 3) {
 			Player::getData()->campaign_stars[rules->level] = 3;
 		}
 		//Reward player with coins
-		Player::getData()->coins += 2.5f * std::round(playerScore / 1000);
+		Player::getData()->coins += GM_COIN_MOD * std::round(playerScore / 1000);
 		rules->final_score = playerScore;
 		Player::save();
-		std::cout << "[GM]Game finished & player data saved, switching to win scene..." << std::endl;
 		Player::getData()->last_level = rules->level;
 		SceneManager::setNext(10);
 		SceneManager::next();
@@ -966,12 +960,134 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 
 	//If not won & has lost
 	if (status[0] == false && status[1] == true) {
-		std::cout << "[GM]Loss." << std::endl;
 		Player::save();
 		Player::getData()->last_level = rules->level;
 		SceneManager::setNext(11);
 		SceneManager::next();
-		std::cout << "[GM]Game finished & player data saved, switching to lose scene..." << std::endl;
+	}
+
+	//Powerup 1 button logic
+	if (*ui[5]->getState() == UIState::CLICK || sf::Keyboard::isKeyPressed(Config::user_key_pw_1)) {
+		//If player has more than one powerup available not using 
+		//Ensure only one powerup can be used at a tmie
+		if (using_pw_1 != true) {
+			//If player has more than one powerup available
+			if (Player::getData()->num_powerups[0] >= 1) {
+				//Take powerup
+				Player::getData()->num_powerups[0]--;
+				//Set flag
+				using_pw_1 = true;
+				ui[5]->lock();
+				//Set expiry time for powerup (10 seconds from now)
+				pw_1_time = time_elapsed+10;
+				pts_modifier = 1;
+				text[16]->setString(std::to_string(Player::getData()->num_powerups[0]));
+				text[16]->setPosition(sprites[11]->getPosition());
+				text[16]->move(-text[16]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height / 2) - (text[16]->getGlobalBounds().height));
+			}
+			else {
+				//If player does not have any powerups available BUT does have coins to buy one
+				if (Player::getData()->coins >= GM_COST_PWP_2XPTS) {
+					//Take coins away, function same as above
+					Player::getData()->coins -= GM_COST_PWP_2XPTS;
+					using_pw_1 = true;
+					ui[5]->lock();
+					//Set expiry time for powerup (10 seconds from now)
+					pw_1_time = time_elapsed + 10;
+					pts_modifier = 1;
+					//Update coins held value label
+					text[15]->setString(std::to_string(Player::getData()->coins));
+					text[15]->setPosition(text[14]->getPosition());
+					text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
+					//Update powerup 1 held value label
+					text[16]->setString(std::to_string(Player::getData()->num_powerups[0]));
+					text[16]->setPosition(sprites[11]->getPosition());
+					text[16]->move(-text[16]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height / 2) - (text[16]->getGlobalBounds().height));
+				}
+			}
+			
+		}
+	}
+	//If button locked, unlock after powerup finished
+	else if (*ui[5]->getState() == UIState::LOCK) {
+		if (using_pw_1 == false){
+			ui[5]->unlock();
+		}
+	}
+
+	//Time skip button
+	if (*ui[6]->getState() == UIState::CLICK || sf::Keyboard::isKeyPressed(Config::user_key_pw_2)) {
+		if (using_pw_2 != true) {
+			//If player has powerup 2 available
+			if (Player::getData()->num_powerups[1] >= 1) {
+				//Take powerup
+				Player::getData()->num_powerups[1]--;
+				//Set flag
+				using_pw_2 = true;
+				//Lock button
+				ui[6]->lock();
+				//Deduct time
+				if (time_elapsed > 10) {
+					time_elapsed -= 10;
+				}
+				else {
+					time_elapsed = 0;
+				}
+				//Update powerup held label
+				text[17]->setString(std::to_string(Player::getData()->num_powerups[1]));
+				text[17]->setPosition(sprites[12]->getPosition());
+				text[17]->move(sprites[12]->getGlobalBounds().width + (text[17]->getGlobalBounds().width / 2), (sprites[12]->getGlobalBounds().height / 2) - (text[17]->getGlobalBounds().height));
+				clock.restart();
+				ui[6]->lock();
+				text[8]->setFillColor(sf::Color::Green);
+			}
+			//If player has no powerups 2 available
+			else if (Player::getData()->coins >= GM_COST_PWP_TMSKP) {
+				Player::getData()->coins -= GM_COST_PWP_TMSKP;
+				//Set flag
+				using_pw_2 = true;
+				//Lock button
+				ui[6]->lock();
+				//Deduct time
+				if (time_elapsed > 10) {
+					time_elapsed -= 10;
+				}
+				else {
+					time_elapsed = 0;
+				}
+				//Update coin value label
+				text[15]->setString(std::to_string(Player::getData()->coins));
+				text[15]->setPosition(text[14]->getPosition());
+				text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
+				//Update powerup held label
+				text[17]->setString(std::to_string(Player::getData()->num_powerups[1]));
+				text[17]->setPosition(sprites[12]->getPosition());
+				text[17]->move(sprites[12]->getGlobalBounds().width + (text[17]->getGlobalBounds().width / 2), (sprites[12]->getGlobalBounds().height / 2) - (text[17]->getGlobalBounds().height));
+				clock.restart();
+				text[8]->setFillColor(sf::Color::Green);
+				ui[6]->lock();
+			}
+		}
+	}
+	//If button locked, unlock after done using & 200ms has passed
+	else if (*ui[6]->getState() == UIState::LOCK) {
+		if (clock.getElapsedTime().asMilliseconds() > 200 && using_pw_2 == true) {
+			ui[6]->unlock();
+			using_pw_2 = false;
+			text[8]->setFillColor(sf::Color::Black);
+		}
+	}
+	//Powerup 1 logic
+	if (using_pw_1 == true) {
+		if (time_elapsed < pw_1_time) {
+			text[8]->setFillColor(sf::Color::Red);
+			pts_modifier = 2;
+		}
+		else {
+			text[8]->setFillColor(sf::Color::Black);
+			pts_modifier = 1;
+			using_pw_1 = false;
+		}
 	}
 
 	//If back button pressed
@@ -988,13 +1104,13 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 		}
 	}
 
-	//Pause button
-	if (*ui[2]->getState() == UIState::CLICK) {
+	//Pause button & key mechanic
+	//Pause key should ONLY act if the internal timer allows it to (mirroring the function of the button)
+	if (*ui[2]->getState() == UIState::CLICK || (sf::Keyboard::isKeyPressed(Config::user_key_pause) && (*ui[2]->getState() != UIState::LOCK))) {
 		if (paused) {
 			paused = false;
 			game_clock.restart();
 			ui[2]->lock();
-			Player::getData()->coins++;
 			clock.restart();
 		}
 		else {
@@ -1020,10 +1136,11 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 			Player::getData()->num_powerups[0] += 1;
 			Player::save();
 			Player::load();
-			//Update coin vakye label
+			//Update coin value label
 			text[15]->setString(std::to_string(Player::getData()->coins));
 			text[15]->setPosition(text[14]->getPosition());
 			text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
+			//Update powerup 1 held value label
 			text[16]->setString(std::to_string(Player::getData()->num_powerups[0]));
 			text[16]->setPosition(sprites[11]->getPosition());
 			text[16]->move(-text[16]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height / 2) - (text[16]->getGlobalBounds().height));
@@ -1039,6 +1156,41 @@ void PlayCampScene::update(sf::RenderWindow* w) {
 			if (clock.getElapsedTime().asMilliseconds() > 200) {
 				//only unlock if affordable
 				ui[3]->unlock();
+			}
+		}
+	}
+
+	//Power up buying button (time skip)
+	if (*ui[4]->getState() == UIState::CLICK) {
+		if (Player::getData()->coins >= GM_COST_PWP_TMSKP) {
+			//Save new coin count
+			Player::getData()->coins -= GM_COST_PWP_TMSKP;
+			if (Player::getData()->num_powerups[1] < 1) {
+				Player::getData()->num_powerups[1] = 0;
+			}
+			Player::getData()->num_powerups[1]++;
+			Player::save();
+			Player::load();
+			//Update coin value label
+			text[15]->setString(std::to_string(Player::getData()->coins));
+			text[15]->setPosition(text[14]->getPosition());
+			text[15]->move((text[14]->getGlobalBounds().width / 2) - (text[15]->getGlobalBounds().width / 2), text[14]->getGlobalBounds().height * 1.1f);
+			//Update powerup held label
+			text[17]->setString(std::to_string(Player::getData()->num_powerups[1]));
+			text[17]->setPosition(sprites[11]->getPosition());
+			text[17]->move(-text[17]->getGlobalBounds().width - Config::applyRDX(7.5f), (sprites[11]->getGlobalBounds().height / 2) - (text[17]->getGlobalBounds().height));
+			clock.restart();
+			ui[4]->lock();
+		}
+		else {
+			ui[4]->lock();
+		}
+	}
+	else if (*ui[4]->getState() == UIState::LOCK) {
+		if (Player::getData()->coins >= GM_COST_PWP_TMSKP) {
+			if (clock.getElapsedTime().asMilliseconds() > 200) {
+				//only unlock if affordable
+				ui[4]->unlock();
 			}
 		}
 	}
@@ -1074,6 +1226,7 @@ void PlayCampScene::updatePauseLabel() {
 	text[5]->move((ui[1]->getSprite()->getGlobalBounds().width / 2) - (text[5]->getGlobalBounds().width / 2), -text[5]->getGlobalBounds().height - 2.5f);
 }
 
+//Simple method to update value held within score label and re-position 
 void PlayCampScene::updateScoreLabel() {
 	text[3]->setString(std::to_string(playerScore));
 	text[3]->setPosition(text[2]->getPosition());
@@ -1096,6 +1249,7 @@ void PlayCampScene::updateBallsLeft() {
 	text[11]->move((text[10]->getGlobalBounds().width / 2) - (text[11]->getGlobalBounds().width / 2), text[10]->getGlobalBounds().height);
 }
 
+//Add row
 void PlayCampScene::addRowReassignSprites() {
 	map.addRow(true);
 	float lsize = balls.size();
@@ -1118,6 +1272,7 @@ void PlayCampScene::addRowReassignSprites() {
 	}
 }
 
+//Clean scene up
 void PlayCampScene::cleanup() {
 	map.getMap().clear();
 	balls.clear();

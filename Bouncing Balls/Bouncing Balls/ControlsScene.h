@@ -15,7 +15,7 @@ private:
 	sf::Clock clock;
 	bool resize = false;
 	float centerX = 0.f;
-	bool changing[5] = { false, false, false, false, false };
+	bool changing[8] = { false, false, false, false, false, false, false, false };
 	bool render_square = false;
 	bool complete = false;
 	bool keyReady = false;

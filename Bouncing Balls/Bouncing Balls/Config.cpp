@@ -1,10 +1,13 @@
 #include "Config.h"
 
-sf::Keyboard::Key Config::user_key_left = sf::Keyboard::Left;
-sf::Keyboard::Key Config::user_key_right = sf::Keyboard::Right;
-sf::Keyboard::Key Config::user_key_pause = sf::Keyboard::P;
-sf::Keyboard::Key Config::user_key_shoot = sf::Keyboard::Space;
-sf::Keyboard::Key Config::user_key_exit = sf::Keyboard::Escape;
+sf::Keyboard::Key Config::user_key_left = sf::Keyboard::Key::Left;
+sf::Keyboard::Key Config::user_key_right = sf::Keyboard::Key::Right;
+sf::Keyboard::Key Config::user_key_pause = sf::Keyboard::Key::P;
+sf::Keyboard::Key Config::user_key_shoot = sf::Keyboard::Key::Space;
+sf::Keyboard::Key Config::user_key_exit = sf::Keyboard::Key::Escape;
+sf::Keyboard::Key Config::user_key_start = sf::Keyboard::Key::Enter;
+sf::Keyboard::Key Config::user_key_pw_1 = sf::Keyboard::Key::Num1;
+sf::Keyboard::Key Config::user_key_pw_2 = sf::Keyboard::Key::Num2;
 Resolution Config::user_resolution = Resolution();
 bool Config::user_do_fullscreen = false;
 bool Config::user_do_vsync = false;
@@ -34,6 +37,9 @@ Config::Config() {
 	config.addValue("key_pause", Utils::keyToStr(user_key_pause));
 	config.addValue("key_shoot", Utils::keyToStr(user_key_shoot));
 	config.addValue("key_exit", Utils::keyToStr(user_key_exit));
+	config.addValue("key_start", Utils::keyToStr(user_key_start));
+	config.addValue("key_powerup_1", Utils::keyToStr(user_key_pw_1));
+	config.addValue("key_powerup_2", Utils::keyToStr(user_key_pw_2));
 	config.addValue("resolution", user_resolution.name());
 	config.addValue("fullscreen", Utils::boolToString(user_do_fullscreen));
 	config.addValue("vsync", Utils::boolToString(user_do_vsync));
@@ -41,7 +47,6 @@ Config::Config() {
 	config.addValue("frame_limit_value", std::to_string(user_frame_limit_val));
 	config.addValue("sfx_volume", std::to_string(user_sfx_volume));
 	config.addValue("music_volume", std::to_string(user_music_volume));
-
 	saveCurrentConfig("config.cfg");
 }
 
@@ -72,7 +77,6 @@ bool Config::saveCurrentConfig(std::string path) {
 
 bool Config::loadFromConfig(std::string fpath) {
 	config.loadConfigFile(fpath);
-
 	if (tryGetValue("key_left").empty()) {
 		config.addValue("key_left", Utils::keyToStr(user_key_left));
 	}
@@ -97,6 +101,21 @@ bool Config::loadFromConfig(std::string fpath) {
 		config.addValue("key_exit", "" + Utils::keyToStr(user_key_exit));
 	}
 	user_key_exit = Utils::charToKey(config.getValue("key_exit").c_str());
+
+	if (tryGetValue("key_start").empty()) {
+		config.addValue("key_start", "" + Utils::keyToStr(user_key_start));
+	}
+	user_key_start = Utils::charToKey(config.getValue("key_start").c_str());
+
+	if (tryGetValue("key_powerup_1").empty()) {
+		config.addValue("key_powerup_1", "" + Utils::keyToStr(user_key_pw_1));
+	}
+	user_key_pw_1 = Utils::charToKey(config.getValue("key_powerup_1").c_str());
+
+	if (tryGetValue("key_powerup_2").empty()) {
+		config.addValue("key_powerup_2", "" + Utils::keyToStr(user_key_pw_2));
+	}
+	user_key_pw_2 = Utils::charToKey(config.getValue("key_powerup_2").c_str());
 
 	if (tryGetValue("resolution").empty()) {
 		config.addValue("resolution", user_resolution.name());
@@ -192,4 +211,7 @@ void Config::assignDefaultValues() {
 	user_do_vsync = default_do_vsync;
 	user_do_frame_limit = default_do_frame_limit;
 	user_frame_limit_val = default_frame_limit_val;
+	user_key_start = default_key_start;
+	user_key_pw_1 = default_key_pw1;
+	user_key_pw_2 = default_key_pw2;
 }

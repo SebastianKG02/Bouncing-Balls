@@ -53,7 +53,7 @@ void EndlessInfoScene::init() {
 	text[4]->setPosition(centerX - (text[4]->getGlobalBounds().width / 2), text[3]->getPosition().y + text[3]->getGlobalBounds().height + (text[4]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[4]->setFillColor(sf::Color::Black);
 
-	text.push_back(new sf::Text(std::string("10% extra points per amount of colours you choose!"), *AssetManager::getFont("title"), 34));
+	text.push_back(new sf::Text(std::string("More balls & up to 17 colours!"), *AssetManager::getFont("title"), 34));
 	text[5]->setPosition(centerX - (text[5]->getGlobalBounds().width / 2), text[4]->getPosition().y + text[4]->getGlobalBounds().height + (text[5]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[5]->setFillColor(sf::Color::Black);
 
@@ -61,10 +61,12 @@ void EndlessInfoScene::init() {
 	text[6]->setPosition(centerX - (text[6]->getGlobalBounds().width / 2), text[5]->getPosition().y + text[5]->getGlobalBounds().height + (text[6]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[6]->setFillColor(sf::Color::Black);
 
-	text.push_back(new sf::Text(std::string("Too easy? Extra 10% points per difficulty modifier!"), *AssetManager::getFont("title"), 34));
+	text.push_back(new sf::Text(std::string("Too easy? Try Challenge mode!"), *AssetManager::getFont("title"), 34));
 	text[7]->setPosition(centerX - (text[7]->getGlobalBounds().width / 2), text[6]->getPosition().y + text[6]->getGlobalBounds().height + (text[7]->getGlobalBounds().height) - Config::applyRDY(5));
 	text[7]->setFillColor(sf::Color::Black);
 
+	ui[0]->lock();
+	ui[1]->lock();
 	//Unlock scene and get ready to function as complete scene
 	unlock();
 }
@@ -101,7 +103,7 @@ void EndlessInfoScene::update(sf::RenderWindow* w) {
 		clock.restart();
 		ui[1]->lock();
 		this->lock();
-		SceneManager::setNext(3);
+		SceneManager::setNext(12);
 		SceneManager::next();
 	}
 	else if (*ui[1]->getState() == UIState::LOCK) {

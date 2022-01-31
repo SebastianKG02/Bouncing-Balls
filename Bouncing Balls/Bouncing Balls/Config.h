@@ -23,6 +23,9 @@ public:
 	static sf::Keyboard::Key user_key_pause;
 	static sf::Keyboard::Key user_key_shoot;
 	static sf::Keyboard::Key user_key_exit;
+	static sf::Keyboard::Key user_key_start;
+	static sf::Keyboard::Key user_key_pw_1;
+	static sf::Keyboard::Key user_key_pw_2;
 	static signed short user_sfx_volume;
 	static signed short user_music_volume;
 	static Resolution user_resolution;
@@ -40,11 +43,14 @@ public:
 	static float applyRDX(float xval);
 	static float applyRDY(float yval);
 private:
-	const sf::Keyboard::Key default_key_left = sf::Keyboard::Left;
-	const sf::Keyboard::Key default_key_right = sf::Keyboard::Right;
-	const sf::Keyboard::Key default_key_pause = sf::Keyboard::P;
-	const sf::Keyboard::Key default_key_shoot = sf::Keyboard::Space;
-	const sf::Keyboard::Key default_key_exit = sf::Keyboard::Escape;
+	const sf::Keyboard::Key default_key_left = sf::Keyboard::Key::Left;
+	const sf::Keyboard::Key default_key_right = sf::Keyboard::Key::Right;
+	const sf::Keyboard::Key default_key_pause = sf::Keyboard::Key::P;
+	const sf::Keyboard::Key default_key_shoot = sf::Keyboard::Key::Space;
+	const sf::Keyboard::Key default_key_exit = sf::Keyboard::Key::Escape;
+	const sf::Keyboard::Key default_key_start = sf::Keyboard::Key::Enter;
+	const sf::Keyboard::Key default_key_pw1 = sf::Keyboard::Key::Num1;
+	const sf::Keyboard::Key default_key_pw2 = sf::Keyboard::Key::Num2;
 	const signed short default_sfx_volume = 10;
 	const signed short default_music_volume = 10;
 	const Resolution default_resolution = Resolution();

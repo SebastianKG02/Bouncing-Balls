@@ -8,7 +8,7 @@
 #define DEFAULT_SCREEN_Y 720
 
 //Remeber to set to false upon release
-#define DEBUG_ENABLED true
+//#define DEBUG_ENABLED false
 /*
 Remeber to set to 0 upon release
 Level 0 - No debug messages
@@ -49,9 +49,30 @@ Level 3 - All error messages and all diagnostic messages
 //Increase in 3 star time limit per level
 #define GM_LEVEL_DIFF_MOD_L3 0.2f
 //Cost in coins of double points powerup (standard price)
-#define GM_COST_PWP_2XPTS 100
+#define GM_COST_PWP_2XPTS 50
 //Cost in coins of time skip powerup (standard price)
-#define GM_COST_PWP_TMSKP 75
+#define GM_COST_PWP_TMSKP 50
+//Coin yield modifier
+#define GM_COIN_MOD 2.5f
+
+//Endless mode defines
+//Define increase in points per level of endless mode
+#define GM_ENDLESS_PTS_MOD_LVL 0.0075f
+//Define increase in ball rows per level of endless mode
+#define GM_ENDLESS_ROW_MOD_LVL GM_LEVEL_DIFF_MOD_ROWS
+//Define increase in ball map speed per level of endless mode
+#define GM_ENDLESS_SPD_MOD_LVL 0.01f
+//Define amount of points recieved per star achieved in endless mode
+#define GM_ENDLESS_STAR_PTS 500
+
+//Challenge mode defines
+#define GM_CHALLENGE_PTS_MOD_LVL 0.025f
+#define GM_CHALLENGE_ROW_MOD_LVL 4
+#define GM_CHALLENGE_SPD_MOD_LVL 0.025f
+#define GM_CHALLENGE_STAR_PTS 750
+#define GM_CHALLENGE_OBJ2_TIME_MOD 0.85f
+#define GM_CHALLENGE_OBJ3_TIME_MOD 0.65f
+#define GM_CHALLENGE_STAR_PTS 1000
 
 #define TICK_SPEED sf::seconds(1.0f / 60.f)
 

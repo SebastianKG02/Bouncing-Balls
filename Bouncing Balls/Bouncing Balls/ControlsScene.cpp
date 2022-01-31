@@ -39,11 +39,9 @@ void ControlsScene::init() {
 	text[1]->setPosition(centerX - (text[1]->getGlobalBounds().width / 2), (580) + (text[1]->getGlobalBounds().height / 2));
 	text[1]->setFillColor(sf::Color::Black);
 
-	//5 keys - exit, left, right, pause & shoot
-
 	//Escape key label
 	text.push_back(new sf::Text(std::string("Key to exit: "), *AssetManager::getFont("title"), 25));
-	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width), text[0]->getPosition().y + text[0]->getGlobalBounds().height + text[1]->getGlobalBounds().height + Config::applyRDY(10));
+	text[2]->setPosition(centerX - (text[2]->getGlobalBounds().width), text[0]->getPosition().y + text[0]->getGlobalBounds().height + text[1]->getGlobalBounds().height + Config::applyRDY(5));
 	text[2]->setFillColor(sf::Color::Black);
 	//Escape key value
 	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_exit) + " >"), *AssetManager::getFont("title"), 25));
@@ -59,7 +57,7 @@ void ControlsScene::init() {
 
 	//Cannon left key label
 	text.push_back(new sf::Text(std::string("Move cannon to the Left key: "), *AssetManager::getFont("title"), 25));
-	text[5]->setPosition(centerX - (text[5]->getGlobalBounds().width), text[2]->getPosition().y + text[2]->getGlobalBounds().height + text[5]->getGlobalBounds().height + Config::applyRDY(10));
+	text[5]->setPosition(centerX - (text[5]->getGlobalBounds().width), text[2]->getPosition().y + text[2]->getGlobalBounds().height + text[5]->getGlobalBounds().height + Config::applyRDY(5));
 	text[5]->setFillColor(sf::Color::Black);
 	//Cannon left key value
 	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_left) + " >"), *AssetManager::getFont("title"), 25));
@@ -75,7 +73,7 @@ void ControlsScene::init() {
 
 	//Cannon right key label
 	text.push_back(new sf::Text(std::string("Move cannon to the Right key: "), *AssetManager::getFont("title"), 25));
-	text[8]->setPosition(centerX - (text[8]->getGlobalBounds().width), text[5]->getPosition().y + text[5]->getGlobalBounds().height + text[8]->getGlobalBounds().height + Config::applyRDY(10));
+	text[8]->setPosition(centerX - (text[8]->getGlobalBounds().width), text[5]->getPosition().y + text[5]->getGlobalBounds().height + text[8]->getGlobalBounds().height + Config::applyRDY(5));
 	text[8]->setFillColor(sf::Color::Black);
 	//Cannon right key value
 	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_right) + " >"), *AssetManager::getFont("title"), 25));
@@ -91,7 +89,7 @@ void ControlsScene::init() {
 
 	//Shoot key label
 	text.push_back(new sf::Text(std::string("Shoot ball key: "), *AssetManager::getFont("title"), 25));
-	text[11]->setPosition(centerX - (text[11]->getGlobalBounds().width), text[8]->getPosition().y + text[8]->getGlobalBounds().height + text[11]->getGlobalBounds().height + Config::applyRDY(10));
+	text[11]->setPosition(centerX - (text[11]->getGlobalBounds().width), text[8]->getPosition().y + text[8]->getGlobalBounds().height + text[11]->getGlobalBounds().height + Config::applyRDY(5));
 	text[11]->setFillColor(sf::Color::Black);
 	//Shoot key value
 	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_shoot) + " >"), *AssetManager::getFont("title"), 25));
@@ -107,7 +105,7 @@ void ControlsScene::init() {
 
 	//Pause key label
 	text.push_back(new sf::Text(std::string("Pause: "), *AssetManager::getFont("title"), 25));
-	text[14]->setPosition(centerX - (text[14]->getGlobalBounds().width), text[11]->getPosition().y + text[11]->getGlobalBounds().height + text[14]->getGlobalBounds().height + Config::applyRDY(10));
+	text[14]->setPosition(centerX - (text[14]->getGlobalBounds().width), text[11]->getPosition().y + text[11]->getGlobalBounds().height + text[14]->getGlobalBounds().height + Config::applyRDY(5));
 	text[14]->setFillColor(sf::Color::Black);
 	//Pause key value
 	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_pause) + " >"), *AssetManager::getFont("title"), 25));
@@ -121,13 +119,61 @@ void ControlsScene::init() {
 	text[16]->setPosition(ui[5]->getSprite()->getPosition().x + (ui[5]->getSprite()->getGlobalBounds().width / 2) - (text[16]->getGlobalBounds().width / 2), ui[5]->getSprite()->getPosition().y + (ui[5]->getSprite()->getGlobalBounds().height / 2) - (text[16]->getGlobalBounds().height / 2));
 	text[16]->setFillColor(sf::Color::Black);
 
+	//Start key label
+	text.push_back(new sf::Text(std::string("Start: "), *AssetManager::getFont("title"), 25));
+	text[17]->setPosition(centerX - (text[17]->getGlobalBounds().width), text[14]->getPosition().y + text[14]->getGlobalBounds().height + text[17]->getGlobalBounds().height + Config::applyRDY(5));
+	text[17]->setFillColor(sf::Color::Black);
+	//Start key value
+	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_start) + " >"), *AssetManager::getFont("title"), 25));
+	text[18]->setPosition(centerX + Config::applyRDX(25), text[17]->getPosition().y);
+	text[18]->setFillColor(sf::Color::Black);
+	//Start key change button
+	ui.push_back(new UIButton(new float[2]{ text[0]->getPosition().x + text[0]->getGlobalBounds().width, text[18]->getPosition().y }, "long", new float[2]{ 0.05f, 0.05f }));
+	ui[6]->getSprite()->move(Config::applyRDX(25), 0);
+	//Start key change button label
+	text.push_back(new sf::Text(std::string("Modify"), *AssetManager::getFont("title"), 24));
+	text[19]->setPosition(ui[6]->getSprite()->getPosition().x + (ui[6]->getSprite()->getGlobalBounds().width / 2) - (text[19]->getGlobalBounds().width / 2), ui[6]->getSprite()->getPosition().y + (ui[6]->getSprite()->getGlobalBounds().height / 2) - (text[19]->getGlobalBounds().height / 2));
+	text[19]->setFillColor(sf::Color::Black);
+
+	//Powerup 1 key label
+	text.push_back(new sf::Text(std::string("Powerup 1: "), *AssetManager::getFont("title"), 25));
+	text[20]->setPosition(centerX - (text[20]->getGlobalBounds().width), text[17]->getPosition().y + text[17]->getGlobalBounds().height + text[20]->getGlobalBounds().height + Config::applyRDY(5));
+	text[20]->setFillColor(sf::Color::Black);
+	//Powerup 1 key value
+	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_pw_1) + " >"), *AssetManager::getFont("title"), 25));
+	text[21]->setPosition(centerX + Config::applyRDX(25), text[20]->getPosition().y);
+	text[21]->setFillColor(sf::Color::Black);
+	//Powerup 1 key change button
+	ui.push_back(new UIButton(new float[2]{ text[0]->getPosition().x + text[0]->getGlobalBounds().width, text[21]->getPosition().y }, "long", new float[2]{ 0.05f, 0.05f }));
+	ui[7]->getSprite()->move(Config::applyRDX(25), 0);
+	//Powerup 1 key change button label
+	text.push_back(new sf::Text(std::string("Modify"), *AssetManager::getFont("title"), 24));
+	text[22]->setPosition(ui[7]->getSprite()->getPosition().x + (ui[7]->getSprite()->getGlobalBounds().width / 2) - (text[22]->getGlobalBounds().width / 2), ui[7]->getSprite()->getPosition().y + (ui[7]->getSprite()->getGlobalBounds().height / 2) - (text[22]->getGlobalBounds().height / 2));
+	text[22]->setFillColor(sf::Color::Black);
+
+	//Powerup 2 key label
+	text.push_back(new sf::Text(std::string("Powerup 2: "), *AssetManager::getFont("title"), 25));
+	text[23]->setPosition(centerX - (text[23]->getGlobalBounds().width), text[20]->getPosition().y + text[20]->getGlobalBounds().height + text[23]->getGlobalBounds().height + Config::applyRDY(5));
+	text[23]->setFillColor(sf::Color::Black);
+	//Powerup 2 key value
+	text.push_back(new sf::Text(std::string("< " + Utils::keyToStr(Config::user_key_pw_2) + " >"), *AssetManager::getFont("title"), 25));
+	text[24]->setPosition(centerX + Config::applyRDX(25), text[23]->getPosition().y);
+	text[24]->setFillColor(sf::Color::Black);
+	//Powerup 2 key change button
+	ui.push_back(new UIButton(new float[2]{ text[0]->getPosition().x + text[0]->getGlobalBounds().width, text[24]->getPosition().y }, "long", new float[2]{ 0.05f, 0.05f }));
+	ui[8]->getSprite()->move(Config::applyRDX(25), 0);
+	//Powerup 2 key change button label
+	text.push_back(new sf::Text(std::string("Modify"), *AssetManager::getFont("title"), 24));
+	text[25]->setPosition(ui[8]->getSprite()->getPosition().x + (ui[8]->getSprite()->getGlobalBounds().width / 2) - (text[25]->getGlobalBounds().width / 2), ui[8]->getSprite()->getPosition().y + (ui[8]->getSprite()->getGlobalBounds().height / 2) - (text[25]->getGlobalBounds().height / 2));
+	text[25]->setFillColor(sf::Color::Black);
+
 	//Set up "Fade" background for setting key
 	shapes.push_back(new sf::RectangleShape(sf::Vector2f(Config::user_resolution.X(), Config::user_resolution.Y())));
 	shapes[0]->setFillColor(sf::Color(0, 0, 0, 0));
 
 	//Await
 	text.push_back(new sf::Text(std::string(""), *AssetManager::getFont("title"), 30));
-	text[17]->setFillColor(sf::Color::Red);
+	text[26]->setFillColor(sf::Color::Red);
 
 	//Initisalisation finished, unlock scene
 	unlock();
@@ -148,11 +194,11 @@ void ControlsScene::update(sf::RenderWindow* w) {
 
 	if (render_square == false) {
 		//Loop through each "Modify" button
-		for (int i = 1; i < 6; i++) {
+		for (int i = 1; i < 9; i++) {
 			//If it is clicked
 			if (*ui[i]->getState() == UIState::CLICK) {
 				//Lock all buttons - including the "Back" button
-				for (int j = 0; j < 6; j++) {
+				for (int j = 0; j < 9; j++) {
 					ui[j]->lock();
 				}
 				//Set changing var by reference to which modify button is pressed
@@ -160,26 +206,38 @@ void ControlsScene::update(sf::RenderWindow* w) {
 
 				//If exit key is to be set
 				if (i == 1) {
-					text[17]->setString("Please enter new Exit key: ");
+					text[26]->setString("Please enter new Exit key: ");
 				}
 				//If left move key is to be set
 				else if (i == 2) {
-					text[17]->setString("Please enter new Left Move key: ");
+					text[26]->setString("Please enter new Left Move key: ");
 				}
 				//If right move key is to be set
 				else if (i == 3) {
-					text[17]->setString("Please enter new Right Move key: ");
+					text[26]->setString("Please enter new Right Move key: ");
 				}
 				//If pause key is to be set
 				else if (i == 5) {
-					text[17]->setString("Please enter new Pause key: ");
+					text[26]->setString("Please enter new Pause key: ");
 				}
 				//If shoot key is to be set
 				else if (i == 4) {
-					text[17]->setString("Please enter new Shoot key: ");
+					text[26]->setString("Please enter new Shoot key: ");
+				}
+				//If start key is to be set
+				else if (i == 6) {
+					text[26]->setString("Please enter new Start key: ");
+				}
+				//If powerup 1 key is to be set
+				else if (i == 7) {
+					text[26]->setString("Please enter new Powerup 1 key: ");
+				}
+				//If powerup 2 key is to be set
+				else if (i == 8) {
+					text[26]->setString("Please enter new Powerup 2 key: ");
 				}
 
-				text[17]->setPosition(centerX - (text[17]->getGlobalBounds().width / 2), (Config::user_resolution.Y() / 2) - (text[17]->getGlobalBounds().height / 2));
+				text[26]->setPosition(centerX - (text[26]->getGlobalBounds().width / 2), (Config::user_resolution.Y() / 2) - (text[26]->getGlobalBounds().height / 2));
 				render_square = true;
 				keyReady = false;
 				complete = false;
@@ -212,7 +270,7 @@ void ControlsScene::update(sf::RenderWindow* w) {
 		shapes[0]->setFillColor(sf::Color(0, 0, 0, 200));
 
 		if (complete == false && keyReady == true) {
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 8; i++) {
 				if (changing[i] == true) {
 					switch (i) {
 					case 0:
@@ -235,6 +293,18 @@ void ControlsScene::update(sf::RenderWindow* w) {
 						Config::user_key_shoot = key;
 						Config::getSettings()->setValue("key_shoot", Utils::keyToStr(key), true);
 						break;
+					case 5:
+						Config::user_key_start = key;
+						Config::getSettings()->setValue("key_start", Utils::keyToStr(key), true);
+						break;
+					case 6:
+						Config::user_key_pw_1 = key;
+						Config::getSettings()->setValue("key_powerup_1", Utils::keyToStr(key), true);
+						break;
+					case 7:
+						Config::user_key_pw_2 = key;
+						Config::getSettings()->setValue("key_powerup_2", Utils::keyToStr(key), true);
+						break;
 					}
 					text[(i + 1) * 3]->setString("< " + Utils::keyToStr(key) + " >");
 					changing[i] = false;
@@ -243,14 +313,14 @@ void ControlsScene::update(sf::RenderWindow* w) {
 
 			complete = true;
 			clock.restart();
-			text[17]->setString(text[17]->getString() + Utils::keyToStr(key));
-			text[17]->setPosition(centerX - (text[17]->getGlobalBounds().width / 2), (Config::user_resolution.Y() / 2) - (text[17]->getGlobalBounds().height / 2));
+			text[26]->setString(text[26]->getString() + Utils::keyToStr(key));
+			text[26]->setPosition(centerX - (text[26]->getGlobalBounds().width / 2), (Config::user_resolution.Y() / 2) - (text[26]->getGlobalBounds().height / 2));
 			Config::saveCurrentConfig("config.cfg");
 		}
 		else if (complete == true){
 			if (clock.getElapsedTime().asMilliseconds() >= 200) {
 				shapes[0]->setFillColor(sf::Color(0, 0, 0, 0));
-				text[17]->setString("");
+				text[26]->setString("");
 				render_square = false;
 			}
 		}

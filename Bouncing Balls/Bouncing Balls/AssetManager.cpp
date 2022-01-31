@@ -144,22 +144,8 @@ void AssetManager::init() {
 					//sanitise path input
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					//Attempt to load texture
-					if (tex[ref.first]->loadFromFile(tempString) == true) {
-						tex[ref.first]->setSmooth(true);
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
-						//Diagnostic message
-						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
-					}
-					else {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
-						//Debug only! Print error message
-						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
+					if (tex[ref.first]->loadFromFile(tempString) == false) {
+						tex[ref.first] = nullptr;
 					}
 				}
 			}
@@ -183,21 +169,8 @@ void AssetManager::init() {
 					//sanitise path input
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					//Attempt to load soundbuffer
-					if (sound[ref.first]->loadFromFile(tempString) == true) {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
-						//Diagnostic message
-						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
-					}
-					else {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
-						//Debug only! Print error message
-						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
+					if (sound[ref.first]->loadFromFile(tempString) == false) {
+						sound[ref.first] = nullptr;
 					}
 				}
 			}
@@ -221,21 +194,8 @@ void AssetManager::init() {
 					//sanitise path input
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
 					//Attempt to load texture
-					if (fonts[ref.first]->loadFromFile(tempString) == true) {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
-						//Diagnostic message
-						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
-					}
-					else {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
-						//Debug only! Print error message
-						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
+					if (fonts[ref.first]->loadFromFile(tempString) == false) {
+						fonts[ref.first] = nullptr;
 					}
 				}
 			}
@@ -260,21 +220,8 @@ void AssetManager::init() {
 					tempString = ref.second;
 					//sanitise path input
 					//std::replace(tempString.begin(), tempString.end(), '/', '\\');
-					if (music[ref.first]->openFromFile(tempString) == true) {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_MINERR
-						//Diagnostic message
-						std::cout << "[AM]Loaded <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
-					}
-					else {
-#ifdef DEBUG_ENABLED
-	#if DEBUG_LEVEL >= DB_LEVEL_ERRO
-						//Debug only! Print error message
-						std::cout << "[AM]Could not load <" << ref.first << ">@" << ref.second << std::endl;
-	#endif
-#endif
+					if (music[ref.first]->openFromFile(tempString) == false) {
+						music[ref.first] = nullptr;
 					}
 				}
 			}
@@ -317,7 +264,6 @@ void AssetManager::cleanup() {
 		for (auto& res : fonts) {
 			delete res.second;
 		}
-
 		//Loop through sound map and delete all loaded sounds
 		for (auto& res : sound) {
 			delete res.second;

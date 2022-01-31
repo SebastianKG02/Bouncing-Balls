@@ -62,11 +62,6 @@ int main() {
 
 		}
 
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt) || sf::Keyboard::isKeyPressed(sf::Keyboard::RAlt) && sf::Keyboard::isKeyPressed(sf::Keyboard::F4))) {
-			Player::save();
-			window.close();
-		}
-
 		while (last > TICK_SPEED) {
 			while (window.pollEvent(windowEvent)) {
 				SceneManager::input(&windowEvent);
@@ -92,10 +87,10 @@ int main() {
 
 	//Close the window & release resources
 	window.close();
-
+	
 	SceneManager::cleanup();
 	Player::save();
-
+	AssetManager::cleanup();
 	//Close as expected
 	return 0;
 }

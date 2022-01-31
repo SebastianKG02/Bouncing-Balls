@@ -19,21 +19,23 @@ struct PlayerData
 
 	//Highscore in endless mode
 	long endless_hs = 0;
+	//Highest level achieved in endless mode
+	long endless_level = 0;
+	//Amount of stars gained in last endless level
+	short endless_last_stars = 0;
 
 	//Highscore in challenge mode
 	long challenge_hs = 0;
+	//Highest level achieved in challenge mode
+	long challenge_level = 0;
+	//Amount of stars gained in last endless level
+	short challenge_last_stars = 0;
 
 	//Total coins
 	long coins = 0;
 
-	//Last played level by player
+	//Last played level by player (campaign)
 	int last_level = 0;
-
-	//Last played game mode by player
-	//-1 - Challenge
-	// 0 - Campaign
-	// 1 - Endless
-	int last_mode = 0;
 
 	//Number of powerups
 	// 0 - Double points powerup count
@@ -58,6 +60,8 @@ public:
 	static int save();
 	//Access & maniuplate data loaded from disk
 	static PlayerData* getData();
+	//Reset player data to 0
+	static void reset();
 private:
 	//Actual data
 	static PlayerData data;

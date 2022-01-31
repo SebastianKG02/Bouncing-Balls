@@ -102,9 +102,6 @@
     <ClCompile Include="SettingsScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="UIRadioButton.cpp">
-      <Filter>Source Files\Engine Toolkit\UI\Elements</Filter>
-    </ClCompile>
     <ClCompile Include="ControlsScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
@@ -113,9 +110,6 @@
     </ClCompile>
     <ClCompile Include="PlaySelectScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay</Filter>
-    </ClCompile>
-    <ClCompile Include="StatsScene.cpp">
-      <Filter>Source Files\Engine Toolkit\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="CampaignInfoScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
@@ -138,12 +132,6 @@
     <ClCompile Include="Ball.cpp">
       <Filter>Source Files\Engine Toolkit\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="PneumaticPress.cpp">
-      <Filter>Source Files\Engine Toolkit\Entity</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Engine Toolkit\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="CampVictoryScene.cpp">
       <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Campaign</Filter>
     </ClCompile>
@@ -152,6 +140,33 @@
     </ClCompile>
     <ClCompile Include="Resolution.cpp">
       <Filter>Source Files\Engine Toolkit</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsScene.cpp">
+      <Filter>Source Files\Engine Toolkit\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EndlessPreGameScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="EndlessPlayScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="EndlessLoseScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="EndlessVictoryScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="ChallengePreScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClCompile>
+    <ClCompile Include="ChallengePlayScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClCompile>
+    <ClCompile Include="ChallengeLoseScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClCompile>
+    <ClCompile Include="ChallengeVictoryScene.cpp">
+      <Filter>Source Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,9 +199,6 @@
     </ClInclude>
     <ClInclude Include="SettingsScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="UIRadioButton.h">
-      <Filter>Header Files\Engine Toolkit\UI\Elements</Filter>
     </ClInclude>
     <ClInclude Include="ControlsScene.h">
       <Filter>Header Files\Engine Toolkit\Scenes</Filter>
@@ -221,12 +233,6 @@
     <ClInclude Include="Ball.h">
       <Filter>Header Files\Engine Toolkit\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="PneumaticPress.h">
-      <Filter>Header Files\Engine Toolkit\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files\Engine Toolkit\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="GameSettings.h">
       <Filter>Header Files\Engine Toolkit\Scenes\Gameplay</Filter>
     </ClInclude>
@@ -238,6 +244,30 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EndlessPreGameScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="EndlessPlayScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="EndlessLoseScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="EndlessVictoryScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="ChallengePreScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClInclude>
+    <ClInclude Include="ChallengePlayScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClInclude>
+    <ClInclude Include="ChallengeLoseScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
+    </ClInclude>
+    <ClInclude Include="ChallengeVictoryScene.h">
+      <Filter>Header Files\Engine Toolkit\Scenes\Gameplay\Challenge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
